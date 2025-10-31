@@ -1,0 +1,20 @@
+# Executable files
+*.exe
+*.dmg
+*.app
+
+# Large binary files that shouldn't be in repo
+*.zip
+*.rar
+*.7z
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
