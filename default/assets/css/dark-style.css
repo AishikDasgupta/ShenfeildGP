@@ -337,11 +337,11 @@
 }
 
 .theme-dark .switch {
-    background-color: #444;
+    background-color: #1a1a1a;
 }
 
 .theme-dark .switch .slider {
-    background-color: #666;
+    background-color: #333;
 }
 
 .theme-dark .switch input:checked + .slider {
@@ -349,7 +349,187 @@
 }
 
 .theme-dark .switch .slider:before {
-    background-color: #fff;
+    background-color: #1a1a1a;
+    border: 2px solid #0075ff;
+}
+
+/* Dark mode for treatment page cards */
+.theme-dark .treatment-card {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode for feature cards (why choose sections) */
+.theme-dark .feature-card {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .feature-card:hover {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .feature-card h4 {
+    color: #fff;
+}
+
+.theme-dark .feature-card p {
+    color: #b8b8b8;
+}
+
+/* Dark mode for contact info cards (ready to book sections) */
+.theme-dark .contact-info {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .contact-info:hover {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .contact-info h4 {
+    color: #fff;
+}
+
+.theme-dark .contact-info p {
+    color: #0078ff;
+}
+
+.theme-dark .contact-info span {
+    color: #888;
+}
+
+/* Dark mode background for sections */
+.theme-dark .bg-f9faff {
+    background-color: #1a1a1a;
+}
+
+.theme-dark .treatment-card h4 {
+    color: #fff;
+}
+
+.theme-dark .treatment-card p {
+    color: #cacaca;
+}
+
+.theme-dark .service-card {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .service-card .service-header {
+    background: linear-gradient(135deg, #0056b3 0%, #0078ff 100%);
+}
+
+.theme-dark .service-card .service-content {
+    background: #222;
+}
+
+.theme-dark .service-card .service-content p,
+.theme-dark .service-card .service-content ul li {
+    color: #cacaca;
+}
+
+.theme-dark .service-card .service-content h5 {
+    color: #fff;
+}
+
+.theme-dark .service-card .service-content .service-details {
+    border-top: 1px solid #444;
+}
+
+.theme-dark .service-card .service-content .service-details span {
+    color: #cacaca;
+}
+
+.theme-dark .screening-program {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .screening-program .program-header {
+    background: linear-gradient(135deg, #0056b3 0%, #0078ff 100%);
+}
+
+.theme-dark .screening-program .program-content {
+    background: #222;
+}
+
+.theme-dark .screening-program .program-content p,
+.theme-dark .screening-program .program-content ul li {
+    color: #cacaca;
+}
+
+.theme-dark .screening-program .program-content h5 {
+    color: #fff;
+}
+
+.theme-dark .screening-program .program-content .program-duration {
+    border-top: 1px solid #444;
+}
+
+.theme-dark .screening-program .program-content .program-duration span {
+    color: #cacaca;
+}
+
+.theme-dark .feature-card {
+    background: #222;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .feature-card h4 {
+    color: #fff;
+}
+
+.theme-dark .feature-card p {
+    color: #cacaca;
+}
+
+/* Dark mode for section titles */
+.theme-dark .section-title h3 {
+    color: #fff;
+}
+
+.theme-dark .section-title span {
+    color: #0078ff;
+}
+
+.theme-dark .section-title p {
+    color: #cacaca;
+}
+
+/* Dark mode for page title area */
+.theme-dark .page-title-area {
+    background: linear-gradient(135deg, #0056b3 0%, #0078ff 100%);
+}
+
+.theme-dark .page-title-content h2 {
+    color: #fff;
+}
+
+.theme-dark .page-title-content p {
+    color: #fff;
+}
+
+/* Dark mode for main banner on treatment pages */
+.theme-dark .main-banner-three {
+    background-color: #111;
+}
+
+.theme-dark .main-banner-three .hero-content h1 {
+    color: #fff;
+}
+
+.theme-dark .main-banner-three .hero-content p {
+    color: #cacaca;
+}
+
+.theme-dark .main-banner-three .hero-content span {
+    color: #0078ff;
 }
 
 @media only screen and (max-width: 767px) {

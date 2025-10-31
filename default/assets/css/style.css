@@ -9,9 +9,717 @@ img {
     max-width: 100%;
 }
 
+/* Ensure IcoFont icons display correctly everywhere */
+[class^="icofont-"],
+[class*=" icofont-"] {
+    font-family: 'IcoFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+}
+
 .ptb-100 {
     padding-top: 100px;
     padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+    clear: both;
+    overflow: visible;
+}
+
+/* Treatment Page Cards - Uniform Padding and Spacing */
+
+/* Treatment Card (used in treatments.html) */
+.treatment-card {
+    background: #fff;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+}
+
+.treatment-card .treatment-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    flex-shrink: 0;
+}
+
+.treatment-card .treatment-icon i {
+    font-size: 35px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+    font-family: 'IcoFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.treatment-card h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.treatment-card p {
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: center;
+    flex: 1;
+}
+
+.treatment-card .btn {
+    align-self: center;
+    margin-top: auto;
+}
+
+/* Service Card (used in most treatment detail pages) */
+.service-card {
+    background: #fff;
+    padding: 0;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card:hover {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-card .service-header {
+    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.service-card .service-header .service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-card .service-header .service-icon i {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+    font-family: 'IcoFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.service-card .service-header h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.service-card .service-content {
+    padding: 30px;
+    flex: 1;
+}
+
+.service-card .service-content p {
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.service-card .service-content h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.service-card .service-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.service-card .service-content ul li {
+    padding: 8px 0 8px 25px;
+    position: relative;
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.6;
+}
+
+.service-card .service-content ul li::before {
+    content: "\ef4e";
+    font-family: 'IcoFont' !important;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: #0078ff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.service-card .service-content .service-details {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e8ecf2;
+}
+
+.service-card .service-content .service-details span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6f8ba4;
+}
+
+.service-card .service-content .service-details span i {
+    color: #0078ff;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-block;
+    font-style: normal;
+}
+
+/* Screening Program (used in advanced-health-screening.html) */
+.screening-program {
+    background: #fff;
+    padding: 0;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.screening-program:hover {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+}
+
+.screening-program .program-header {
+    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.screening-program .program-header .program-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.screening-program .program-header .program-icon i {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+    font-family: 'IcoFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.screening-program .program-header h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.screening-program .program-content {
+    padding: 30px;
+    flex: 1;
+}
+
+.screening-program .program-content p {
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.screening-program .program-content h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.screening-program .program-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.screening-program .program-content ul li {
+    padding: 8px 0 8px 25px;
+    position: relative;
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.6;
+}
+
+.screening-program .program-content ul li::before {
+    content: "\ef4e";
+    font-family: 'IcoFont' !important;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: #0078ff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.screening-program .program-content .program-duration {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e8ecf2;
+}
+
+.screening-program .program-content .program-duration span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6f8ba4;
+}
+
+.screening-program .program-content .program-duration span i {
+    color: #0078ff;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-block;
+    font-style: normal;
+}
+
+/* Feature Card (used in why-choose sections) */
+.feature-card {
+    background: #fff;
+    padding: 35px 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Contact Info Card (used in Ready to Book sections) */
+.contact-info {
+    background: #fff;
+    padding: 35px 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+}
+
+.contact-info .contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contact-info .contact-icon i {
+    font-size: 32px;
+    color: #fff;
+    line-height: 1;
+}
+
+.contact-info h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #0078ff;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.contact-info span {
+    font-size: 14px;
+    color: #6f8ba4;
+    display: block;
+    line-height: 1.6;
+}
+
+.feature-card .feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    flex-shrink: 0;
+}
+
+.feature-card .feature-icon i {
+    font-size: 35px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+    font-family: 'IcoFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.feature-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.feature-card p {
+    font-size: 15px;
+    color: #6f8ba4;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Section Title Consistent Spacing */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+    clear: both;
+    padding: 0;
+}
+
+.section-title h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.section-title span {
+    display: block;
+    color: #0078ff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    font-size: 16px;
+    color: #6f8ba4;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Ensure rows in sections don't overlap */
+section .row {
+    position: relative;
+    z-index: 1;
+}
+
+/* Container spacing for treatment pages */
+.treatments-overview,
+.screening-programs,
+.hay-fever-services,
+.pain-management-services,
+.pain-services,
+.geriatric-services,
+.lifestyle-medicine-services,
+.mens-services,
+.womens-services,
+.childrens-services,
+.blood-test-services,
+.cardiovascular-services,
+.preventative-services,
+.preventative-health-services,
+.mental-health-services,
+.screening-benefits,
+.screening-process,
+.why-choose-treatments,
+.why-choose-hay-fever,
+.why-choose-pain-management,
+.why-choose-geriatric,
+.why-choose-lifestyle-medicine,
+.why-choose-mens-health,
+.why-choose-womens-health,
+.why-choose-childrens-health,
+.why-choose-blood-tests,
+.why-choose-cardiovascular,
+.why-choose-preventative,
+.contact-area {
+    position: relative;
+    z-index: 1;
+    clear: both;
+    overflow: visible;
+}
+
+.treatments-overview .container,
+.screening-programs .container,
+.hay-fever-services .container,
+.pain-management-services .container,
+.pain-services .container,
+.geriatric-services .container,
+.lifestyle-medicine-services .container,
+.mens-services .container,
+.womens-services .container,
+.childrens-services .container,
+.blood-test-services .container,
+.cardiovascular-services .container,
+.preventative-services .container,
+.preventative-health-services .container,
+.mental-health-services .container,
+.screening-benefits .container,
+.screening-process .container,
+.why-choose-treatments .container,
+.why-choose-hay-fever .container,
+.why-choose-pain-management .container,
+.why-choose-geriatric .container,
+.why-choose-lifestyle-medicine .container,
+.why-choose-mens-health .container,
+.why-choose-womens-health .container,
+.why-choose-childrens-health .container,
+.why-choose-blood-tests .container,
+.why-choose-cardiovascular .container,
+.why-choose-preventative .container,
+.contact-area .container {
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+/* Fix card overlapping issues */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+    float: none;
+}
+
+/* Ensure proper spacing for treatment page columns */
+.treatments-overview .col-lg-4,
+.treatments-overview .col-md-6,
+.screening-programs .col-lg-6,
+.hay-fever-services .col-lg-6,
+.pain-management-services .col-lg-6,
+.geriatric-services .col-lg-6,
+.lifestyle-medicine-services .col-lg-6,
+.mens-services .col-lg-6,
+.womens-services .col-lg-6,
+.childrens-services .col-lg-6,
+.blood-test-services .col-lg-6,
+.cardiovascular-services .col-lg-6,
+.preventative-services .col-lg-6,
+.mental-health-services .col-lg-6,
+.preventative-health-services .col-lg-6,
+.why-choose-treatments .col-lg-4,
+.why-choose-hay-fever .col-lg-4,
+.why-choose-pain-management .col-lg-4,
+.why-choose-geriatric .col-lg-4,
+.why-choose-lifestyle-medicine .col-lg-4,
+.why-choose-mens-health .col-lg-4,
+.why-choose-womens-health .col-lg-4,
+.why-choose-childrens-health .col-lg-4,
+.why-choose-blood-tests .col-lg-4,
+.why-choose-cardiovascular .col-lg-4,
+.why-choose-preventative .col-lg-4,
+.why-choose-mental-health .col-lg-4,
+.why-choose-advanced-screening .col-lg-4,
+.contact-area .col-lg-4,
+.contact-area .col-md-6,
+.why-choose-treatments .col-md-6,
+.why-choose-hay-fever .col-md-6,
+.why-choose-pain-management .col-md-6,
+.why-choose-womens-health .col-md-6,
+.why-choose-mens-health .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 30px !important;
+}
+
+/* Background fix for why-choose sections */
+.bg-f9faff {
+    background-color: #f9faff;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments for treatment cards */
+@media (max-width: 991px) {
+    .treatment-card,
+    .service-card,
+    .screening-program,
+    .feature-card {
+        margin-bottom: 30px;
+    }
+    
+    .service-card .service-content,
+    .screening-program .program-content {
+        padding: 25px;
+    }
+    
+    .treatments-overview .col-lg-4,
+    .treatments-overview .col-md-6 {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .treatment-card {
+        padding: 30px 20px;
+    }
+    
+    .service-card .service-header,
+    .screening-program .program-header {
+        padding: 25px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .service-card .service-content,
+    .screening-program .program-content {
+        padding: 20px;
+    }
+    
+    .section-title {
+        margin-bottom: 40px;
+    }
+    
+    .section-title h3 {
+        font-size: 28px;
+    }
+    
+    .treatments-overview .col-lg-4,
+    .treatments-overview .col-md-6,
+    [class*="col-lg-"] {
+        margin-bottom: 30px;
+    }
 }
 
 p {
@@ -24,6 +732,8 @@ p {
 
 .bg-f9faff {
     background: #f9faff;
+    position: relative;
+    z-index: 1;
 }
 
 .d-table {
@@ -398,7 +1108,18 @@ fieldset:disabled .btn:hover {
     width: 100%;
     background: 0 0 !important;
     z-index: 999;
-    padding: 15px 0;
+    padding: 12px 0;
+}
+
+.navbar .row {
+    align-items: center !important;
+}
+
+.navbar-brand img {
+    height: 60px !important;
+    width: auto;
+    max-height: 60px !important;
+    display: block;
 }
 
 .navbar-light.is-sticky {
@@ -472,12 +1193,31 @@ fieldset:disabled .btn:hover {
 }
 
 .navbar.navbar-two {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #fff !important;
+    z-index: 999;
+    padding: 12px 0;
+}
+
+.navbar.navbar-two .row {
+    align-items: center !important;
+}
+
+.navbar.navbar-two .navbar-brand img {
+    height: 60px !important;
+    width: auto;
+    max-height: 60px !important;
+    display: block;
 }
 
 .navbar.navbar-two.is-sticky {
     position: fixed;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    -webkit-animation: 0.5s ease-in-out 0s normal none 1 running fadeInDown;
+    animation: 0.5s ease-in-out 0s normal none 1 running fadeInDown;
 }
 
 .main-banner {
@@ -555,6 +1295,13 @@ fieldset:disabled .btn:hover {
     height: 650px;
     overflow: hidden;
     position: relative;
+    z-index: 1;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin-bottom: 0;
+    margin-top: 80px;
+    padding-top: 80px;
 }
 
 .main-banner-three.main-banner-three-video {
@@ -616,7 +1363,7 @@ fieldset:disabled .btn:hover {
     padding-top: 0;
     position: relative;
     margin-top: -150px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .single-box {
@@ -925,6 +1672,316 @@ fieldset:disabled .btn:hover {
     visibility: visible;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+
+/* Doctor Carousel - Modern Minimal Design */
+.doctor-carousel-wrapper {
+    position: relative;
+    padding: 0 20px 0 40px;
+}
+
+.doctor-carousel {
+    padding-bottom: 0;
+}
+
+.doctor-testimonial-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px 0 0;
+    background: transparent;
+}
+
+.doctor-testimonial-minimal .doctor-image-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-testimonial-minimal .doctor-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.doctor-testimonial-content {
+    max-width: 100%;
+}
+
+.doctor-testimonial-content h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.doctor-testimonial-content h3 .founder-badge {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0078ff;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.doctor-testimonial-content .doctor-credentials {
+    display: block;
+    font-size: 14px;
+    color: #0078ff;
+    font-weight: 600;
+    margin-bottom: 28px;
+    letter-spacing: 0.5px;
+}
+
+.doctor-testimonial-content p {
+    color: #6f8ba4;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.doctor-testimonial-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Owl Carousel Custom Styles */
+.doctor-carousel {
+    position: relative;
+}
+
+.doctor-carousel .owl-dots {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding: 0 !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none;
+    width: 100%;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove any line/span elements that create lines */
+.doctor-carousel .owl-dots .owl-dot {
+    border: none;
+    outline: none;
+}
+
+.doctor-carousel .owl-dots .owl-dot span {
+    display: none !important;
+}
+
+.doctor-carousel .owl-dots .owl-dot span::before,
+.doctor-carousel .owl-dots .owl-dot.active span::before,
+.doctor-carousel .owl-dots .owl-dot span::after,
+.doctor-carousel .owl-dots .owl-dot.active span::after {
+    display: none !important;
+    content: none !important;
+}
+
+.doctor-carousel .owl-dots button.owl-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background: #d0dae5;
+    border: none !important;
+    outline: none !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+}
+
+.doctor-carousel .owl-dots button.owl-dot:hover {
+    background: #0078ff;
+}
+
+.doctor-carousel .owl-dots button.owl-dot.active {
+    background: #0078ff;
+    width: 28px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.doctor-carousel .owl-nav {
+    display: none;
+}
+
+/* Smooth fade transitions for carousel */
+.doctor-carousel .owl-item {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.doctor-carousel .owl-item.active {
+    opacity: 1;
+}
+
+/* Left Content Styles */
+.who-we-are-content {
+    padding-right: 50px;
+    padding-left: 0;
+}
+
+.who-we-are-content .section-title {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.who-we-are-content .section-title h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+.who-we-are-content .section-title span {
+    display: inline-block;
+    color: #0078ff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Remove the overlaying line from Meet Our Doctors */
+.who-we-are-content .section-title span::before {
+    display: none;
+}
+
+.who-we-are-content .section-title p {
+    color: #6f8ba4;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    padding-right: 0;
+}
+
+.who-we-are-content .btn {
+    margin-top: 35px;
+}
+
+@media (max-width: 991px) {
+    .who-we-are-content {
+        padding-right: 0;
+        padding-left: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .who-we-are-content .section-title {
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    .who-we-are-content .section-title h3 {
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+    
+    .who-we-are-content .section-title span {
+        margin-bottom: 25px;
+    }
+    
+    .who-we-are-content .btn {
+        margin-top: 35px;
+    }
+    
+    .doctor-carousel-wrapper {
+        padding: 0 20px;
+    }
+    
+    .doctor-testimonial-minimal {
+        padding: 0;
+    }
+    
+    .doctor-testimonial-minimal .doctor-image-wrapper {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 35px;
+    }
+    
+    .doctor-testimonial-content h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .doctor-testimonial-content .doctor-credentials {
+        margin-bottom: 28px;
+    }
+    
+    .doctor-carousel .owl-dots {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .doctor-carousel-wrapper {
+        padding: 0 15px;
+    }
+    
+    .doctor-testimonial-minimal {
+        padding: 0;
+    }
+    
+    .doctor-testimonial-minimal .doctor-image-wrapper {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 30px;
+    }
+    
+    .doctor-testimonial-content h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    
+    .doctor-testimonial-content .doctor-credentials {
+        margin-bottom: 24px;
+        font-size: 13px;
+    }
+    
+    .doctor-testimonial-content p {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+    
+    .who-we-are-content .section-title h3 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+    
+    .who-we-are-content .section-title span {
+        margin-bottom: 20px;
+    }
+    
+    .who-we-are-content .section-title p {
+        font-size: 14px;
+    }
+    
+    .who-we-are-content .btn {
+        margin-top: 30px;
+    }
+    
+    .doctor-carousel .owl-dots {
+        margin-top: 35px;
+    }
 }
 
 .departments-area {
@@ -2270,13 +3327,302 @@ fieldset:disabled .btn:hover {
 }
 
 .footer-area {
-    padding: 30px 0;
+    padding: 60px 0 40px;
+    background: #f9faff;
+    overflow: hidden;
+}
+
+.footer-area .container {
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-area .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.footer-area .row > div {
+    padding-left: 15px;
+    padding-right: 15px;
+    align-self: flex-start;
+}
+
+/* Ensure all footer column sections align at top */
+.footer-content,
+.footer-links,
+.footer-contact {
+    padding-top: 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Make sure footer links and contact align with content */
+.footer-links h4,
+.footer-contact h4 {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 20px;
+    margin-left: 0;
+    padding-left: 0;
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b566e;
+    width: 100%;
+}
+
+/* Align footer logo to start at same vertical position as h4 headers */
+/* Calculate: h4 font-size (18px) * line-height (1.2) = ~21.6px, logo is 50px */
+/* We want logo top to align with h4 top, so we add padding to match baseline */
+.footer-content .footer-logo {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 0;
+    height: auto;
+    display: block;
 }
 
 .footer-area p {
     font-size: 15px;
+    margin-bottom: 20px;
+    color: #6f8ba4;
+    line-height: 1.8;
 }
 
+/* Footer Content Styles - Aligned with other columns */
+.footer-content {
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.footer-content .footer-logo {
+    margin-bottom: 20px;
+    padding-top: 0;
+    margin-top: 0;
+    display: block;
+    line-height: 1.2;
+}
+
+.footer-content .footer-logo img {
+    height: 50px !important;
+    max-height: 50px !important;
+    width: auto;
+    display: block;
+    vertical-align: top;
+}
+
+.footer-content > p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 0;
+}
+
+.footer-social {
+    margin-top: 25px;
+    padding-top: 0;
+}
+
+.footer-social a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #fff;
+    color: #6f8ba4;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.footer-social a:hover {
+    background: #0078ff;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Footer Links Styles */
+.footer-links {
+    margin-bottom: 30px;
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer-links h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 0;
+    line-height: 1.2;
+    width: 100%;
+    text-align: left;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: 0;
+    margin-left: 0 !important;
+    margin-right: 0;
+    text-align: left !important;
+    width: 100%;
+    padding-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links ul li {
+    display: block;
+    margin-bottom: 12px;
+    margin-left: 0 !important;
+    margin-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0;
+    padding-top: 0;
+    position: relative;
+    width: auto;
+    list-style: none;
+    list-style-type: none;
+    list-style-position: outside;
+    text-align: left !important;
+    align-self: flex-start;
+}
+
+.footer-links ul li:first-child {
+    margin-top: 0;
+}
+
+.footer-links ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-links ul li::before {
+    display: none !important;
+    content: none !important;
+}
+
+.footer-links ul li::marker {
+    display: none;
+    content: '';
+}
+
+.footer-links ul li a {
+    color: #6f8ba4;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    line-height: 1.6;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+    width: auto;
+}
+
+.footer-links ul li a:hover {
+    color: #0078ff;
+    padding-left: 5px;
+}
+
+/* Footer Contact Styles */
+.footer-contact {
+    margin-bottom: 30px;
+    padding-top: 0;
+}
+
+.footer-contact h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b566e;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.footer-contact .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    color: #6f8ba4;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.footer-contact .contact-item i {
+    color: #0078ff;
+    font-size: 18px;
+    margin-right: 12px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.footer-contact .contact-item span {
+    flex: 1;
+}
+
+/* Footer Bottom Styles */
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 0;
+    border-top: 1px solid #e8edf2;
+    clear: both;
+}
+
+.footer-bottom .row {
+    align-items: center;
+    margin: 0;
+}
+
+.footer-bottom .row > div {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #6f8ba4;
+    line-height: 1.6;
+}
+
+.footer-bottom-links {
+    text-align: right;
+    padding: 0;
+}
+
+.footer-bottom-links a {
+    color: #6f8ba4;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #0078ff;
+}
+
+/* Simple Footer (for non-treatment pages) */
 .footer-area ul {
     text-align: right;
     list-style-type: none;
@@ -2284,13 +3630,13 @@ fieldset:disabled .btn:hover {
     margin: 0;
 }
 
-.footer-area ul li {
+.footer-area > .container > .row > .col-lg-6:last-child ul li {
     display: inline-block;
     position: relative;
     padding-left: 20px;
 }
 
-.footer-area ul li::before {
+.footer-area > .container > .row > .col-lg-6:last-child ul li::before {
     content: "";
     position: absolute;
     left: 7px;
@@ -2300,7 +3646,7 @@ fieldset:disabled .btn:hover {
     height: 14px;
 }
 
-.footer-area ul li:first-child::before {
+.footer-area > .container > .row > .col-lg-6:last-child ul li:first-child::before {
     display: none;
 }
 
@@ -2339,6 +3685,15 @@ textarea.form-control {
     padding: 100px 0 80px;
     text-align: center;
     color: #fff;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    margin-top: 80px;
+}
+
+.page-title-content {
+    position: relative;
+    z-index: 2;
 }
 
 .page-title-content h2 {
@@ -3027,4 +4382,112 @@ textarea.form-control {
 
 .navbar-nav .dropdown-toggle:hover::after {
     border-top-color: #007bff;
+}
+/* Logo Consistency - ULTRA AGGRESSIVE - Enforce across all pages */
+img[src*="logo"],
+img[src*="Logo"],
+img[alt*="Shenfeild"],
+.navbar-brand img,
+.navbar .navbar-brand img,
+.navbar-two .navbar-brand img,
+.navbar-light .navbar-brand img,
+nav img,
+.navbar img[src*="logo"],
+.navbar img[src*="Logo"],
+a.navbar-brand img {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: 250px !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+/* Better navbar brand container sizing */
+.navbar-brand {
+    padding: 8px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Footer logo consistency */
+.footer-logo img,
+.footer-content img,
+footer img[src*="logo"],
+footer img[src*="Logo"] {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+/* Responsive logo sizing */
+@media (max-width: 991px) {
+    img[src*="logo"],
+    img[src*="Logo"],
+    img[alt*="Shenfeild"],
+    .navbar-brand img,
+    .navbar .navbar-brand img,
+    .navbar-two .navbar-brand img,
+    .navbar-light .navbar-brand img,
+    nav img,
+    .navbar img[src*="logo"],
+    .navbar img[src*="Logo"] {
+        height: 50px !important;
+        min-height: 50px !important;
+        max-height: 50px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    img[src*="logo"],
+    img[src*="Logo"],
+    img[alt*="Shenfeild"],
+    .navbar-brand img,
+    .navbar .navbar-brand img,
+    .navbar-two .navbar-brand img,
+    .navbar-light .navbar-brand img,
+    nav img,
+    .navbar img[src*="logo"],
+    .navbar img[src*="Logo"] {
+        height: 45px !important;
+        min-height: 45px !important;
+        max-height: 45px !important;
+    }
+    
+    .footer-logo img,
+    .footer-content img,
+    footer img[src*="logo"],
+    footer img[src*="Logo"] {
+        height: 45px !important;
+        min-height: 45px !important;
+        max-height: 45px !important;
+        margin: 0 auto;
+    }
+    
+    .navbar,
+    .navbar.navbar-two {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    img[src*="logo"],
+    img[src*="Logo"],
+    img[alt*="Shenfeild"],
+    .navbar-brand img,
+    .navbar .navbar-brand img,
+    .navbar-two .navbar-brand img,
+    .navbar-light .navbar-brand img,
+    nav img,
+    .navbar img[src*="logo"],
+    .navbar img[src*="Logo"] {
+        height: 40px !important;
+        min-height: 40px !important;
+        max-height: 40px !important;
+    }
 }

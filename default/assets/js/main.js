@@ -17,7 +17,7 @@
             t(".navbar-collapse").collapse("hide");
         }),
         t(window).on("scroll", function() {
-            t(this).scrollTop() > 120 ? t(".navbar-light").addClass("is-sticky") : t(".navbar-light").removeClass("is-sticky");
+            t(this).scrollTop() > 120 ? t(".navbar-light, .navbar-two").addClass("is-sticky") : t(".navbar-light, .navbar-two").removeClass("is-sticky");
         }),
         t(".hero-slides").owlCarousel({
             items: 1,
@@ -29,6 +29,18 @@
             smartSpeed: 700,
             loop: !0,
             navText: ["<i class='icofont-rounded-left'></i>", "<i class='icofont-rounded-right'></i>"]
+        }),
+        t(".doctor-carousel").owlCarousel({
+            items: 1,
+            nav: !1,
+            dots: !0,
+            touchDrag: !0,
+            mouseDrag: !0,
+            autoplay: !0,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: !0,
+            smartSpeed: 800,
+            loop: !0
         }),
         (function(t) {
             t(".tab ul.tabs").addClass("active").find("> li:eq(0)").addClass("current"),
