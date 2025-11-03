@@ -97,9 +97,9 @@
         t(function() {
             t(window).on("scroll", function() {
                     var o = t(window).scrollTop();
-                    o > 300 && t(".go-top").fadeIn("slow"), o < 300 && t(".go-top").fadeOut("slow");
+                    o > 300 && (t(".go-top").fadeIn("slow"), t(".back-to-top").fadeIn("slow")), o < 300 && (t(".go-top").fadeOut("slow"), t(".back-to-top").fadeOut("slow"));
                 }),
-                t(".go-top").on("click", function() {
+                t(".go-top, .back-to-top").on("click", function() {
                     t("html, body").animate({
                         scrollTop: "0"
                     }, 0);

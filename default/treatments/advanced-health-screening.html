@@ -22,6 +22,18 @@
     <link rel="stylesheet" href="../assets/css/dark-style.css">
 </head>
 <body>
+    <!-- Start Preloader Area -->
+    <div class="preloader-area">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <!-- End Preloader Area -->
+
     <!-- Dark Version Btn -->
     <div class="dark-version-btn">
         <label id="switch" class="switch">
@@ -52,20 +64,21 @@
                             <li class="nav-item"><a class="nav-link" href="../about-us.html">About</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Treatments</a>
-                                <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
-                                    <li><a class="dropdown-item" href="treatments.html">All Treatments</a></li>
-                                    <li><a class="dropdown-item" href="advanced-health-screening.html">Advanced Health Screening</a></li>
-                                    <li><a class="dropdown-item" href="blood-tests.html">Blood Tests</a></li>
-                                    <li><a class="dropdown-item" href="cardiovascular-health.html">Cardiovascular Health</a></li>
-                                    <li><a class="dropdown-item" href="childrens-health-clinic.html">Children's Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="geriatric-treatment.html">Geriatric Treatment</a></li>
-                                    <li><a class="dropdown-item" href="hay-fever-treatment.html">Hay Fever Treatment</a></li>
-                                    <li><a class="dropdown-item" href="private-lifestyle-medicine.html">Private Lifestyle Medicine</a></li>
-                                    <li><a class="dropdown-item" href="mens-health-clinic.html">Men's Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="mental-health-clinic.html">Mental Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="pain-management.html">Pain Management</a></li>
-                                    <li><a class="dropdown-item" href="preventative-healthcare.html">Preventative Healthcare</a></li>
-                                    <li><a class="dropdown-item" href="womens-health-clinic.html">Women's Health Clinic</a></li>
+                                <ul class="dropdown-menu dropdown-menu-enhanced" aria-labelledby="treatmentsDropdown">
+                                    <li><a class="dropdown-item" href="treatments.html"><i class="icofont-list"></i> All Treatments</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="advanced-health-screening.html"><i class="icofont-laboratory"></i> Advanced Health Screening</a></li>
+                                    <li><a class="dropdown-item" href="blood-tests.html"><i class="icofont-blood-drop"></i> Blood Tests</a></li>
+                                    <li><a class="dropdown-item" href="cardiovascular-health.html"><i class="icofont-heart-beat"></i> Cardiovascular Health</a></li>
+                                    <li><a class="dropdown-item" href="childrens-health-clinic.html"><i class="icofont-baby"></i> Children's Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="geriatric-treatment.html"><i class="icofont-user"></i> Geriatric Treatment</a></li>
+                                    <li><a class="dropdown-item" href="hay-fever-treatment.html"><i class="icofont-test-tube"></i> Hay Fever Treatment</a></li>
+                                    <li><a class="dropdown-item" href="private-lifestyle-medicine.html"><i class="icofont-medical-sign"></i> Private Lifestyle Medicine</a></li>
+                                    <li><a class="dropdown-item" href="mens-health-clinic.html"><i class="icofont-user"></i> Men's Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="mental-health-clinic.html"><i class="icofont-brain"></i> Mental Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="pain-management.html"><i class="icofont-medicine"></i> Pain Management</a></li>
+                                    <li><a class="dropdown-item" href="preventative-healthcare.html"><i class="icofont-shield"></i> Preventative Healthcare</a></li>
+                                    <li><a class="dropdown-item" href="womens-health-clinic.html"><i class="icofont-user-female"></i> Women's Health Clinic</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="../locations/london.html">Location</a></li>
@@ -86,7 +99,7 @@
     <!-- End Navbar Area -->
 
     <!-- Start Main Banner Area -->
-    <div id="home" class="main-banner-three" style="background-image: url('assets/img/health-screening-hero-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div id="home" class="main-banner-three" style="background-image: url('https://media.istockphoto.com/id/949947128/photo/female-and-male-scientists-working-on-their-computers-in-big-modern-laboratory-various-shelves.jpg?s=2048x2048&w=is&k=20&c=SZs9n4kdDZCeyT48uQRzdQ3ucAUUjZwyVWcuN_-tEB0='); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
@@ -200,7 +213,7 @@
     <!-- End Screening Programs Section -->
 
     <!-- Start Screening Benefits Section -->
-    <section class="screening-benefits ptb-100 bg-f9faff">
+    <section class="boxes-area-two ptb-100 bg-f9faff">
         <div class="container">
             <div class="section-title">
                 <h3>Benefits of Health Screening</h3>
@@ -210,61 +223,49 @@
             
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-shield"></i>
-                        </div>
-                        <h4>Early Detection</h4>
+                    <div class="single-box">
+                        <i class="icofont-shield"></i>
+                        <h3>Early Detection</h3>
                         <p>Identify health issues in their earliest stages when treatment is most effective and outcomes are better.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-heart"></i>
-                        </div>
-                        <h4>Prevention Focus</h4>
+                    <div class="single-box">
+                        <i class="icofont-heart"></i>
+                        <h3>Prevention Focus</h3>
                         <p>Focus on preventing disease rather than just treating symptoms, leading to better long-term health.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-brain"></i>
-                        </div>
-                        <h4>Peace of Mind</h4>
+                    <div class="single-box">
+                        <i class="icofont-brain"></i>
+                        <h3>Peace of Mind</h3>
                         <p>Regular screening provides reassurance about your health status and reduces anxiety about potential health issues.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-money"></i>
-                        </div>
-                        <h4>Cost Effective</h4>
+                    <div class="single-box">
+                        <i class="icofont-money"></i>
+                        <h3>Cost Effective</h3>
                         <p>Early detection and prevention are much more cost-effective than treating advanced diseases.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-clock-time"></i>
-                        </div>
-                        <h4>Time Efficient</h4>
+                    <div class="single-box">
+                        <i class="icofont-clock-time"></i>
+                        <h3>Time Efficient</h3>
                         <p>Comprehensive screening in one visit saves time and provides a complete health overview.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-md-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="icofont-doctor"></i>
-                        </div>
-                        <h4>Expert Guidance</h4>
+                    <div class="single-box">
+                        <i class="icofont-doctor"></i>
+                        <h3>Expert Guidance</h3>
                         <p>Receive personalized recommendations from experienced healthcare professionals based on your results.</p>
                     </div>
                 </div>
@@ -273,8 +274,8 @@
     </section>
     <!-- End Screening Benefits Section -->
 
-    <!-- Start Screening Process Section -->
-    <section class="screening-process ptb-100">
+    <!-- Start Treatment Process Section -->
+    <section class="boxes-area-two ptb-100">
         <div class="container">
             <div class="section-title">
                 <h3>Our Screening Process</h3>
@@ -284,48 +285,40 @@
             
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Initial Consultation</h4>
-                            <p>Complete medical history review and lifestyle assessment with our healthcare team.</p>
-                        </div>
+                    <div class="single-box">
+                        <i class="icofont-chat"></i>
+                        <h3>1. Initial Consultation</h3>
+                        <p>Complete medical history review and lifestyle assessment with our healthcare team.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4>Physical Examination</h4>
-                            <p>Comprehensive physical examination including vital signs, cardiovascular, and general health assessment.</p>
-                        </div>
+                    <div class="single-box">
+                        <i class="icofont-doctor"></i>
+                        <h3>2. Physical Examination</h3>
+                        <p>Comprehensive physical examination including vital signs, cardiovascular, and general health assessment.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Diagnostic Tests</h4>
-                            <p>Blood tests, urine analysis, ECG, and other diagnostic tests as appropriate for your age and risk factors.</p>
-                        </div>
+                    <div class="single-box">
+                        <i class="icofont-laboratory"></i>
+                        <h3>3. Diagnostic Tests</h3>
+                        <p>Blood tests, urine analysis, ECG, and other diagnostic tests as appropriate for your age and risk factors.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h4>Results & Follow-up</h4>
-                            <p>Detailed results discussion, personalized recommendations, and follow-up care planning.</p>
-                        </div>
+                    <div class="single-box">
+                        <i class="icofont-file-document"></i>
+                        <h3>4. Results & Follow-up</h3>
+                        <p>Detailed results discussion, personalized recommendations, and follow-up care planning.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Screening Process Section -->
+    <!-- End Treatment Process Section -->
 
     <!-- Start Boxes Area -->
     <section class="boxes-area-two ptb-100">
@@ -676,13 +669,13 @@
     <!-- End Contact Section -->
 
     <!-- Start Footer Area -->
-    <footer class="footer-area">
+    <footer class="footer-area bg-f9faff">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <img src="../assets/img/logo.png" alt="Shenfeild Private GP" style="height: 50px;">
+                            <img src="../assets/logo/Logo.png" alt="Shenfeild Private GP" style="height: 50px;">
                         </div>
                         <p>Your trusted local GP practice providing comprehensive primary healthcare services with compassion and excellence.</p>
                         <div class="footer-social">
@@ -699,10 +692,10 @@
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="../index-4.html">Home</a></li>
-                            <li><a href="about-us.html">About</a></li>
-                            <li><a href="../treatments.html">Treatments</a></li>
-                            <li><a href="../locations/london.html">Location</a></li>
-                            <li><a href="../contact.html">Contact</a></li>
+                            <li><a href="../about-us.html">About</a></li>
+                            <li><a href="../treatments/treatments.html">Treatments</a></li>
+                            <li><a href="../location.html">Location</a></li>
+                            <li><a href="../contact-us.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -712,7 +705,7 @@
                         <h4>Our Services</h4>
                         <ul>
                             <li><a href="../treatments/advanced-health-screening.html">Health Screening</a></li>
-                            <li><a href="blood-tests.html">Blood Tests</a></li>
+                            <li><a href="../treatments/blood-tests.html">Blood Tests</a></li>
                             <li><a href="../treatments/cardiovascular-health.html">Cardiovascular Health</a></li>
                             <li><a href="../treatments/childrens-health-clinic.html">Children's Health</a></li>
                             <li><a href="../treatments/womens-health-clinic.html">Women's Health</a></li>

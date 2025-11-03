@@ -22,6 +22,18 @@
     <link rel="stylesheet" href="../assets/css/dark-style.css">
 </head>
 <body>
+    <!-- Start Preloader Area -->
+    <div class="preloader-area">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <!-- End Preloader Area -->
+
     <!-- Dark Version Btn -->
     <div class="dark-version-btn">
         <label id="switch" class="switch">
@@ -52,20 +64,21 @@
                             <li class="nav-item"><a class="nav-link" href="../about-us.html">About</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Treatments</a>
-                                <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
-                                    <li><a class="dropdown-item" href="treatments.html">All Treatments</a></li>
-                                    <li><a class="dropdown-item" href="advanced-health-screening.html">Advanced Health Screening</a></li>
-                                    <li><a class="dropdown-item" href="preventative-healthcare.html">Preventative Healthcare</a></li>
-                                    <li><a class="dropdown-item" href="cardiovascular-health.html">Cardiovascular Health</a></li>
-                                    <li><a class="dropdown-item" href="childrens-health-clinic.html">Children's Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="geriatric-treatment.html">Geriatric Treatment</a></li>
-                                    <li><a class="dropdown-item" href="hay-fever-treatment.html">Hay Fever Treatment</a></li>
-                                    <li><a class="dropdown-item" href="private-lifestyle-medicine.html">Private Lifestyle Medicine</a></li>
-                                    <li><a class="dropdown-item" href="mens-health-clinic.html">Men's Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="mental-health-clinic.html">Mental Health Clinic</a></li>
-                                    <li><a class="dropdown-item" href="pain-management.html">Pain Management</a></li>
-                                    <li><a class="dropdown-item" href="preventative-healthcare.html">Preventative Healthcare</a></li>
-                                    <li><a class="dropdown-item" href="womens-health-clinic.html">Women's Health Clinic</a></li>
+                                <ul class="dropdown-menu dropdown-menu-enhanced" aria-labelledby="treatmentsDropdown">
+                                    <li><a class="dropdown-item" href="treatments.html"><i class="icofont-list"></i> All Treatments</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="advanced-health-screening.html"><i class="icofont-laboratory"></i> Advanced Health Screening</a></li>
+                                    <li><a class="dropdown-item" href="blood-tests.html"><i class="icofont-blood-drop"></i> Blood Tests</a></li>
+                                    <li><a class="dropdown-item" href="cardiovascular-health.html"><i class="icofont-heart-beat"></i> Cardiovascular Health</a></li>
+                                    <li><a class="dropdown-item" href="childrens-health-clinic.html"><i class="icofont-baby"></i> Children's Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="geriatric-treatment.html"><i class="icofont-user"></i> Geriatric Treatment</a></li>
+                                    <li><a class="dropdown-item" href="hay-fever-treatment.html"><i class="icofont-test-tube"></i> Hay Fever Treatment</a></li>
+                                    <li><a class="dropdown-item" href="private-lifestyle-medicine.html"><i class="icofont-medical-sign"></i> Private Lifestyle Medicine</a></li>
+                                    <li><a class="dropdown-item" href="mens-health-clinic.html"><i class="icofont-user"></i> Men's Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="mental-health-clinic.html"><i class="icofont-brain"></i> Mental Health Clinic</a></li>
+                                    <li><a class="dropdown-item" href="pain-management.html"><i class="icofont-medicine"></i> Pain Management</a></li>
+                                    <li><a class="dropdown-item" href="preventative-healthcare.html"><i class="icofont-shield"></i> Preventative Healthcare</a></li>
+                                    <li><a class="dropdown-item" href="womens-health-clinic.html"><i class="icofont-user-female"></i> Women's Health Clinic</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="../location.html">Location</a></li>
@@ -86,7 +99,7 @@
     <!-- End Navbar Area -->
 
     <!-- Start Main Banner Area -->
-    <div id="home" class="main-banner-three" style="background-image: url('../assets/img/preventative-healthcare-hero-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div id="home" class="main-banner-three" style="background-image: url('https://media.istockphoto.com/id/1432940420/photo/prevention.jpg?s=2048x2048&w=is&k=20&c=qGqdf5hlxtGUHiucXysa9JYicOwCuQ7Vjsu-KRYk06U='); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
@@ -318,13 +331,360 @@
     </section>
     <!-- End Why Choose Us Section -->
 
+    <!-- Start Treatment Process Section -->
+    <section class="boxes-area-two ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h3>Our Preventative Healthcare Process</h3>
+                <span>What to Expect</span>
+                <p>Our preventative healthcare process is designed to be comprehensive, proactive, and personalized, helping you maintain optimal health and prevent future health issues.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-file-document"></i>
+                        <h3>1. Health Assessment</h3>
+                        <p>Comprehensive evaluation of your current health status, risk factors, and lifestyle factors affecting your well-being.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-laboratory"></i>
+                        <h3>2. Screening & Testing</h3>
+                        <p>Age and risk-appropriate health screenings, blood tests, and diagnostic evaluations to identify potential health issues early.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-file-alt"></i>
+                        <h3>3. Prevention Plan</h3>
+                        <p>Personalized prevention plan including lifestyle recommendations, vaccination schedules, and health optimization strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-support"></i>
+                        <h3>4. Ongoing Monitoring</h3>
+                        <p>Regular follow-up appointments and health monitoring to track progress and adjust prevention strategies as needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Treatment Process Section -->
+
+    <!-- Start Boxes Area -->
+    <section class="boxes-area-two ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-shield"></i>
+                        <h3>Expert Prevention</h3>
+                        <p>Our experienced healthcare professionals provide comprehensive preventative healthcare services with expertise in health promotion and disease prevention.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-heart-beat"></i>
+                        <h3>Comprehensive Screening</h3>
+                        <p>Complete health assessments including corporate health screening, dermatology, and age-appropriate preventive care programs.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-clock-time"></i>
+                        <h3>Proactive Care</h3>
+                        <p>Early detection and prevention strategies to help maintain optimal health and reduce the risk of future health problems.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-box">
+                        <i class="icofont-users"></i>
+                        <h3>Personalized Plans</h3>
+                        <p>Tailored prevention plans designed specifically for your age, gender, family history, and individual health risk factors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Boxes Area -->
+
+    <!-- Start Why Choose Us Area -->
+    <section class="why-choose-us ptb-100 bg-f9faff">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="row about-image">
+                        <div class="col-6 col-lg-6 col-md-6">
+                            <div class="image">
+                                <img src="../assets/img/about-img1.jpg" alt="about">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-6 col-md-6">
+                            <div class="image">
+                                <img src="../assets/img/about-img2.jpg" alt="about">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-6 col-md-6">
+                            <div class="image mt-30">
+                                <img src="../assets/img/about-img3.jpg" alt="about">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-6 col-md-6">
+                            <div class="image mt-30">
+                                <img src="../assets/img/about-img4.jpg" alt="about">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="section-title">
+                        <h3>Why Choose Our Preventative Healthcare</h3>
+                        <span>Your Health, Our Priority</span>
+                    </div>
+
+                    <div class="why-choose-us-text">
+                        <p>At Shenfeild Private GP, we believe that prevention is the best medicine. Our comprehensive preventative healthcare services are designed to help you maintain optimal health, detect potential issues early, and prevent future health problems.</p>
+                        <p>Our experienced medical team uses evidence-based screening protocols and preventive care guidelines to ensure you receive the best possible care tailored to your individual health needs and risk factors.</p>
+
+                        <ul>
+                            <li>Comprehensive preventative health assessments tailored to your needs</li>
+                            <li>Early detection of potential health issues before they become serious</li>
+                            <li>Personalized health recommendations and prevention strategies</li>
+                            <li>Expert interpretation of all screening and test results</li>
+                            <li>Follow-up care and ongoing health monitoring</li>
+                            <li>Wide range of preventive services from corporate health to dermatology</li>
+                        </ul>
+
+                        <a href="../index-4.html#appointment" class="btn">Book Your Health Assessment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Why Choose Us Area -->
+
+    <!-- Start Services Area -->
+    <section class="services-area ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h3>Related Health Services</h3>
+                <span>Comprehensive Healthcare</span>
+                <p>In addition to our preventative healthcare services, we offer a full range of primary healthcare services to support your overall health and well-being.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="icofont-shield"></i>
+                        <h3>Health Screening</h3>
+                        <p>Comprehensive health screening programs including WellMan and WellWoman for early detection and prevention.</p>
+                        <a href="../treatments/advanced-health-screening.html" class="icofont-paper-plane"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="icofont-laboratory"></i>
+                        <h3>Blood Tests</h3>
+                        <p>Comprehensive blood testing services with fast, accurate results and expert interpretation for all your diagnostic needs.</p>
+                        <a href="../treatments/blood-tests.html" class="icofont-paper-plane"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="icofont-heart"></i>
+                        <h3>Cardiovascular Health</h3>
+                        <p>Heart health monitoring, ECG testing, and cardiovascular risk assessment to keep your heart healthy and strong.</p>
+                        <a href="../treatments/cardiovascular-health.html" class="icofont-paper-plane"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="icofont-heart"></i>
+                        <h3>Lifestyle Medicine</h3>
+                        <p>Private lifestyle medicine services including weight management and diabetes treatment for optimal health.</p>
+                        <a href="../treatments/private-lifestyle-medicine.html" class="icofont-paper-plane"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Services Area -->
+
+    <!-- Start Fun Facts Area -->
+    <section class="fun-facts-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="fun-fact">
+                        <i class="icofont-wink-smile"></i>
+                        <h3 class="count">750</h3>
+                        <span>Health Assessments</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="fun-fact">
+                        <i class="icofont-shield"></i>
+                        <h3 class="count">93</h3>
+                        <span>% Early Detection</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="fun-fact">
+                        <i class="icofont-clock-time"></i>
+                        <h3 class="count">48</h3>
+                        <span>Hours Average Results</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="fun-fact">
+                        <i class="icofont-heart-beat"></i>
+                        <h3 class="count">97</h3>
+                        <span>% Patient Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Fun Facts Area -->
+
+    <!-- Start Testimonials Area -->
+    <section class="testimonials-area ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h3>Patient Testimonials</h3>
+                <span>What Our Patients Say</span>
+                <p>Hear from our valued patients about their experiences with our preventative healthcare services and comprehensive healthcare.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feedback">
+                        <div class="client-info">
+                            <div class="img">
+                                <img src="../assets/img/client-avatar1.jpg" alt="client">
+                            </div>
+                            <h4>Sarah Johnson</h4>
+                            <span>Corporate Health Screening Patient</span>
+                        </div>
+
+                        <p>The corporate health screening program at Shenfeild Private GP was thorough and professional. The team identified some early warning signs that we were able to address proactively. Excellent service.</p>
+
+                        <i class="icofont-quote-right"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feedback">
+                        <div class="client-info">
+                            <div class="img">
+                                <img src="../assets/img/client-avatar2.jpg" alt="client">
+                            </div>
+                            <h4>Michael Thompson</h4>
+                            <span>Preventative Healthcare Patient</span>
+                        </div>
+
+                        <p>I've been coming here for regular preventative health checks for years. The service is consistently excellent, with comprehensive assessments and clear recommendations. Prevention really is better than cure.</p>
+
+                        <i class="icofont-quote-right"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feedback">
+                        <div class="client-info">
+                            <div class="img">
+                                <img src="../assets/img/client-avatar3.jpg" alt="client">
+                            </div>
+                            <h4>Emma Wilson</h4>
+                            <span>Dermatology Patient</span>
+                        </div>
+
+                        <p>The dermatology service was excellent. The team identified a skin issue early and provided effective treatment. The preventative approach to skin health has been very helpful. Highly recommend.</p>
+
+                        <i class="icofont-quote-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonials Area -->
+
+    <!-- Start News Area -->
+    <section class="news-area ptb-100 bg-f9faff">
+        <div class="container">
+            <div class="section-title">
+                <h3>Health News & Tips</h3>
+                <span>Latest Updates from Shenfeild GP</span>
+                <p>Stay informed with the latest health news, wellness tips, and updates from our practice. We're committed to keeping our patients informed about important health topics and preventive care.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <a href="#" class="blog-img"><img src="../assets/img/blog-img1.jpg" alt="blog"></a>
+
+                        <div class="post-content">
+                            <h4><a href="#">The Importance of Preventive Healthcare</a></h4>
+                            <p>Regular preventive healthcare is crucial for maintaining optimal health. Learn about the essential preventive measures for different age groups.</p>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <a href="#" class="blog-img"><img src="../assets/img/blog-img2.jpg" alt="blog"></a>
+
+                        <div class="post-content">
+                            <h4><a href="#">Understanding Your Health Screening Results</a></h4>
+                            <p>Health screenings can provide valuable insights into your health. Our guide helps you understand what your results mean and when to follow up.</p>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="single-blog-post">
+                        <a href="#" class="blog-img"><img src="../assets/img/blog-img3.jpg" alt="blog"></a>
+
+                        <div class="post-content">
+                            <h4><a href="#">Preventive Healthcare: Your Best Investment</a></h4>
+                            <p>Investing in preventive healthcare through regular check-ups and screenings is one of the best decisions you can make for your long-term health and well-being.</p>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End News Area -->
+
     <!-- Start Contact Section -->
     <section id="contact" class="contact-area ptb-100">
         <div class="container">
             <div class="section-title">
-                <h3>Ready to Book Your Preventative Health?</h3>
+                <h3>Ready to Book Your Preventative Health Assessment?</h3>
                 <span>Get in Touch</span>
-                <p>Contact us today to schedule your blood test or discuss your testing needs with our healthcare team.</p>
+                <p>Contact us today to schedule your preventative healthcare consultation or discuss your preventive health needs with our healthcare team.</p>
             </div>
             
             <div class="row">
@@ -366,13 +726,13 @@
     <!-- End Contact Section -->
 
     <!-- Start Footer Area -->
-    <footer class="footer-area">
+    <footer class="footer-area bg-f9faff">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <img src="../assets/img/logo.png" alt="Shenfeild Private GP" style="height: 50px;">
+                            <img src="../assets/logo/Logo.png" alt="Shenfeild Private GP" style="height: 50px;">
                         </div>
                         <p>Your trusted local GP practice providing comprehensive primary healthcare services with compassion and excellence.</p>
                         <div class="footer-social">
