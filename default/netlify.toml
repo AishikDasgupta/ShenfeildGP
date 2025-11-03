@@ -1,0 +1,14 @@
+[build]
+  # If deploying from repo root, set publish directory to "default" or "Default"
+  # If deploying directly from this folder, leave as is
+  publish = "."
+
+[[redirects]]
+  # Redirect root to index-4.html
+  from = "/"
+  to = "/index-4.html"
+  status = 200
+
+# Optional: If you want to serve index-4.html as the main page
+# This makes it accessible at both / and /index-4.html
+
