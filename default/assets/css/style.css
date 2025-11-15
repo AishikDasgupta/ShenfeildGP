@@ -23,6 +23,31 @@ img {
     display: inline-block;
 }
 
+/* Make all standalone icofont icons orange by default */
+i[class^="icofont-"],
+i[class*=" icofont-"] {
+    color: #eb621b !important;
+}
+
+/* Ensure icons inside colored containers remain white */
+.treatment-card .treatment-icon i,
+.treatment-icon i,
+.service-card .service-header .service-icon i,
+.service-icon i,
+.screening-program .program-header .program-icon i,
+.program-icon i,
+.contact-info .contact-icon i,
+.contact-icon i,
+.feature-card .feature-icon i,
+.feature-icon i,
+.appointment-form form .form-group span i,
+.accordion .accordion-title i,
+.fun-fact i,
+.single-photo .gallery-content .link-btn i,
+.single-photo .gallery-content .popup-btn i {
+    color: #fff !important;
+}
+
 .ptb-100 {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -57,7 +82,7 @@ img {
 .treatment-card .treatment-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    background: linear-gradient(135deg, #d4551a 0%, #eb621b 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -134,7 +159,7 @@ img {
 .service-card .service-header .service-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(235, 98, 27, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -204,7 +229,7 @@ img {
     position: absolute;
     left: 0;
     top: 8px;
-    color: #0078ff;
+    color: #eb621b;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.6;
@@ -228,7 +253,7 @@ img {
 }
 
 .service-card .service-content .service-details span i {
-    color: #0078ff;
+    color: #eb621b;
     font-size: 16px;
     line-height: 1;
     display: inline-block;
@@ -266,7 +291,7 @@ img {
 .screening-program .program-header .program-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(235, 98, 27, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -336,7 +361,7 @@ img {
     position: absolute;
     left: 0;
     top: 8px;
-    color: #0078ff;
+    color: #eb621b;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.6;
@@ -360,7 +385,7 @@ img {
 }
 
 .screening-program .program-content .program-duration span i {
-    color: #0078ff;
+    color: #eb621b;
     font-size: 16px;
     line-height: 1;
     display: inline-block;
@@ -412,7 +437,7 @@ img {
 .contact-info .contact-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    background: linear-gradient(135deg, #d4551a 0%, #eb621b 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -436,7 +461,7 @@ img {
 
 .contact-info p {
     font-size: 16px;
-    color: #0078ff;
+    color: #eb621b;
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.6;
@@ -452,7 +477,7 @@ img {
 .feature-card .feature-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    background: linear-gradient(135deg, #d4551a 0%, #eb621b 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -510,7 +535,7 @@ img {
 
 .section-title span {
     display: block;
-    color: #0078ff;
+    color: #eb621b;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -907,7 +932,7 @@ fieldset:disabled .btn:hover {
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-    background: #007aff;
+    background: #eb621b;
 }
 
 .owl-theme .owl-dots .owl-dot span:hover::before {
@@ -1017,7 +1042,7 @@ fieldset:disabled .btn:hover {
 
 .section-title span {
     display: inline-block;
-    color: #0f73bb;
+    color: #eb621b;
     font-size: 18px;
     margin-bottom: 18px;
 }
@@ -1257,7 +1282,7 @@ fieldset:disabled .btn:hover {
 }
 
 .hero-content h1 span {
-    color: #0078ff;
+    color: #eb621b;
 }
 
 .hero-content p {
@@ -1413,7 +1438,7 @@ fieldset:disabled .btn:hover {
 
 .single-box i {
     font-size: 40px;
-    color: #0075ff;
+    color: #eb621b;
 }
 
 .single-box h3 {
@@ -1807,11 +1832,11 @@ fieldset:disabled .btn:hover {
 }
 
 .doctor-carousel .owl-dots button.owl-dot:hover {
-    background: #0078ff;
+    background: #eb621b;
 }
 
 .doctor-carousel .owl-dots button.owl-dot.active {
-    background: #0078ff;
+    background: #eb621b;
     width: 28px;
     height: 10px;
     border-radius: 5px;
@@ -2161,7 +2186,7 @@ fieldset:disabled .btn:hover {
 }
 
 .appointment-area::before {
-    background: linear-gradient(45deg, rgba(0, 117, 255, 0.8) 100%, transparent 100%);
+    background: linear-gradient(45deg, rgba(235, 98, 27, 0.8) 100%, transparent 100%);
     z-index: 1;
 }
 
@@ -2217,9 +2242,9 @@ fieldset:disabled .btn:hover {
     display: block;
     color: #fff;
     padding: 18px 20px;
-    background: #00c6ff;
-    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
-    background: linear-gradient(to right, #0072ff, #00c6ff);
+    background: #eb621b;
+    background: -webkit-linear-gradient(to right, #d4551a, #eb621b);
+    background: linear-gradient(to right, #d4551a, #eb621b);
     font-size: 18px;
     position: relative;
 }
@@ -2285,7 +2310,7 @@ fieldset:disabled .btn:hover {
 .appointment-form form .btn {
     border: 1px solid #fff;
     margin-top: 5px;
-    color: #0075ff;
+    color: #eb621b;
 }
 
 .appointment-form form .btn:hover {
@@ -2743,7 +2768,7 @@ fieldset:disabled .btn:hover {
 }
 
 .pricing-table .price span {
-    color: #0078ff;
+    color: #eb621b;
     font-size: 34px;
     font-weight: 700;
 }
@@ -2986,7 +3011,7 @@ fieldset:disabled .btn:hover {
 }
 
 .contact-box h3 i {
-    color: #0075ff;
+    color: #eb621b;
     margin-right: 5px;
 }
 
@@ -3443,7 +3468,7 @@ fieldset:disabled .btn:hover {
 }
 
 .footer-social a:hover {
-    background: #0078ff;
+    background: #eb621b;
     color: #fff;
     transform: translateY(-3px);
 }
@@ -3568,7 +3593,7 @@ fieldset:disabled .btn:hover {
 }
 
 .footer-contact .contact-item i {
-    color: #0078ff;
+    color: #eb621b;
     font-size: 18px;
     margin-right: 12px;
     margin-top: 3px;
@@ -4109,7 +4134,7 @@ textarea.form-control {
 
 .contact-feature i {
     font-size: 48px;
-    color: #007aff;
+    color: #eb621b;
     margin-bottom: 20px;
 }
 
@@ -4146,7 +4171,7 @@ textarea.form-control {
 
 .contact-info-box i {
     font-size: 60px;
-    color: #007aff;
+    color: #eb621b;
     margin-bottom: 25px;
 }
 
@@ -4568,7 +4593,7 @@ footer img[src*="Logo"] {
 .dropdown-menu-enhanced .dropdown-item i {
     margin-right: 12px;
     font-size: 18px;
-    color: #0078ff;
+    color: #eb621b;
     width: 20px;
     text-align: center;
     transition: all 0.3s ease;
@@ -4582,7 +4607,7 @@ footer img[src*="Logo"] {
 }
 
 .dropdown-menu-enhanced .dropdown-item:hover i {
-    color: #0078ff;
+    color: #eb621b;
     transform: scale(1.2);
 }
 
