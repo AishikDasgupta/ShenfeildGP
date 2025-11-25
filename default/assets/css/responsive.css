@@ -142,7 +142,9 @@
         color: #0078ff;
     }
     .main-banner-three .hero-content p {
-        color: #6f8ba4;
+        color: #2c3e50 !important;
+        font-weight: 500;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8), 0 1px 1px rgba(0, 0, 0, 0.1);
     }
     .main-banner-three .hero-image {
         position: relative;
