@@ -521,7 +521,7 @@
 }
 
 .theme-dark .main-banner-three .hero-content h1 {
-    color: #fff;
+    color: #000000 !important;
 }
 
 .theme-dark .main-banner-three .hero-content p {
@@ -530,6 +530,135 @@
 
 .theme-dark .main-banner-three .hero-content span {
     color: #0078ff;
+}
+
+/* Dark mode for single-value cards (Our Values section) */
+.theme-dark .single-value {
+    background: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .single-value:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .single-value h4 {
+    color: #fff;
+}
+
+.theme-dark .single-value p {
+    color: #cacaca;
+}
+
+.theme-dark .single-value i {
+    color: #eb621b;
+}
+
+/* Dark mode for location-info card */
+.theme-dark .location-info {
+    background: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .location-info h4 {
+    color: #fff;
+}
+
+.theme-dark .location-info .address-details p,
+.theme-dark .location-info .contact-details p {
+    color: #cacaca;
+}
+
+.theme-dark .location-info .address-details strong {
+    color: #fff;
+}
+
+.theme-dark .location-info .opening-hours ul li {
+    color: #cacaca;
+    border-bottom-color: #444;
+}
+
+.theme-dark .location-info .contact-details i {
+    color: #eb621b;
+}
+
+/* Dark mode for direction-method cards */
+.theme-dark .direction-method {
+    background: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .direction-method:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .direction-method h4 {
+    color: #fff;
+}
+
+.theme-dark .direction-method p {
+    color: #cacaca;
+}
+
+.theme-dark .direction-method ul li {
+    color: #cacaca;
+}
+
+.theme-dark .direction-method i {
+    color: #eb621b;
+}
+
+/* Dark mode for facility-item cards */
+.theme-dark .facility-item {
+    background: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .facility-item:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .facility-item h4 {
+    color: #fff;
+}
+
+.theme-dark .facility-item p {
+    color: #cacaca;
+}
+
+.theme-dark .facility-item i {
+    color: #eb621b;
+}
+
+/* Dark mode for location-feature cards */
+.theme-dark .location-feature {
+    background: #222;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.theme-dark .location-feature:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: #0078ff;
+}
+
+.theme-dark .location-feature h4 {
+    color: #fff;
+}
+
+.theme-dark .location-feature p {
+    color: #cacaca;
+}
+
+.theme-dark .location-feature i {
+    color: #eb621b;
 }
 
 @media only screen and (max-width: 767px) {

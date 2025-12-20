@@ -53,13 +53,65 @@
                         .find(".tab_content")
                         .find("div.tabs_item")
                         .not("div.tabs_item:eq(" + a + ")")
-                        .slideUp(),
+                        .slideUp(400),
                         n
                         .find(".tab_content")
                         .find("div.tabs_item:eq(" + a + ")")
-                        .slideDown(),
+                        .slideDown(400),
                         o.preventDefault();
+                    
+                    if (n.data('autoRotateInterval')) {
+                        clearInterval(n.data('autoRotateInterval'));
+                        n.removeData('autoRotateInterval');
+                        startAutoRotate(n);
+                    }
                 });
+            
+            function switchTab(tabContainer, index) {
+                var totalTabs = tabContainer.find("ul.tabs > li").length;
+                var currentIndex = tabContainer.find("ul.tabs > li.current").index();
+                var nextIndex = (currentIndex + 1) % totalTabs;
+                
+                if (index !== undefined) {
+                    nextIndex = index;
+                }
+                
+                var nextTab = tabContainer.find("ul.tabs > li").eq(nextIndex);
+                var nextTabLink = nextTab.find("a");
+                
+                tabContainer.find("ul.tabs > li").removeClass("current");
+                nextTab.addClass("current");
+                
+                tabContainer.find(".tab_content div.tabs_item")
+                    .not("div.tabs_item:eq(" + nextIndex + ")")
+                    .slideUp(400);
+                
+                tabContainer.find(".tab_content div.tabs_item:eq(" + nextIndex + ")")
+                    .slideDown(400);
+            }
+            
+            function startAutoRotate(tabContainer) {
+                var interval = setInterval(function() {
+                    if (!tabContainer.is(':hover')) {
+                        switchTab(tabContainer);
+                    }
+                }, 5000);
+                
+                tabContainer.data('autoRotateInterval', interval);
+            }
+            
+            t(".tab").each(function() {
+                var tabContainer = t(this);
+                startAutoRotate(tabContainer);
+                
+                tabContainer.on('mouseenter', function() {
+                    if (tabContainer.data('autoRotateInterval')) {
+                        clearInterval(tabContainer.data('autoRotateInterval'));
+                    }
+                }).on('mouseleave', function() {
+                    startAutoRotate(tabContainer);
+                });
+            });
         })(jQuery),
         t(function() {
             t(".accordion")
