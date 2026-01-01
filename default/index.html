@@ -755,13 +755,34 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="shorting-menu">
-                        <button class="filter" data-filter="all">All</button>
-                        <button class="filter" data-filter=".cardiology">Minor illnesses</button>
-                        <button class="filter" data-filter=".neurology">Long term conditions</button>
-                        <button class="filter" data-filter=".sergury">Menopause</button>
-                        <button class="filter" data-filter=".orthopaedics">Dermatology</button>
-                        <button class="filter" data-filter=".urology">Minor/Plastic Surgery</button>
-                        <button class="filter" data-filter=".aesthetics">Aesthetics</button>
+                        <button class="filter" data-filter="all"
+                            data-description="Browse our photo gallery to see the quality, personalised healthcare services we provide for you and your family.">All</button>
+                        <button class="filter" data-filter=".cardiology"
+                            data-description="Expert assessment and personalised care for acute ailments and everyday health concerns.">Minor
+                            illnesses</button>
+                        <button class="filter" data-filter=".neurology"
+                            data-description="Ongoing monitoring and comprehensive support for managing long-term health conditions.">Long
+                            term conditions</button>
+                        <button class="filter" data-filter=".sergury"
+                            data-description="Specialised care and tailored treatments to support women navigating the menopause transition.">Menopause</button>
+                        <button class="filter" data-filter=".orthopaedics"
+                            data-description="Thorough dermatological examinations and mole checks to ensure optimal skin health.">Dermatology</button>
+                        <button class="filter" data-filter=".urology"
+                            data-description="Safe and precise surgical treatments for skin lesions and minor concerns in a clinical setting.">Minor/Plastic
+                            Surgery</button>
+                        <button class="filter" data-filter=".aesthetics"
+                            data-description="Advanced aesthetic procedures designed to enhance natural beauty and boost confidence.">Aesthetics</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gallery-tab-description text-center"
+                        style="margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <p id="gallery-desc-text" style="font-size: 18px; color: #6f8ba4; font-weight: 500;">Browse our
+                            photo gallery to see the quality, personalised healthcare services we provide for you and
+                            your family.</p>
                     </div>
                 </div>
             </div>
@@ -1369,7 +1390,8 @@
                 <div class="footer-cqc-note"
                     style="border-top: 1px solid #e8eef5; padding-top: 20px; margin-bottom: 20px; font-size: 13px; color: #555;">
                     <p style="margin: 0;"><strong>Note:</strong> Shenfield Private GP is a service provided by
-                        <strong>Aesthetk Ltd</strong>, a CQC registered healthcare provider.</p>
+                        <strong>Aesthetk Ltd</strong>, a CQC registered healthcare provider.
+                    </p>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -1437,6 +1459,20 @@
         src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
     <zapier-interfaces-chatbot-embed is-popup='true'
         chatbot-id='cmjj6bhwa00ev8290h6ocl145'></zapier-interfaces-chatbot-embed>
+    <!-- Description Update Script -->
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.filter').on('click', function () {
+                var desc = $(this).data('description');
+                var $descText = $('#gallery-desc-text');
+
+                // Fade out, change text, fade in
+                $descText.fadeOut(200, function () {
+                    $(this).text(desc).fadeIn(200);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
