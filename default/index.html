@@ -17,9 +17,281 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-style.css">
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 10px;
+            left: 20px;
+            right: auto;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            /* box-shadow removed as requested ("remove background blur") */
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            color: #fff;
+            background-color: #20ba5a;
+            transform: scale(1.1);
+        }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 10000;
+            display: none;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #cookie-banner p {
+            display: inline-block;
+            margin: 0;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        #cookie-banner a {
+            color: #4facfe;
+            text-decoration: underline;
+        }
+
+        #cookie-banner button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        #cookie-banner button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Doctor Highlights */
+        .doctor-highlights {
+            margin: 15px 0;
+            padding: 12px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            border-left: 3px solid #007bff;
+        }
+
+        .doctor-highlights .highlight-item {
+            font-size: 13px;
+            color: #495057;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .doctor-highlights .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .doctor-highlights .highlight-item i {
+            color: #007bff;
+            margin-right: 6px;
+            width: 16px;
+        }
+
+        .doctor-highlights .highlight-item strong {
+            color: #333;
+        }
+
+        .doctor-short-bio {
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-left: 2px solid #e0e0e0;
+            padding-left: 12px;
+        }
+
+        .doctor-full-bio {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .doctor-full-bio p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .read-more-toggle {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .read-more-toggle:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .read-more-toggle i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more-toggle.expanded i {
+            transform: rotate(180deg);
+        }
+
+        /* Compact service tabs to fit 7 in one row */
+        .tab .tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .tab .tabs li {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tab .tabs li a {
+            padding: 15px 8px;
+            font-size: 12px;
+        }
+
+        .tab .tabs li a i {
+            font-size: 28px;
+        }
+
+        @media (max-width: 991px) {
+            .tab .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab .tabs li {
+                flex: 0 0 33.33%;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .tab .tabs li {
+                flex: 0 0 50%;
+            }
+        }
+
+        /* Compact gallery filter tabs to fit all in one row */
+        .shorting-menu {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .shorting-menu button {
+            padding: 8px 12px;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 991px) {
+            .shorting-menu {
+                flex-wrap: wrap;
+            }
+
+            .shorting-menu button {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+        }
+    </style>
+
 
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Shenfield Private GP - Quality Healthcare Services</title>
+    <title>Private GP in Shenfield, Brentwood | Same-Week Appointments | Shenfield Private GP</title>
+    <meta name="description"
+        content="Shenfield Private GP offers quality private GP services in Shenfield, Brentwood, Essex. Same-week appointments, experienced doctors, dermatology, women's health, and mental health support. Book online today.">
+    <meta name="keywords"
+        content="private GP Shenfield, GP Brentwood, private doctor Essex, same-day GP appointments, dermatology Shenfield, women's health clinic Brentwood, mental health GP">
+    <meta name="author" content="Shenfield Private GP">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.shenfieldprivategp.com/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Private GP in Shenfield, Brentwood | Shenfield Private GP">
+    <meta property="og:description"
+        content="Quality private GP services in Shenfield, Brentwood, Essex. Same-week appointments with experienced doctors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.shenfieldprivategp.com/">
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Shenfield Private GP",
+        "image": "https://www.shenfieldprivategp.com/assets/img/PNG-01.png",
+        "url": "https://www.shenfieldprivategp.com",
+        "telephone": "01277 503 503",
+        "email": "contact@shenfieldprivategp.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "First Floor, 40 Hutton Road",
+            "addressLocality": "Shenfield",
+            "addressRegion": "Essex",
+            "postalCode": "CM15 8LB",
+            "addressCountry": "GB"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.6308,
+            "longitude": 0.3295
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+            }
+        ],
+        "sameAs": [],
+        "priceRange": "££",
+        "medicalSpecialty": ["GeneralPractice", "Dermatology", "WomensHealth", "MentalHealth"],
+        "availableService": [
+            {"@type": "MedicalProcedure", "name": "GP Consultation"},
+            {"@type": "MedicalProcedure", "name": "Health Screening"},
+            {"@type": "MedicalProcedure", "name": "Dermatology Consultation"},
+            {"@type": "MedicalProcedure", "name": "Women's Health"},
+            {"@type": "MedicalProcedure", "name": "Mental Health Support"}
+        ]
+    }
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-offset="70">
@@ -198,15 +470,15 @@
                     </div>
 
                     <div class="why-choose-us-text">
-                        <p>At Shenfield Private GP, we pride ourselves on delivering personalised, compassionate primary
-                            healthcare services that put your health and well-being at the centre of everything we do.
-                            Our experienced medical team is dedicated to providing comprehensive care for your entire
-                            family.</p>
+                        <p>At Shenfield Private GP, we pride ourselves on delivering a personalised, compassionate
+                            medical service that puts your health and well-being at the centre of everything we do. Our
+                            experienced medical team is dedicated to providing comprehensive care for your entire family
+                            – we measure our success only by the care that we give, and the trust placed in us.</p>
                         <p>We understand that healthcare is personal, which is why we take the time to listen to your
                             concerns and develop treatment plans that work for your lifestyle and needs.</p>
 
                         <ul>
-                            <li>Experienced General Practitioners with local knowledge</li>
+                            <li>Experienced, popular General Practitioners with local knowledge</li>
                             <li>Same-day appointments for urgent medical needs</li>
                             <li>Comprehensive preventive health screenings and vaccinations</li>
                             <li>Family-friendly practice welcoming patients of all ages</li>
@@ -245,38 +517,68 @@
                 <div class="col-lg-7 col-md-12">
                     <div class="doctor-carousel-wrapper">
                         <div class="doctor-carousel owl-carousel owl-theme">
+                            <!-- Dr Kannan Athreya -->
                             <div class="doctor-carousel-item">
                                 <div class="doctor-testimonial-minimal">
                                     <div class="doctor-image-wrapper">
-                                        <img src="assets/img/doctor-img1.png.jpg" alt="Dr Kannan Athreya">
+                                        <img src="assets/img/doctor-img2_new.jpeg" alt="Dr Kannan Athreya">
                                     </div>
                                     <div class="doctor-testimonial-content">
                                         <h3>Dr Kannan Athreya</h3>
                                         <span class="doctor-credentials">MBBS, DRCOG, DipDerm (Distinction)</span>
-                                        <p>Dr Kannan Athreya is a highly experienced General Practitioner who places
-                                            great importance on the traditional family doctor relationship. He believes
-                                            in taking time to truly understand his patients as individuals, their
-                                            circumstances, and what matters most to them, allowing care to be tailored
-                                            in a thoughtful and meaningful way.</p>
-                                        <p>He has a particular passion for supporting patients experiencing mental
-                                            health challenges such as anxiety, depression, stress, and trauma. Dr
-                                            Athreya finds it deeply rewarding to help people navigate difficult periods
-                                            in their lives and work towards improved wellbeing, both personally and
-                                            professionally.</p>
-                                        <p>Alongside this, Dr Athreya has extensive experience in dermatology,
-                                            aesthetics, and minor surgery. He holds a Diploma in Dermatology with
-                                            distinction and a Professional BTEC Award in Laser and Aesthetic Therapies.
-                                            His clinical work ranges from managing chronic skin conditions in children,
-                                            such as eczema, to the careful assessment and removal of benign skin lesions
-                                            and cysts, always with comfort and safety at the forefront.</p>
-                                        <p>Outside of clinical practice, Dr Athreya enjoys an active lifestyle,
-                                            including marathon running, climbing, and keeping fit. He believes that
-                                            happiness and health are closely linked and strives to support his patients
-                                            in leading healthy, balanced, and fulfilling lives.</p>
+
+                                        <!-- Quick Highlights -->
+                                        <div class="doctor-highlights">
+                                            <div class="highlight-item"><i class="icofont-focus"></i> <strong>Key
+                                                    Interests:</strong> Mental Health, Dermatology, Aesthetics, Minor
+                                                Surgery</div>
+                                            <div class="highlight-item"><i class="icofont-calendar"></i>
+                                                <strong>Appointments:</strong> GP Consultations, Skin Assessments,
+                                                Mental Health Reviews
+                                            </div>
+                                        </div>
+
+                                        <!-- Short Bio -->
+                                        <p class="doctor-short-bio">Local GP with 30 years serving Brentwood, specialist
+                                            expertise in mental health, dermatology, and minor surgery.</p>
+
+                                        <!-- Full Bio (collapsed by default) -->
+                                        <div class="doctor-full-bio" style="display: none;">
+                                            <p>Dr Athreya is a highly experienced local General Practitioner, having
+                                                served Brentwood for thirty years. After 18 years as an NHS Partner at
+                                                Mount Avenue Surgery, he commenced work as a Private GP in 2014, and is
+                                                now delighted to be back in Shenfield working at Shenfield Private GP.
+                                            </p>
+                                            <p>Dr Athreya believes in taking time to truly understand his patients as
+                                                individuals, their circumstances, and what matters most to them,
+                                                allowing care to be tailored in a thoughtful and meaningful way. Whilst
+                                                all aspects of Family Practice are at the core of Dr Athreya's
+                                                expertise, he is particularly passionate about supporting patients
+                                                experiencing mental health challenges such as anxiety, depression,
+                                                stress, and trauma. Dr Athreya finds it deeply rewarding to help people
+                                                navigate difficult periods in their lives and work towards improved
+                                                wellbeing, both personally and professionally.</p>
+                                            <p>Alongside this, Dr Athreya has extensive experience in dermatology,
+                                                aesthetics, and minor surgery. He holds a Diploma in Dermatology with
+                                                distinction and a Professional BTEC Award in Laser and Aesthetic
+                                                Therapies. His clinical work ranges from managing chronic skin
+                                                conditions in children, such as eczema, to the careful assessment and
+                                                removal of benign skin lesions and cysts, always with comfort and safety
+                                                at the forefront.</p>
+                                            <p>Outside of clinical practice, Dr Athreya enjoys an active lifestyle,
+                                                including marathon running, climbing, and keeping fit. He believes that
+                                                happiness and health are closely linked and strives to support his
+                                                patients in leading healthy, balanced, and fulfilling lives.</p>
+                                        </div>
+
+                                        <a href="javascript:void(0);" class="read-more-toggle"
+                                            onclick="toggleDoctorBio(this)">Read more <i
+                                                class="icofont-arrow-down"></i></a>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Dr Ayub Khan -->
                             <div class="doctor-carousel-item">
                                 <div class="doctor-testimonial-minimal">
                                     <div class="doctor-image-wrapper">
@@ -286,27 +588,57 @@
                                         <h3>Dr Ayub Khan</h3>
                                         <span class="doctor-credentials">MBBS, MSc, MRCGP, DipPracDerm, PGCert Aesthetic
                                             Medicine, MSc Dermoscopy & Preventative Dermato-Oncology</span>
-                                        <p>Dr Ayub Khan is an experienced NHS General Practitioner with a special
-                                            interest in Dermatology and is the founder of Aesthetk. Known to many
-                                            patients as Dr K, he combines evidence-based medicine with advanced skin
-                                            expertise to deliver high-quality, personalised care.</p>
-                                        <p>Dr Khan is an International Academic Expert in Dermoscopy, he holds a
-                                            Master's degree in Dermoscopy and Preventative Dermato-Oncology from the
-                                            Medical University of Graz, Austria, alongside postgraduate qualifications
-                                            from Queen Mary University of London and Cardiff University. His specialist
-                                            knowledge allows him to provide comprehensive skin assessments, including
-                                            meticulous full-body digital mole mapping for the early detection and
-                                            monitoring of skin cancer.</p>
-                                        <p>At Shenfield Private GP, Dr Khan is committed to a patient-centred approach,
-                                            ensuring patients feel listened to, informed, and involved in decisions
-                                            about their care. He is known for his attention to detail, clear
-                                            explanations, and calm, reassuring manner. By integrating advanced
-                                            diagnostic techniques with holistic general practice, he supports patients
-                                            in maintaining long-term skin health and overall wellbeing.</p>
+
+                                        <!-- Quick Highlights -->
+                                        <div class="doctor-highlights">
+                                            <div class="highlight-item"><i class="icofont-focus"></i> <strong>Key
+                                                    Interests:</strong> Dermatology, Skin Cancer Detection, Mole
+                                                Mapping, Aesthetic Medicine</div>
+                                            <div class="highlight-item"><i class="icofont-calendar"></i>
+                                                <strong>Appointments:</strong> Full-body Mole Checks, Skin
+                                                Consultations, GP Appointments
+                                            </div>
+                                        </div>
+
+                                        <!-- Short Bio -->
+                                        <p class="doctor-short-bio">NHS GP and founder of Aesthetk, internationally
+                                            recognised expert in dermoscopy with advanced qualifications in skin cancer
+                                            detection.</p>
+
+                                        <!-- Full Bio (collapsed by default) -->
+                                        <div class="doctor-full-bio" style="display: none;">
+                                            <p>Dr Ayub Khan is an experienced NHS General Practitioner with a special
+                                                interest in Dermatology and is the founder of Aesthetk. Known to many
+                                                patients as Dr K, he combines evidence-based medicine with advanced skin
+                                                expertise to deliver high-quality, personalised care.</p>
+                                            <p>Dr Khan is an International Academic Expert in Dermoscopy, he holds a
+                                                Master's degree in Dermoscopy and Preventative Dermato-Oncology from the
+                                                Medical University of Graz, Austria, alongside postgraduate
+                                                qualifications
+                                                from Queen Mary University of London and Cardiff University. His
+                                                specialist
+                                                knowledge allows him to provide comprehensive skin assessments,
+                                                including
+                                                meticulous full-body digital mole mapping for the early detection and
+                                                monitoring of skin cancer.</p>
+                                            <p>At Shenfield Private GP, Dr Khan is committed to a patient-centred
+                                                approach,
+                                                ensuring patients feel listened to, informed, and involved in decisions
+                                                about their care. He is known for his attention to detail, clear
+                                                explanations, and calm, reassuring manner. By integrating advanced
+                                                diagnostic techniques with holistic general practice, he supports
+                                                patients
+                                                in maintaining long-term skin health and overall wellbeing.</p>
+                                        </div>
+
+                                        <a href="javascript:void(0);" class="read-more-toggle"
+                                            onclick="toggleDoctorBio(this)">Read more <i
+                                                class="icofont-arrow-down"></i></a>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Dr Nana Gvazava -->
                             <div class="doctor-carousel-item">
                                 <div class="doctor-testimonial-minimal">
                                     <div class="doctor-image-wrapper">
@@ -315,22 +647,51 @@
                                     <div class="doctor-testimonial-content">
                                         <h3>Dr Nana Gvazava</h3>
                                         <span class="doctor-credentials">MBBS, MRCGP, RCOG, DipDerm</span>
-                                        <p>Dr Nana Gvazava is an NHS General Practitioner with a special interest in
-                                            Women's Health and Menopause, supported by a strong background in Obstetrics
-                                            and Gynaecology. She is a Member of both the Royal College of General
-                                            Practitioners and the Royal College of Obstetricians and Gynaecologists,
-                                            reflecting her broad and in-depth clinical expertise.</p>
-                                        <p>Dr Nana also holds advanced qualifications in Dermatology and Dermoscopy from
-                                            Cardiff University, enabling her to manage a wide range of skin concerns
-                                            alongside her women's health practice. She is well known for her
-                                            compassionate, holistic approach, focusing on understanding the underlying
-                                            causes of symptoms rather than simply treating them in isolation.</p>
-                                        <p>In addition to her clinical work, Dr Nana is actively involved in medical
-                                            education and research. She lectures at Anglia Ruskin University and
-                                            contributes to the development of clinical guidelines, ensuring her practice
-                                            remains current and evidence-based. Patients value her approachable nature,
-                                            thorough assessments, and commitment to providing personalised care that
-                                            supports both physical and emotional wellbeing.</p>
+
+                                        <!-- Quick Highlights -->
+                                        <div class="doctor-highlights">
+                                            <div class="highlight-item"><i class="icofont-focus"></i> <strong>Key
+                                                    Interests:</strong> Women's Health, Menopause, Obstetrics,
+                                                Gynaecology, Dermatology</div>
+                                            <div class="highlight-item"><i class="icofont-calendar"></i>
+                                                <strong>Appointments:</strong> Women's Health Consultations, Menopause
+                                                Reviews, Skin Assessments
+                                            </div>
+                                        </div>
+
+                                        <!-- Short Bio -->
+                                        <p class="doctor-short-bio">NHS GP specialising in Women's Health and Menopause,
+                                            with Royal College memberships in both General Practice and Obstetrics &
+                                            Gynaecology.</p>
+
+                                        <!-- Full Bio (collapsed by default) -->
+                                        <div class="doctor-full-bio" style="display: none;">
+                                            <p>Dr Nana Gvazava is an NHS General Practitioner with a special interest in
+                                                Women's Health and Menopause, supported by a strong background in
+                                                Obstetrics
+                                                and Gynaecology. She is a Member of both the Royal College of General
+                                                Practitioners and the Royal College of Obstetricians and Gynaecologists,
+                                                reflecting her broad and in-depth clinical expertise.</p>
+                                            <p>Dr Nana also holds advanced qualifications in Dermatology and Dermoscopy
+                                                from
+                                                Cardiff University, enabling her to manage a wide range of skin concerns
+                                                alongside her women's health practice. She is well known for her
+                                                compassionate, holistic approach, focusing on understanding the
+                                                underlying
+                                                causes of symptoms rather than simply treating them in isolation.</p>
+                                            <p>In addition to her clinical work, Dr Nana is actively involved in medical
+                                                education and research. She lectures at Anglia Ruskin University and
+                                                contributes to the development of clinical guidelines, ensuring her
+                                                practice
+                                                remains current and evidence-based. Patients value her approachable
+                                                nature,
+                                                thorough assessments, and commitment to providing personalised care that
+                                                supports both physical and emotional wellbeing.</p>
+                                        </div>
+
+                                        <a href="javascript:void(0);" class="read-more-toggle"
+                                            onclick="toggleDoctorBio(this)">Read more <i
+                                                class="icofont-arrow-down"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -357,33 +718,21 @@
                     <div class="tab">
                         <ul class="tabs">
                             <li><a href="#">
+                                    <i class="icofont-hospital"></i>
+                                    <br>
+                                    Minor Illnesses
+                                </a></li>
+
+                            <li><a href="#">
                                     <i class="icofont-heart-beat"></i>
                                     <br>
-                                    General Health
+                                    Long-Term Care
                                 </a></li>
 
                             <li><a href="#">
-                                    <i class="icofont-users"></i>
+                                    <i class="icofont-female"></i>
                                     <br>
-                                    Family Medicine
-                                </a></li>
-
-                            <li><a href="#">
-                                    <i class="icofont-injection-syringe"></i>
-                                    <br>
-                                    Vaccinations
-                                </a></li>
-
-                            <li><a href="#">
-                                    <i class="icofont-stethoscope"></i>
-                                    <br>
-                                    Health Checks
-                                </a></li>
-
-                            <li><a href="#">
-                                    <i class="icofont-clock-time"></i>
-                                    <br>
-                                    Urgent Care
+                                    Menopause Care
                                 </a></li>
 
                             <li><a href="#">
@@ -391,30 +740,48 @@
                                     <br>
                                     Dermatology
                                 </a></li>
+
+                            <li><a href="#">
+                                    <i class="icofont-operation-theater"></i>
+                                    <br>
+                                    Minor Surgery
+                                </a></li>
+
+                            <li><a href="#">
+                                    <i class="icofont-diamond"></i>
+                                    <br>
+                                    Aesthetics
+                                </a></li>
+
+                            <li><a href="#">
+                                    <i class="icofont-gym-alt-1"></i>
+                                    <br>
+                                    Weight Management
+                                </a></li>
                         </ul>
 
                         <div class="tab_content">
+                            <!-- Minor Illnesses -->
                             <div class="tabs_item">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-general.png"
-                                                alt="General Health Consultations">
+                                            <img src="assets/img/service-general.png" alt="Minor Illnesses">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_content">
-                                            <h3>General Health Consultations</h3>
-                                            <p>Our comprehensive general health services cover routine check-ups, acute
-                                                illness management, and health monitoring for patients of all ages. We
-                                                focus on preventive care and early detection of health issues.</p>
+                                            <h3>Minor Illnesses</h3>
+                                            <p>Fast access to private GP appointments for acute health concerns without
+                                                long waiting times.</p>
                                             <ul>
-                                                <li>Routine health check-ups and physical examinations</li>
-                                                <li>Management of acute and chronic conditions</li>
-                                                <li>Blood pressure monitoring and cardiovascular health</li>
-                                                <li>Diabetes management and monitoring</li>
-                                                <li>Health promotion and lifestyle advice</li>
+                                                <li>Same-day private GP appointments for acute concerns</li>
+                                                <li>Assessment and treatment of infections, rashes, fevers, and minor
+                                                    injuries</li>
+                                                <li>Prescriptions issued when clinically appropriate</li>
+                                                <li>Clear advice, reassurance, and safety-netting</li>
+                                                <li>Fast access without long waiting times</li>
                                             </ul>
                                             <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
                                                 class="btn">Book Consultation</a>
@@ -423,26 +790,28 @@
                                 </div>
                             </div>
 
+                            <!-- Long-Term Conditions -->
                             <div class="tabs_item">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-family.png" alt="Family Medicine Services">
+                                            <img src="assets/img/service-healthcheck.png" alt="Long-Term Conditions">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_content">
-                                            <h3>Family Medicine Services</h3>
-                                            <p>Comprehensive family healthcare for patients of all ages. We provide
-                                                personalised medical care that supports your family's health journey
-                                                from childhood through adulthood.</p>
+                                            <h3>Long-Term Conditions</h3>
+                                            <p>Comprehensive ongoing care for chronic conditions with personalised
+                                                treatment plans.</p>
                                             <ul>
-                                                <li>Paediatric and adolescent health care</li>
-                                                <li>Adult health consultations and monitoring</li>
-                                                <li>Geriatric care and health management</li>
-                                                <li>Women's health and contraception advice</li>
-                                                <li>Mental health support and referrals</li>
+                                                <li>Ongoing management of chronic conditions such as diabetes, asthma,
+                                                    hypertension, thyroid disorders etc</li>
+                                                <li>Personalised treatment plans tailored to your lifestyle and goals
+                                                </li>
+                                                <li>Medication reviews and optimisation</li>
+                                                <li>Regular monitoring, blood tests, and follow-up appointments</li>
+                                                <li>Continuity of care with an experienced private GP</li>
                                             </ul>
                                             <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
                                                 class="btn">Book Consultation</a>
@@ -451,90 +820,38 @@
                                 </div>
                             </div>
 
+                            <!-- Menopause Care -->
                             <div class="tabs_item">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-vaccine.png" alt="Vaccination Services">
+                                            <img src="assets/img/service-family.png" alt="Menopause Care">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_content">
-                                            <h3>Vaccination Services</h3>
-                                            <p>Essential vaccinations for children and adults to protect against
-                                                preventable diseases. We provide comprehensive immunization schedules
-                                                and travel vaccinations.</p>
+                                            <h3>Menopause Care</h3>
+                                            <p>Specialist support for perimenopause and menopause with unhurried
+                                                consultations and continuity of care.</p>
                                             <ul>
-                                                <li>Child and adolescent vaccination schedules</li>
-                                                <li>Adult booster vaccinations</li>
-                                                <li>Travel health consultations and vaccines</li>
-                                                <li>Influenza and seasonal vaccinations</li>
-                                                <li>COVID-19 vaccination services</li>
+                                                <li>Assessment and management of perimenopause and menopause symptoms
+                                                </li>
+                                                <li>Personalised advice on hormone and non-hormonal treatment options
+                                                </li>
+                                                <li>HRT initiation, review, and ongoing monitoring</li>
+                                                <li>Holistic support for sleep, mood, weight, and bone health</li>
+                                                <li>Time to listen, with unhurried consultations and continuity of care
+                                                </li>
                                             </ul>
                                             <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                                class="btn">Book Vaccination</a>
+                                                class="btn">Book Consultation</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="tabs_item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="tabs_item_img">
-                                            <img src="assets/img/service-healthcheck.png" alt="Health Check Services">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="tabs_item_content">
-                                            <h3>Health Check Services</h3>
-                                            <p>Comprehensive health screenings and diagnostic services to monitor your
-                                                health status and detect any potential issues early for better outcomes.
-                                            </p>
-                                            <ul>
-                                                <li>Annual health assessments and screenings</li>
-                                                <li>Blood pressure and cardiovascular monitoring</li>
-                                                <li>Cholesterol and diabetes screening</li>
-                                                <li>Cancer screening and referrals</li>
-                                                <li>ECG and basic diagnostic tests</li>
-                                            </ul>
-                                            <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                                class="btn">Schedule Health Check</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tabs_item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="tabs_item_img">
-                                            <img src="assets/img/service-urgent.png" alt="Urgent Care Services">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="tabs_item_content">
-                                            <h3>Urgent Care Services</h3>
-                                            <p>Same-day appointments and urgent care for acute illnesses and injuries
-                                                that require prompt medical attention but are not life-threatening
-                                                emergencies.</p>
-                                            <ul>
-                                                <li>Same-day urgent appointments</li>
-                                                <li>Acute illness and injury management</li>
-                                                <li>Minor surgical procedures and wound care</li>
-                                                <li>Prescription medication and repeat prescriptions</li>
-                                                <li>24-hour telephone advice service</li>
-                                            </ul>
-                                            <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                                class="btn">Urgent Appointment</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <!-- Dermatology -->
                             <div class="tabs_item">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
@@ -545,16 +862,102 @@
 
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_content">
-                                            <h3>Dermatology Services</h3>
-                                            <p>Expert dermatology consultations and comprehensive skin health
-                                                assessments. Our specialists provide diagnosis and treatment for a wide
-                                                range of skin conditions.</p>
+                                            <h3>Dermatology</h3>
+                                            <p>Expert dermatology consultations from a GP with a specialist interest in
+                                                skin conditions.</p>
                                             <ul>
-                                                <li>Mole checks and skin cancer screening</li>
-                                                <li>Management of acne, eczema, and psoriasis</li>
-                                                <li>Full body mole mapping</li>
-                                                <li>Cryotherapy and skin lesion removal</li>
-                                                <li>Rashes and skin allergy consultations</li>
+                                                <li>Assessment and management of common and complex skin conditions</li>
+                                                <li>Mole checks and skin cancer risk assessment</li>
+                                                <li>Treatment of acne, eczema, psoriasis, rosacea etc</li>
+                                                <li>Expert GP with a specialist interest in dermatology</li>
+                                                <li>Clear management plans, referrals, and follow-up where needed</li>
+                                            </ul>
+                                            <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                                class="btn">Book Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Minor Surgery -->
+                            <div class="tabs_item">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_img">
+                                            <img src="assets/img/service-urgent.png" alt="Minor Surgery">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_content">
+                                            <h3>Minor Surgery</h3>
+                                            <p>Safe, professional minor surgical procedures by experienced GP and
+                                                Consultant Plastic Surgeon.</p>
+                                            <ul>
+                                                <li>Minor surgical procedures performed by an experienced GP and
+                                                    Consultant Plastic Surgeon</li>
+                                                <li>Removal of skin lesions, cysts, lipomas, and ingrown toenails</li>
+                                                <li>Local anaesthetic procedures in a safe, clinical setting</li>
+                                                <li>Excellent cosmetic outcomes with careful wound closure</li>
+                                                <li>Histology arranged where clinically indicated</li>
+                                            </ul>
+                                            <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                                class="btn">Book Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Aesthetics -->
+                            <div class="tabs_item">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_img">
+                                            <img src="assets/img/service-vaccine.png" alt="Aesthetic Treatments">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_content">
+                                            <h3>Aesthetics</h3>
+                                            <p>Doctor-led aesthetic treatments focused on natural, subtle results with a
+                                                safety-first approach.</p>
+                                            <ul>
+                                                <li>Doctor-led aesthetic treatments focused on natural, subtle results
+                                                </li>
+                                                <li>Anti-wrinkle injections and injectable skin treatments</li>
+                                                <li>Medical-grade skin rejuvenation and acne management</li>
+                                                <li>Comprehensive consultations with safety-first approach</li>
+                                                <li>Treatments tailored to your face, skin, and goals</li>
+                                            </ul>
+                                            <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                                class="btn">Book Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Weight Management -->
+                            <div class="tabs_item">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_img">
+                                            <img src="assets/img/service-weight.png" alt="Weight Management">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="tabs_item_content">
+                                            <h3>Weight Management</h3>
+                                            <p>Medically supervised weight loss programmes with safe, evidence-based
+                                                approaches led by experienced GPs.</p>
+                                            <ul>
+                                                <li>Medically supervised weight loss programmes</li>
+                                                <li>Assessment of suitability for prescription weight loss injections
+                                                </li>
+                                                <li>Ongoing monitoring, reviews, and dose adjustments</li>
+                                                <li>Lifestyle, nutrition, and long-term health support</li>
+                                                <li>Safe, evidence-based approach led by experienced GPs</li>
                                             </ul>
                                             <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
                                                 class="btn">Book Consultation</a>
@@ -621,62 +1024,7 @@
     <!-- End Make an Appointment Area -->
 
     <!-- Start Services Area -->
-    <section id="service" class="services-area ptb-100 bg-f9faff">
-        <div class="container">
-            <div class="section-title">
-                <h3>Our Services</h3>
-                <span>Comprehensive Primary Care</span>
-                <p>At Shenfield Private GP, we provide a wide range of primary healthcare services designed to meet all
-                    your family's medical needs with convenience and expertise.</p>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-services">
-                        <i class="icofont-doctor"></i>
-                        <h3>General Consultations</h3>
-                        <p>Comprehensive medical consultations for acute and chronic conditions, preventive care, and
-                            health monitoring for patients of all ages.</p>
-                        <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                            class="icofont-paper-plane"></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-services">
-                        <i class="icofont-injection-syringe"></i>
-                        <h3>Vaccinations</h3>
-                        <p>Complete vaccination services including routine immunizations, travel vaccines, and seasonal
-                            vaccinations for the whole family.</p>
-                        <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                            class="icofont-paper-plane"></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-services">
-                        <i class="icofont-stethoscope"></i>
-                        <h3>Health Checks</h3>
-                        <p>Comprehensive health assessments, routine screenings, blood pressure monitoring, and wellness
-                            exams to maintain optimal health.</p>
-                        <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                            class="icofont-paper-plane"></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-services">
-                        <i class="icofont-ui-user"></i>
-                        <h3>Dermatology</h3>
-                        <p>Specialist skin care services including mole checks, acne treatment, and management of
-                            chronic skin conditions.</p>
-                        <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                            class="icofont-paper-plane"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- End Services Area -->
 
     <!-- Start Fun Facts Area -->
@@ -749,6 +1097,9 @@
                             Surgery</button>
                         <button class="filter" data-filter=".aesthetics"
                             data-description="Advanced aesthetic procedures designed to enhance natural beauty and boost confidence.">Aesthetics</button>
+                        <button class="filter" data-filter=".weightmgmt"
+                            data-description="Medically supervised weight loss programmes with safe, evidence-based approaches led by experienced GPs.">Weight
+                            Management</button>
                     </div>
                 </div>
             </div>
@@ -839,6 +1190,45 @@
                                 <span>Aesthetics</span>
                                 <a href="#" class="link-btn"><i class="icofont-link"></i></a>
                                 <a href="assets/img/gallery-cosmetic.png" class="popup-btn"><i
+                                        class="icofont-expand"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mix weightmgmt">
+                        <div class="single-photo">
+                            <img src="assets/img/gallery-weight.png" alt="Weight Management">
+                            <div class="gallery-content">
+                                <h3>Weight Loss Programme</h3>
+                                <span>Weight Management</span>
+                                <a href="#" class="link-btn"><i class="icofont-link"></i></a>
+                                <a href="assets/img/gallery-weight.png" class="popup-btn"><i
+                                        class="icofont-expand"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mix cardiology">
+                        <div class="single-photo">
+                            <img src="assets/img/gallery_health_screening.png" alt="Health Screening">
+                            <div class="gallery-content">
+                                <h3>Health Screening</h3>
+                                <span>Minor Illnesses</span>
+                                <a href="#" class="link-btn"><i class="icofont-link"></i></a>
+                                <a href="assets/img/gallery_health_screening.png" class="popup-btn"><i
+                                        class="icofont-expand"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mix neurology">
+                        <div class="single-photo">
+                            <img src="assets/img/gallery_mental_health.png" alt="Mental Health Support">
+                            <div class="gallery-content">
+                                <h3>Mental Health Support</h3>
+                                <span>Long Term Conditions</span>
+                                <a href="#" class="link-btn"><i class="icofont-link"></i></a>
+                                <a href="assets/img/gallery_mental_health.png" class="popup-btn"><i
                                         class="icofont-expand"></i></a>
                             </div>
                         </div>
@@ -1109,12 +1499,13 @@
     <!-- End Pricing Area -->
 
     <!-- Start Testimonials Area -->
-    <!-- <section class="testimonials-area ptb-100">
+    <section class="testimonials-area ptb-100">
         <div class="container">
             <div class="section-title">
                 <h3>Patient Testimonials</h3>
                 <span>What Our Patients Say</span>
-                <p>Hear from our valued patients about their experiences at Shenfield Private GP. We're proud of the trust and confidence our community has placed in our healthcare services.</p>
+                <p>Hear from our valued patients about their experiences at Shenfield Private GP. We're proud of the
+                    trust and confidence our community has placed in our healthcare services.</p>
             </div>
 
             <div class="row">
@@ -1124,11 +1515,13 @@
                             <div class="img">
                                 <img src="assets/img/client-avatar1.jpg" alt="client">
                             </div>
-                            <h4>Sarah Johnson</h4>
+                            <h4>Sarah J.</h4>
                             <span>Local Resident</span>
                         </div>
 
-                        <p>I've been coming to Shenfield Private GP for over 5 years now. Dr. Mitchell is amazing - she takes time to listen and explains everything clearly. The staff is always friendly and the appointment system works brilliantly.</p>
+                        <p>"Dr. Athreya is simply wonderful. He didn't just rush through the appointment but actually
+                            took the time to listen to my concerns about my anxiety. It's rare to find a GP who
+                            genuinely cares this much. I left feeling reassured and with a clear plan forward."</p>
 
                         <i class="icofont-quote-right"></i>
                     </div>
@@ -1140,11 +1533,13 @@
                             <div class="img">
                                 <img src="assets/img/client-avatar2.jpg" alt="client">
                             </div>
-                            <h4>Michael Thompson</h4>
-                            <span>Patient</span>
+                            <h4>Michael T.</h4>
+                            <span>Dermatology Patient</span>
                         </div>
 
-                        <p>Excellent service from start to finish. Dr. Thompson was thorough during my health screening and took time to explain all my results. Highly recommend this practice for anyone looking for quality private healthcare.</p>
+                        <p>"I went to see Dr. Khan for a mole check that had been worrying me. His knowledge of
+                            dermatology is exceptional. He was incredibly thorough with the examination and explained
+                            everything in plain English. Great peace of mind."</p>
 
                         <i class="icofont-quote-right"></i>
                     </div>
@@ -1156,22 +1551,24 @@
                             <div class="img">
                                 <img src="assets/img/client-avatar3.jpg" alt="client">
                             </div>
-                            <h4>Emma Wilson</h4>
-                            <span>Family Patient</span>
+                            <h4>Emma W.</h4>
+                            <span>Women's Health Patient</span>
                         </div>
 
-                        <p>We've been using Shenfield Private GP for our whole family. The doctors are great with children and my elderly parents. Same-day appointments are a lifesaver when you need urgent care.</p>
+                        <p>"Finally, a doctor who listens! I saw Dr. Nana for menopause advice, and she was fantastic.
+                            She really understood what I was going through and discussed all my HRT options properly.
+                            The clinic itself is lovely and calm, too."</p>
 
                         <i class="icofont-quote-right"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- End Testimonials Area -->
 
     <!-- Start News Area -->
-    <section id="blog" class="news-area ptb-100 bg-f9faff">
+    <!-- <section id="blog" class="news-area ptb-100 bg-f9faff">
         <div class="container">
             <div class="section-title">
                 <h3>Health News & Tips</h3>
@@ -1224,7 +1621,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End News Area -->
 
     <!-- Start Contact Area -->
@@ -1395,7 +1792,8 @@
                 <div class="footer-cqc-note"
                     style="border-top: 1px solid #e8eef5; padding-top: 20px; margin-bottom: 20px; font-size: 13px; color: #555;">
                     <p style="margin: 0;"><strong>Note:</strong> Shenfield Private GP is a service provided by
-                        <strong>Aesthetk Ltd</strong>, a CQC registered healthcare provider.
+                        <strong>Aesthetk Ltd</strong>, a CQC registered healthcare provider. <a href="regulatory.html"
+                            style="color: inherit; text-decoration: underline;">See Regulatory Info</a>.
                     </p>
                 </div>
                 <div class="row">
@@ -1404,8 +1802,9 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="footer-bottom-links">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms of Service</a>
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="terms-of-service.html">Terms of Service</a>
+                            <a href="cookie-policy.html">Cookie Policy</a>
                         </div>
                     </div>
                 </div>
@@ -1414,8 +1813,36 @@
     </footer>
     <!-- End Footer Area -->
 
-    <div class="go-top"><i class="icofont-stylish-up"></i></div>
+    <!-- Start Go Top Area -->
+    <div class="go-top">
+        <i class="icofont-arrow-up"></i>
+    </div>
+    <!-- End Go Top Area -->
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/447769310217" class="whatsapp-float" target="_blank">
+        <i class="icofont-brand-whatsapp"></i>
+    </a>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <p>We use cookies to improve your experience. By using our site, you agree to our <a
+                href="cookie-policy.html">Cookie Policy</a>.</p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        window.onload = function () {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+        };
+    </script>
     <!-- Link of JS files -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -1477,6 +1904,25 @@
                 });
             });
         });
+
+        // Toggle doctor bio expand/collapse
+        function toggleDoctorBio(element) {
+            var $toggle = $(element);
+            var $fullBio = $toggle.siblings('.doctor-full-bio');
+            var $shortBio = $toggle.siblings('.doctor-short-bio');
+
+            if ($fullBio.is(':visible')) {
+                $fullBio.slideUp(300);
+                $shortBio.slideDown(300);
+                $toggle.html('Read more <i class="icofont-arrow-down"></i>');
+                $toggle.removeClass('expanded');
+            } else {
+                $fullBio.slideDown(300);
+                $shortBio.slideUp(300);
+                $toggle.html('Read less <i class="icofont-arrow-up"></i>');
+                $toggle.addClass('expanded');
+            }
+        }
     </script>
 </body>
 
