@@ -23,6 +23,34 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/dark-style.css">
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 10px;
+            left: 20px;
+            right: auto;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            color: #fff;
+            background-color: #20ba5a;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
 <body>
@@ -852,6 +880,11 @@
         <i class="icofont-arrow-up"></i>
     </div>
     <!-- End Back to Top -->
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/447769310217" class="whatsapp-float" target="_blank">
+        <i class="icofont-brand-whatsapp"></i>
+    </a>
 
     <!-- JS -->
     <script src="../assets/js/jquery.min.js"></script>
