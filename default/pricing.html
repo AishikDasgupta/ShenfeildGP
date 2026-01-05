@@ -26,6 +26,93 @@
         content="private GP prices Shenfield, GP consultation cost Brentwood, private doctor fees Essex, health screening prices">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.shenfieldprivategp.com/pricing.html">
+    <style>
+        /* Custom Pricing Page Styles */
+
+        /* 1. Tabs styled like Gallery Filters */
+        .pricing-tab {
+            margin-bottom: 40px !important;
+            /* 2. Add margin bottom */
+            background: transparent !important;
+            border: none;
+        }
+
+        .pricing-tab .nav-tabs {
+            border-bottom: none;
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pricing-tab .nav-link {
+            border: 1px solid #e1e1e1;
+            border-radius: 30px;
+            color: #222;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 20px;
+            transition: 0.3s;
+            background-color: #fff;
+            margin: 0;
+        }
+
+        .pricing-tab .nav-link:hover,
+        .pricing-tab .nav-link.active {
+            background-color: #0076ff;
+            /* Primary blue */
+            color: #fff;
+            border-color: #0076ff;
+        }
+
+        /* 3. Equal Pricing Card Heights */
+        .pricing-table {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .pricing-header h3 {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .pricing-features {
+            flex-grow: 1;
+        }
+
+        .pricing-footer {
+            margin-top: 20px;
+            padding-bottom: 30px;
+        }
+
+        /* 4. Reduce bottom padding for the section to avoid excess space on short tabs */
+        .pricing-area {
+            padding-bottom: 40px !important;
+        }
+
+        .tab-content,
+        .tab-pane {
+            height: auto !important;
+            min-height: 0 !important;
+        }
+
+        /* 6. Strict visibility control to ensure no ghost height from hidden tabs */
+        .tab-pane:not(.active) {
+            display: none !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+    </style>
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-offset="70">
@@ -141,7 +228,7 @@
                     fees.</p>
             </div>
 
-            <div class="tab pricing-tab bg-white">
+            <div class="pricing-tab bg-white">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="gp-tab" data-bs-toggle="tab" data-bs-target="#gp"
@@ -252,31 +339,9 @@
                 </div>
 
                 <!-- Dermatology Tab -->
-                <div class="tab-pane fade" id="dermatology" role="tabpanel" aria-labelledby="dermatology-tab">
+                <div class="tab-pane" id="dermatology" role="tabpanel" aria-labelledby="dermatology-tab">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Single Mole Check</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>99</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Professional mole examination</li>
-                                        <li>Dermoscopy assessment</li>
-                                        <li>Skin cancer screening</li>
-                                        <li>Expert dermatology consultation</li>
-                                        <li>Treatment recommendations if needed</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Mole Check</a>
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="col-lg-4 col-md-6">
                             <div class="pricing-table">
@@ -377,7 +442,7 @@
                 </div>
 
                 <!-- Menopause Tab -->
-                <div class="tab-pane fade" id="menopause" role="tabpanel" aria-labelledby="menopause-tab">
+                <div class="tab-pane" id="menopause" role="tabpanel" aria-labelledby="menopause-tab">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6">
                             <div class="pricing-table">
@@ -406,7 +471,7 @@
                 </div>
 
                 <!-- Health Screening Tab -->
-                <div class="tab-pane fade" id="screening" role="tabpanel" aria-labelledby="screening-tab">
+                <div class="tab-pane" id="screening" role="tabpanel" aria-labelledby="screening-tab">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6">
                             <div class="pricing-table">
@@ -528,7 +593,7 @@
                 </div>
 
                 <!-- Minor Surgery Tab -->
-                <div class="tab-pane fade" id="surgery" role="tabpanel" aria-labelledby="surgery-tab">
+                <div class="tab-pane" id="surgery" role="tabpanel" aria-labelledby="surgery-tab">
                     <div class="section-title" style="margin-bottom: 30px; margin-top: 20px;">
                         <h4>GP Led Procedures</h4>
                     </div>
@@ -601,7 +666,32 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <h3>Histology</h3>
+                                </div>
+                                <div class="price">
+                                    <span><sup>From</sup> £150</span>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li>Tissue sample analysis</li>
+                                        <li>Laboratory examination</li>
+                                        <li>Detailed pathology report</li>
+                                        <li>Results interpretation</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-footer">
+                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                        class="btn">Book Service</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
 
                     <div class="section-title" style="margin-bottom: 30px; margin-top: 40px;">
                         <h4>Consultant Plastic Surgeon Led</h4>
@@ -701,6 +791,32 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="pricing-table">
                                 <div class="pricing-header">
+                                    <h3>Cyst Excision (x2)</h3>
+                                </div>
+                                <div class="price">
+                                    <span><sup>+</sup>£495</span>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li>Second cyst removal</li>
+                                        <li>Additional procedure</li>
+                                        <li>Same session available</li>
+                                        <li>Follow-up care included</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-footer">
+                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                        class="btn">Book Procedure</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
                                     <h3>Mole Excision (Surgeon)</h3>
                                 </div>
                                 <div class="price">
@@ -720,175 +836,360 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <h3>Mole Excision (2)</h3>
+                                </div>
+                                <div class="price">
+                                    <span><sup>+</sup>£225</span>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li>Second mole removal</li>
+                                        <li>Additional procedure</li>
+                                        <li>Same session available</li>
+                                        <li>Follow-up care included</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-footer">
+                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                        class="btn">Book Procedure</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <h3>Mole Shave (1)</h3>
+                                </div>
+                                <div class="price">
+                                    <span><sup>£</sup>450</span>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li>Single mole shave removal</li>
+                                        <li>Professional shave technique</li>
+                                        <li>Minimal scarring</li>
+                                        <li>Follow-up care included</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-footer">
+                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                        class="btn">Book Procedure</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <h3>Mole Shave (2+)</h3>
+                                </div>
+                                <div class="price">
+                                    <span><sup>+</sup>£150/each</span>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li>Additional mole shave</li>
+                                        <li>Per mole pricing</li>
+                                        <li>Same session available</li>
+                                        <li>Follow-up care included</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-footer">
+                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                        class="btn">Book Procedure</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Aesthetics Tab -->
-                <div class="tab-pane fade" id="aesthetics" role="tabpanel" aria-labelledby="aesthetics-tab">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Anti-Wrinkle (1 Area)</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>199</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Single area treatment</li>
-                                        <li>Professional injection</li>
-                                        <li>Reduces fine lines and wrinkles</li>
-                                        <li>Natural-looking results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Mole Shave (2+)</h3>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Anti-Wrinkle (2 Areas)</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>249</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Two area treatment</li>
-                                        <li>Professional injection</li>
-                                        <li>Reduces fine lines and wrinkles</li>
-                                        <li>Natural-looking results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
+                            <div class="price">
+                                <span><sup>+</sup>£150/each</span>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Anti-Wrinkle (3 Areas)</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>299</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Three area treatment</li>
-                                        <li>Professional injection</li>
-                                        <li>Reduces fine lines and wrinkles</li>
-                                        <li>Natural-looking results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Additional mole shave</li>
+                                    <li>Per mole pricing</li>
+                                    <li>Same session available</li>
+                                    <li>Follow-up care included</li>
+                                </ul>
                             </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Profhilo</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>295</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Skin hydration treatment</li>
-                                        <li>Collagen stimulation</li>
-                                        <li>Natural skin rejuvenation</li>
-                                        <li>Long-lasting results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Sunekos</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>275</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Skin rejuvenation treatment</li>
-                                        <li>Collagen and elastin boost</li>
-                                        <li>Natural skin improvement</li>
-                                        <li>Long-lasting results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Polynucleotides</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>£</sup>275</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Advanced skin treatment</li>
-                                        <li>DNA-based rejuvenation</li>
-                                        <li>Natural skin improvement</li>
-                                        <li>Long-lasting results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <h3>Dermal Filler</h3>
-                                </div>
-                                <div class="price">
-                                    <span><sup>From</sup> £250</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>Volume restoration</li>
-                                        <li>Facial contouring</li>
-                                        <li>Professional injection</li>
-                                        <li>Natural-looking results</li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-footer">
-                                    <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
-                                        class="btn">Book Treatment</a>
-                                </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Procedure</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Aesthetics Tab -->
+            <div class="tab-pane" id="aesthetics" role="tabpanel" aria-labelledby="aesthetics-tab">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Anti-Wrinkle (1 Area)</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>199</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Single area treatment</li>
+                                    <li>Professional injection</li>
+                                    <li>Reduces fine lines and wrinkles</li>
+                                    <li>Natural-looking results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Anti-Wrinkle (2 Areas)</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>249</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Two area treatment</li>
+                                    <li>Professional injection</li>
+                                    <li>Reduces fine lines and wrinkles</li>
+                                    <li>Natural-looking results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Anti-Wrinkle (3 Areas)</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>299</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Three area treatment</li>
+                                    <li>Professional injection</li>
+                                    <li>Reduces fine lines and wrinkles</li>
+                                    <li>Natural-looking results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Migraine Treatment</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>550</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Migraine prevention treatment</li>
+                                    <li>Professional injection therapy</li>
+                                    <li>Reduces migraine frequency</li>
+                                    <li>Long-lasting relief</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Excessive Sweating</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>495</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Hyperhidrosis treatment</li>
+                                    <li>Professional injection therapy</li>
+                                    <li>Reduces excessive sweating</li>
+                                    <li>Long-lasting results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Jaw Slimming</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>299</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Masseter muscle treatment</li>
+                                    <li>Jawline contouring</li>
+                                    <li>Professional injection</li>
+                                    <li>Natural-looking results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Bruxism Treatment</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>425</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Teeth grinding treatment</li>
+                                    <li>Masseter muscle relaxation</li>
+                                    <li>Professional injection therapy</li>
+                                    <li>Protects teeth and jaw</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Profhilo</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>295</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Skin hydration treatment</li>
+                                    <li>Collagen stimulation</li>
+                                    <li>Natural skin rejuvenation</li>
+                                    <li>Long-lasting results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Sunekos</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>275</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Skin rejuvenation treatment</li>
+                                    <li>Collagen and elastin boost</li>
+                                    <li>Natural skin improvement</li>
+                                    <li>Long-lasting results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Polynucleotides</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>£</sup>275</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Advanced skin treatment</li>
+                                    <li>DNA-based rejuvenation</li>
+                                    <li>Natural skin improvement</li>
+                                    <li>Long-lasting results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <h3>Dermal Filler</h3>
+                            </div>
+                            <div class="price">
+                                <span><sup>From</sup> £250</span>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>Volume restoration</li>
+                                    <li>Facial contouring</li>
+                                    <li>Professional injection</li>
+                                    <li>Natural-looking results</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180"
+                                    class="btn">Book Treatment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
     <!-- End Pricing Area with Tabs -->
