@@ -521,15 +521,19 @@
 }
 
 .theme-dark .main-banner-three .hero-content h1 {
-    color: #000000 !important;
+    color: #fff !important;
+}
+
+.theme-dark .main-banner-three .hero-content h1 span {
+    color: #fff !important;
 }
 
 .theme-dark .main-banner-three .hero-content p {
-    color: #cacaca;
+    color: #fff !important;
 }
 
 .theme-dark .main-banner-three .hero-content span {
-    color: #0078ff;
+    color: #fff !important;
 }
 
 /* Dark mode for single-value cards (Our Values section) */

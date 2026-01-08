@@ -4966,3 +4966,104 @@ footer img[src*="Logo"] {
         max-width: 20%;
     }
 }
+
+/* Announcement Bar Styles */
+.announcement-bar {
+    background: linear-gradient(135deg, #d4551a 0%, #eb621b 100%);
+    color: #fff;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1000;
+}
+
+.announcement-bar-track {
+    display: flex;
+    animation: marquee 25s linear infinite;
+    white-space: nowrap;
+}
+
+.announcement-bar-content {
+    display: flex;
+    align-items: center;
+    padding-right: 80px;
+}
+
+.announcement-bar-content span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.announcement-bar-content span i {
+    color: #fff !important;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.announcement-bar-content .divider {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 30px;
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.announcement-bar:hover .announcement-bar-track {
+    animation-play-state: paused;
+}
+
+/* Doctor Availability Tag */
+.doctor-image-wrapper {
+    position: relative;
+    display: inline-block;
+    /* Ensures wrapper fits image */
+}
+
+.doctor-availability-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, #d4551a 0%, #eb621b 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-top-left-radius: 8px;
+    /* Rounded corner only on inner side */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .announcement-bar {
+        padding: 8px 0;
+    }
+
+    .announcement-bar-content span {
+        font-size: 13px;
+    }
+
+    .announcement-bar-content .divider {
+        margin: 0 20px;
+    }
+
+    .announcement-bar-track {
+        animation-duration: 20s;
+    }
+}
