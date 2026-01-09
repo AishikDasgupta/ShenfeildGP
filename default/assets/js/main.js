@@ -161,9 +161,20 @@
                 });
         });
 
-    jQuery(window).on("load", function () {
-        t(".preloader-area").fadeOut();
-    });
+    // Hide preloader quickly - use DOMContentLoaded instead of load for faster page display
+    // DOMContentLoaded fires when HTML is parsed, not waiting for images/resources
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                t(".preloader-area").fadeOut(300);
+            }, 200);
+        });
+    } else {
+        // DOM already loaded (cached page or fast connection)
+        setTimeout(function () {
+            t(".preloader-area").fadeOut(300);
+        }, 100);
+    }
 
 })(jQuery);
 

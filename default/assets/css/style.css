@@ -1148,7 +1148,7 @@ fieldset:disabled .btn:hover {
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
     background: 0 0 !important;
@@ -1169,7 +1169,7 @@ fieldset:disabled .btn:hover {
 
 .navbar-light.is-sticky {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
     background: #fff !important;
@@ -1239,7 +1239,7 @@ fieldset:disabled .btn:hover {
 
 .navbar.navbar-two {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 100%;
     background: #fff !important;
@@ -4655,6 +4655,48 @@ a.navbar-brand img {
     align-items: center !important;
 }
 
+/* Navbar Phone Number */
+.navbar-phone {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #eb621b;
+    transition: color 0.3s ease;
+}
+
+.navbar-phone:hover {
+    color: #d4551a;
+    text-decoration: none;
+}
+
+.navbar-phone .area-code {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.navbar-phone .main-number {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 991px) {
+    .navbar-phone {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    .navbar-phone .area-code {
+        font-size: 13px;
+    }
+
+    .navbar-phone .main-number {
+        font-size: 16px;
+    }
+}
+
 /* Footer logo consistency */
 .footer-logo img,
 .footer-content img,
@@ -4973,8 +5015,11 @@ footer img[src*="Logo"] {
     color: #fff;
     padding: 10px 0;
     overflow: hidden;
-    position: relative;
-    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
 }
 
 .announcement-bar-track {
@@ -5065,5 +5110,12 @@ footer img[src*="Logo"] {
 
     .announcement-bar-track {
         animation-duration: 20s;
+    }
+
+    /* Adjust navbar position for smaller announcement bar on mobile */
+    .navbar,
+    .navbar.navbar-two,
+    .navbar-light.is-sticky {
+        top: 36px;
     }
 }
