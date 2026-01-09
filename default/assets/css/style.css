@@ -5143,3 +5143,8 @@ footer img[src*="Logo"] {
         color: #fff !important;
     }
 }
+
+/* Announcement Bar Phone Number Visibility */
+.announcement-bar .mobile-visible-phone strong {
+    color: #00008B !important; /* DarkBlue */
+}
