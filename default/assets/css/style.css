@@ -3830,7 +3830,7 @@ textarea.form-control {
     position: relative;
     z-index: 1;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 130px;
 }
 
 .page-title-content {
@@ -4672,29 +4672,40 @@ a.navbar-brand img {
 }
 
 .navbar-phone .area-code {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
+    color: inherit;
 }
 
 .navbar-phone .main-number {
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.5px;
+    color: inherit;
 }
 
 @media (max-width: 991px) {
     .navbar-phone {
         margin-top: 12px;
         margin-bottom: 10px;
+        font-size: 16px;
     }
 
     .navbar-phone .area-code {
-        font-size: 13px;
+        font-size: 16px;
+        color: #6f8ba4;
     }
 
     .navbar-phone .main-number {
         font-size: 16px;
+        color: #6f8ba4;
+        font-weight: 600;
     }
+}
+
+.mobile-visible-phone strong {
+    color: #00c6ff !important;
+    margin-left: 5px;
 }
 
 /* Footer logo consistency */
@@ -5026,6 +5037,9 @@ footer img[src*="Logo"] {
     display: flex;
     animation: marquee 25s linear infinite;
     white-space: nowrap;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    width: max-content;
 }
 
 .announcement-bar-content {
@@ -5117,5 +5131,15 @@ footer img[src*="Logo"] {
     .navbar.navbar-two,
     .navbar-light.is-sticky {
         top: 36px;
+    }
+}
+
+/* Mobile visible phone fix */
+@media (max-width: 767px) {
+    .mobile-visible-phone {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: #fff !important;
     }
 }
