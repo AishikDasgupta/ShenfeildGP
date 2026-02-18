@@ -3848,6 +3848,9 @@ fieldset:disabled .btn:hover {
 .footer-bottom-links {
     text-align: right;
     padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
 }
 
 .footer-bottom-links a {
@@ -3856,6 +3859,7 @@ fieldset:disabled .btn:hover {
     text-decoration: none;
     margin-left: 20px;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .footer-bottom-links a:hover {
