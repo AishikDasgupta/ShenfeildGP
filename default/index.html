@@ -6,17 +6,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Link of CSS files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/icofont.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/dark-style.css">
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://online-booking.semble.io">
+    <link rel="preconnect" href="https://chatling.ai">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/critical.css" as="style">
+    <link rel="preload" href="assets/js/lazy-load.js" as="script">
+    <link rel="preload" href="assets/logo/LogoText.webp" as="image">
+    
+    <!-- Critical CSS - Inline for fastest render -->
+    <link rel="stylesheet" href="assets/css/critical.css">
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <script>
+    !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,c=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var d=i.styleSheets;c.rel="stylesheet",c.href=t,c.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(c,n?o:o.nextSibling)});var f=function(e){for(var t=c.href,n=d.length;n--;)if(d[n].href===t)return e();setTimeout(function(){f(e)})};return c.addEventListener&&c.addEventListener("load",r),c.onloadcssdefined=f,f(r),c};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+    loadCSS("assets/css/bootstrap.min.css");
+    loadCSS("assets/css/icofont.min.css");
+    loadCSS("assets/css/owl.carousel.css");
+    loadCSS("assets/css/owl.theme.default.min.css");
+    loadCSS("assets/css/magnific-popup.css");
+    loadCSS("assets/css/animate.css");
+    loadCSS("assets/css/style.css");
+    loadCSS("assets/css/responsive.css");
+    loadCSS("assets/css/dark-style.css");
+    </script>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/icofont.min.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.css">
+        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/dark-style.css">
+    </noscript>
     <style>
         .whatsapp-float {
             position: fixed;
@@ -527,7 +554,7 @@
     <nav class="navbar navbar-two navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/logo/LogoText.webp" alt="Shenfield Private GP" class="logo1" style="height: 50px;">
+                <img src="assets/logo/LogoText.webp" alt="Shenfield Private GP" class="logo1" width="200" height="50" style="height: 50px;">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -566,8 +593,8 @@
 
     <!-- Start Main Banner Area -->
     <div id="home" class="main-banner-three main-banner-three-video">
-        <video loop="" muted="" autoplay="" poster="#" class="background-video">
-            <source src="assets/videos/Patient_Receptionist_Clinic_Video.webm" type="video/mp4">
+        <video loop="" muted="" autoplay="" playsinline preload="none" poster="assets/img/PNG-01.webp" class="background-video" data-src="assets/videos/Patient_Receptionist_Clinic_Video.webm">
+            <source data-src="assets/videos/Patient_Receptionist_Clinic_Video.webm" type="video/webm">
         </video>
         <div class="d-table">
             <div class="d-table-cell">
@@ -652,27 +679,27 @@
                     <div class="row about-image">
                         <div class="col-6 col-lg-6 col-md-6">
                             <div class="image">
-                                <img src="assets/img/choose-care.webp" alt="Compassionate Care">
+                                <img data-src="assets/img/choose-care.webp" alt="Compassionate Care" loading="lazy" width="300" height="400">
                             </div>
                         </div>
 
                         <div class="col-6 col-lg-6 col-md-6">
                             <div class="image">
-                                <img src="assets/img/service-minor-surgery.webp" alt="Minor Surgery">
+                                <img data-src="assets/img/service-minor-surgery.webp" alt="Minor Surgery" loading="lazy" width="300" height="400">
                             </div>
                         </div>
 
                         <div class="col-6 col-lg-6 col-md-6">
                             <div class="image mt-30">
-                                <img src="assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp"
-                                    alt="Family Care">
+                                <img data-src="assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp"
+                                    alt="Family Care" loading="lazy" width="300" height="400">
                             </div>
                         </div>
 
                         <div class="col-6 col-lg-6 col-md-6">
                             <div class="image mt-30">
-                                <img src="assets/img/modern_gp_clinic_interaction_no_faces_1767990325301.webp"
-                                    alt="Medical Consultation">
+                                <img data-src="assets/img/modern_gp_clinic_interaction_no_faces_1767990325301.webp"
+                                    alt="Medical Consultation" loading="lazy" width="300" height="400">
                             </div>
                         </div>
                     </div>
@@ -736,7 +763,7 @@
                             <div class="doctor-carousel-item">
                                 <div class="doctor-testimonial-minimal">
                                     <div class="doctor-image-wrapper">
-                                        <img src="assets/img/doctor-img2_new.webp" alt="Dr Kannan Athreya">
+                                        <img data-src="assets/img/doctor-img2_new.webp" alt="Dr Kannan Athreya" loading="lazy" width="400" height="400">
                                     </div>
                                     <div class="doctor-testimonial-content">
                                         <h3>Dr Kannan Athreya</h3>
@@ -981,7 +1008,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-general.webp" alt="Minor Illnesses">
+                                            <img data-src="assets/img/service-general.webp" alt="Minor Illnesses" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1010,7 +1037,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-healthcheck.webp" alt="Long-Term Conditions">
+                                            <img data-src="assets/img/service-healthcheck.webp" alt="Long-Term Conditions" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1040,7 +1067,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-menopause.webp" alt="Menopause Care">
+                                            <img data-src="assets/img/service-menopause.webp" alt="Menopause Care" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1071,7 +1098,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/gallery-skin.webp" alt="Dermatology Services">
+                                            <img data-src="assets/img/gallery-skin.webp" alt="Dermatology Services" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1099,7 +1126,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-minor-surgery.webp" alt="Minor Surgery">
+                                            <img data-src="assets/img/service-minor-surgery.webp" alt="Minor Surgery" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1127,8 +1154,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-minor-asthetics.webp"
-                                                alt="Aesthetic Treatments">
+                                            <img data-src="assets/img/service-minor-asthetics.webp"
+                                                alt="Aesthetic Treatments" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1156,7 +1183,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="tabs_item_img">
-                                            <img src="assets/img/service-weight.webp" alt="Weight Management">
+                                            <img data-src="assets/img/service-weight.webp" alt="Weight Management" loading="lazy" width="600" height="400">
                                         </div>
                                     </div>
 
@@ -1360,7 +1387,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-general.webp" alt="General Consultation">
+                                    <img data-src="assets/img/gallery-general.webp" alt="General Consultation" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>General Consultation</h3>
                                         <span>Minor illnesses</span>
@@ -1380,7 +1407,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-chronic.webp" alt="Chronic Disease Management">
+                                    <img data-src="assets/img/gallery-chronic.webp" alt="Chronic Disease Management" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Chronic Disease Management</h3>
                                         <span>Long term conditions</span>
@@ -1400,7 +1427,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-hormone.webp" alt="Hormone Therapy">
+                                    <img data-src="assets/img/gallery-hormone.webp" alt="Hormone Therapy" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Hormone Therapy</h3>
                                         <span>Menopause</span>
@@ -1420,7 +1447,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-skin.webp" alt="Skin Health Assessment">
+                                    <img data-src="assets/img/gallery-skin.webp" alt="Skin Health Assessment" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Skin Health Assessment</h3>
                                         <span>Dermatology</span>
@@ -1440,7 +1467,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-minor.webp" alt="Minor Procedures">
+                                    <img data-src="assets/img/gallery-minor.webp" alt="Minor Procedures" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Minor Procedures</h3>
                                         <span>Minor/Plastic Surgery</span>
@@ -1460,7 +1487,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-cosmetic.webp" alt="Cosmetic Treatments">
+                                    <img data-src="assets/img/gallery-cosmetic.webp" alt="Cosmetic Treatments" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Cosmetic Treatments</h3>
                                         <span>Aesthetics</span>
@@ -1480,7 +1507,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery-weight.webp" alt="Weight Management">
+                                    <img data-src="assets/img/gallery-weight.webp" alt="Weight Management" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Weight Loss Programme</h3>
                                         <span>Weight Management</span>
@@ -1500,7 +1527,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery_health_screening.webp" alt="Health Screening">
+                                    <img data-src="assets/img/gallery_health_screening.webp" alt="Health Screening" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Health Screening</h3>
                                         <span>Minor Illnesses</span>
@@ -1520,7 +1547,7 @@
                         <div class="single-photo">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="assets/img/gallery_mental_health.webp" alt="Mental Health Support">
+                                    <img data-src="assets/img/gallery_mental_health.webp" alt="Mental Health Support" loading="lazy" width="400" height="280">
                                     <div class="gallery-content">
                                         <h3>Mental Health Support</h3>
                                         <span>Long Term Conditions</span>
@@ -1790,7 +1817,7 @@
                     <div class="single-feedback">
                         <div class="client-info">
                             <div class="img">
-                                <img src="assets/img/client-avatar1.webp" alt="client">
+                                <img data-src="assets/img/client-avatar1.webp" alt="client" loading="lazy" width="80" height="80">
                             </div>
                             <h4>Sarah J.</h4>
                             <span>Local Resident</span>
@@ -1808,7 +1835,7 @@
                     <div class="single-feedback">
                         <div class="client-info">
                             <div class="img">
-                                <img src="assets/img/client-avatar2.webp" alt="client">
+                                <img data-src="assets/img/client-avatar2.webp" alt="client" loading="lazy" width="80" height="80">
                             </div>
                             <h4>Michael T.</h4>
                             <span>Dermatology Patient</span>
@@ -1826,7 +1853,7 @@
                     <div class="single-feedback">
                         <div class="client-info">
                             <div class="img">
-                                <img src="assets/img/client-avatar3.webp" alt="client">
+                                <img data-src="assets/img/client-avatar3.webp" alt="client" loading="lazy" width="80" height="80">
                             </div>
                             <h4>Emma W.</h4>
                             <span>Women's Health Patient</span>
@@ -1857,7 +1884,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
-                        <a href="single-blog.html" class="blog-img"><img src="assets/img/blog-img1.webp" alt="blog"></a>
+                        <a href="single-blog.html" class="blog-img"><img data-src="assets/img/blog-img1.webp" alt="blog" loading="lazy" width="400" height="300"></a>
 
                         <div class="post-content">
                             <h4><a href="single-blog.html">Winter Health Tips: Staying Well During Cold Season</a></h4>
@@ -1871,7 +1898,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
-                        <a href="single-blog.html" class="blog-img"><img src="assets/img/blog-img2.webp" alt="blog"></a>
+                        <a href="single-blog.html" class="blog-img"><img data-src="assets/img/blog-img2.webp" alt="blog" loading="lazy" width="400" height="300"></a>
 
                         <div class="post-content">
                             <h4><a href="single-blog.html">Importance of Regular Health Screenings</a></h4>
@@ -1885,7 +1912,7 @@
 
                 <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
                     <div class="single-blog-post">
-                        <a href="single-blog.html" class="blog-img"><img src="assets/img/blog-img3.webp" alt="blog"></a>
+                        <a href="single-blog.html" class="blog-img"><img data-src="assets/img/blog-img3.webp" alt="blog" loading="lazy" width="400" height="300"></a>
 
                         <div class="post-content">
                             <h4><a href="single-blog.html">Managing Stress: Your Mental Health Matters</a></h4>
@@ -2002,7 +2029,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <img src="assets/img/PNG-01.webp" alt="Shenfield Private GP" style="height: 50px;">
+                            <img data-src="assets/img/PNG-01.webp" alt="Shenfield Private GP" loading="lazy" width="200" height="50" style="height: 50px;">
                         </div>
                         <p>Your trusted local GP practice providing comprehensive primary healthcare services with
                             compassion and excellence.</p>
@@ -2013,9 +2040,9 @@
                             <a href="#"><i class="icofont-instagram"></i></a>
                         </div>
                         <div class="footer-cqc-logo" style="margin-top: 25px; display:flex; gap:10px; align-items:center;">
-                            <img src="assets/logo/1--CQC-Regulated-by-PURPLE-135px.webp" alt="CQC Regulated"
-                                style="max-width: 135px;">
-                            <img src="assets/img/dementia_tag.jpg" alt="Dementia Tag" style="max-width: 135px;">
+                            <img data-src="assets/logo/1--CQC-Regulated-by-PURPLE-135px.webp" alt="CQC Regulated"
+                                style="max-width: 135px;" loading="lazy" width="135" height="60">
+                            <img data-src="assets/img/dementia_tag.jpg" alt="Dementia Tag" style="max-width: 135px;" loading="lazy" width="135" height="60">
                         </div>
                     </div>
                 </div>
@@ -2126,17 +2153,16 @@
             }
         };
     </script>
-    <!-- Link of JS files -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.mixitup.min.js"></script>
-    <script src="assets/js/form-validator.min.js"></script>
-    <script src="assets/js/contact-form-script.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Link of JS files - Deferred for better performance -->
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="assets/js/owl.carousel.min.js" defer></script>
+    <script src="assets/js/jquery.magnific-popup.min.js" defer></script>
+    <script src="assets/js/jquery.mixitup.min.js" defer></script>
+    <script src="assets/js/form-validator.min.js" defer></script>
+    <script src="assets/js/contact-form-script.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
     <script>
         (function () {
             function c() {
@@ -2169,8 +2195,8 @@
             }
         })();
     </script>
-    <script> window.chtlConfig = { chatbotId: "4678966719" } </script>
-    <script async data-id="4678966719" id="chtl-script" type="text/javascript"
+    <script defer> window.chtlConfig = { chatbotId: "4678966719" } </script>
+    <script defer data-id="4678966719" id="chtl-script" type="text/javascript"
         src="https://chatling.ai/js/embed.js"></script>
     <!-- Description Update Script -->
     <script>
