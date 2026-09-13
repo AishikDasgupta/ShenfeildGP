@@ -1,0 +1,8 @@
+{
+    "livePreview.defaultPreviewPath": "/default/index.html",
+    "liveServer.settings.ignoreFiles": [
+        "**/backend/**",
+        "**/analytics.db"
+    ],
+    "liveServer.settings.port": 5501
+}

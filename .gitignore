@@ -1,26 +1,2 @@
-# Executable files
-*.exe
-*.dmg
-*.app
-
-# Large binary files that shouldn't be in repo
-*.zip
-*.rar
-*.7z
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Feedback
-default/assets/docs/*
-dashboard
-backend
-
-default/assets/js/tracker.js
+SPGP bio for website .md
+SPGP bio for website .docx

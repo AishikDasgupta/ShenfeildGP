@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shenfield Private GP | Aesthetk by Dr K — Private GP, Skin &amp; Hair Clinic, Shenfield, Brentwood</title>
+<meta name="description" content="One clinic for complete care in Shenfield, Brentwood. Private GP appointments, advanced digital mole mapping, dermatology, weight management and doctor-led aesthetics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#fbf9f5;          /* warm paper */
+  --bg-2:#ffffff;
+  --bg-3:#f2eee6;
+  --ink:#14202e;         /* deep navy — main text */
+  --ink-soft:#4b5866;    /* secondary text */
+  --blue:#1c4fd8;
+  --blue-deep:#12327f;
+  --blue-tint:#e9eefc;
+  --orange:#e8570f;
+  --orange-deep:#b53f05;
+  --orange-tint:#fdeee4;
+  --gold:#a98a4e;
+  --line:#e5dfd3;
+  --radius:22px;
+  --shadow-sm:0 2px 10px rgba(20,32,46,.06);
+  --shadow-md:0 14px 40px rgba(20,32,46,.1);
+  --shadow-lg:0 28px 70px rgba(20,32,46,.16);
+  --serif:'Fraunces',serif;
+  --sans:'Inter',sans-serif;
+  --navbg:rgba(251,249,245,.92);
+  --gridln:rgba(20,32,46,.055);
+}
+html[data-theme="dark"]{
+  --bg:#0b0e16;
+  --bg-2:#141928;
+  --bg-3:#1b2234;
+  --ink:#edf0f7;
+  --ink-soft:#a7b0c4;
+  --blue-tint:#1b2745;
+  --orange-tint:#331f10;
+  --line:#28304a;
+  --navbg:rgba(9,12,20,.92);
+  --gridln:rgba(255,255,255,.05);
+  --shadow-sm:0 2px 10px rgba(0,0,0,.35);
+  --shadow-md:0 14px 40px rgba(0,0,0,.45);
+  --shadow-lg:0 28px 70px rgba(0,0,0,.55);
+}
+html[data-theme="dark"] .stat .num,html[data-theme="dark"] .bmi-result .val{color:#8fa8ff}
+html[data-theme="dark"] .snap .go,html[data-theme="dark"] .c-card a,html[data-theme="dark"] .crumb a{color:#8fa8ff}
+html[data-theme="dark"] .btn-soft{color:#bcd0ff}
+html[data-theme="dark"] .chip.hl{border-color:#6b3d1c}
+html[data-theme="dark"] .chip.bl{border-color:#2c3f6e}
+html[data-theme="dark"] .hero h1 em{background:linear-gradient(100deg,#7d9fff 5%,#ffc09a 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[data-theme="dark"] .hero .orb.o1{background:var(--blue);opacity:.25}
+html[data-theme="dark"] .hero .orb.o2{background:var(--orange);opacity:.18}
+html[data-theme="dark"] .pill.glow{box-shadow:0 0 22px rgba(90,130,255,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1180px,91%);margin:0 auto}
+section{padding:88px 0;position:relative}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.eyebrow::before{content:"";width:30px;height:2px;background:linear-gradient(90deg,var(--blue),var(--orange));border-radius:2px}
+.title{font-size:clamp(2rem,4.2vw,3.2rem)}
+.sub{color:var(--ink-soft);max-width:640px;margin-top:14px;font-size:1.03rem}
+.center{text-align:center}
+.center .sub{margin-inline:auto}
+.center .eyebrow{justify-content:center}
+.center .eyebrow::before{display:none}
+
+/* ============ ANIMATION UTILITIES ============ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal-r{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal-l.visible,.reveal-r.visible{opacity:1;transform:none}
+[data-stagger]>*{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+[data-stagger].visible>*{opacity:1;transform:none}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes orb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(24px,-20px) scale(1.08)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(232,87,15,.45)}70%{box-shadow:0 0 0 16px rgba(232,87,15,0)}100%{box-shadow:0 0 0 0 rgba(232,87,15,0)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ SCROLL PROGRESS ============ */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--orange));z-index:300;transition:width .1s linear}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:.93rem;padding:14px 28px;border-radius:999px;border:none;white-space:nowrap;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 26px rgba(232,87,15,.3)}
+.btn-orange:hover{background:var(--orange-deep);transform:translateY(-2px);box-shadow:0 16px 36px rgba(232,87,15,.4)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 26px rgba(28,79,216,.28)}
+.btn-blue:hover{background:var(--blue-deep);transform:translateY(-2px);box-shadow:0 16px 36px rgba(28,79,216,.38)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-outline:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn-soft{background:var(--blue-tint);color:var(--blue-deep)}
+.btn-soft:hover{background:#dbe4fa;transform:translateY(-2px)}
+
+/* ============ TOP STRIP + NAV (dark — matches joint logo) ============ */
+.topstrip{background:#05070d;color:#e8e4d8;font-size:.85rem;padding:9px 0;overflow:hidden;white-space:nowrap}
+.topstrip .track{display:inline-flex;gap:70px;animation:marquee 24s linear infinite}
+.topstrip .track span{display:inline-flex;gap:70px}
+.topstrip b{color:#ff9c66}
+.topstrip a{color:#8fa8ff;font-weight:700}
+header.nav{position:sticky;top:0;z-index:200;background:var(--navbg);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.nav.scrolled{box-shadow:var(--shadow-md)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;background:#050505;border:1px solid rgba(0,0,0,.2);border-radius:12px;padding:6px 14px;box-shadow:var(--shadow-sm);flex:none}
+.brand img.lg-spgp{height:36px;width:auto}
+.brand img.lg-aes{height:30px;width:auto;filter:invert(1)}
+.lg-div{width:1px;height:26px;background:rgba(255,255,255,.35);flex:none}
+nav.menu{display:flex;gap:4px;font-size:.83rem;font-weight:600}
+nav.menu a{padding:8px 11px;border-radius:999px;color:var(--ink-soft);background:var(--bg-3);border:1px solid var(--line);white-space:nowrap;transition:.25s}
+nav.menu a:hover{color:var(--ink);border-color:var(--ink)}
+nav.menu a.active{background:linear-gradient(120deg,var(--blue),var(--orange));color:#fff;border-color:transparent}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.nav-cta .btn{padding:11px 16px;font-size:.84rem}
+.theme-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg-2);display:grid;place-items:center;font-size:1.05rem;transition:.25s;flex:none;cursor:pointer}
+.theme-btn:hover{transform:translateY(-2px);border-color:var(--ink)}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:25px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ============ PAGES (SPA) ============ */
+.page{display:none}
+.page.active{display:block;animation:pagein .55s cubic-bezier(.2,.7,.3,1)}
+@keyframes pagein{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ============ HERO (theme-aware) ============ */
+.hero{padding:80px 0 60px;overflow:hidden;background:var(--bg);color:var(--ink)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--gridln) 1px,transparent 1px),linear-gradient(90deg,var(--gridln) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(820px 520px at 62% 42%,#000 25%,transparent 78%);mask-image:radial-gradient(820px 520px at 62% 42%,#000 25%,transparent 78%);pointer-events:none}
+.hero .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.hero .orb.o1{width:460px;height:460px;background:#bccdf8;opacity:.6;top:-140px;left:-120px;animation:orb 11s ease-in-out infinite}
+.hero .orb.o2{width:380px;height:380px;background:#f9cfae;opacity:.55;bottom:-120px;right:-80px;animation:orb 13s ease-in-out infinite reverse}
+.hero .container{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem);font-weight:450;color:var(--ink)}
+.hero h1 em{font-style:italic;font-weight:500;background:linear-gradient(100deg,var(--blue) 10%,var(--orange) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:var(--ink-soft);font-size:1.1rem;max-width:540px;margin:24px 0 32px}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.pill{font-size:.78rem;font-weight:600;padding:8px 16px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink-soft);box-shadow:var(--shadow-sm)}
+.pill b{color:var(--orange)}
+.pill.glow{border-color:rgba(28,79,216,.4);box-shadow:0 0 20px rgba(28,79,216,.16);color:var(--ink)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-visual{position:relative}
+.hero-photo{border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);transform:rotate(1.5deg);border:1px solid var(--line);position:relative}
+.hero-photo img{width:100%;height:480px;object-fit:cover}
+.scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(60,150,255,.85),transparent);box-shadow:0 0 16px rgba(60,150,255,.7);animation:scan 5s ease-in-out infinite;z-index:3;border-radius:2px}
+@keyframes scan{0%,100%{top:8%}50%{top:88%}}
+.float-card{position:absolute;background:var(--bg-2);border-radius:18px;padding:16px 20px;box-shadow:var(--shadow-md);border:1px solid var(--line);animation:floaty 6s ease-in-out infinite;color:var(--ink)}
+.float-card .h{font-weight:800;font-size:.95rem}
+.float-card .s{font-size:.78rem;color:var(--ink-soft)}
+.fc1{top:26px;left:-34px}
+.fc2{bottom:40px;right:-26px;animation-delay:1.6s}
+.fc3{bottom:-20px;left:20px;animation-delay:3s}
+.fc4{top:-16px;right:-20px;animation-delay:4.4s}
+
+/* ============ MARQUEE ============ */
+.marquee{background:#0d1420;color:#f5efe2;padding:16px 0;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:48px;animation:marquee 30s linear infinite;font-family:var(--serif);font-size:1.02rem;letter-spacing:.06em}
+.marquee .track span{display:inline-flex;align-items:center;gap:48px}
+.marquee i{font-style:normal;color:var(--orange)}
+
+/* ============ STATS ============ */
+.stats{padding:66px 0 10px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:30px 22px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.stat:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.stat .num{font-family:var(--serif);font-size:2.7rem;color:var(--blue-deep)}
+.stat .num i{font-style:normal;color:var(--orange)}
+.stat .lbl{font-size:.8rem;color:var(--ink-soft);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+
+/* ============ SNAPSHOT CARDS (landing) ============ */
+.snap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.snap{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .35s,box-shadow .35s;cursor:pointer;display:flex;flex-direction:column}
+.snap:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.snap .ph{height:190px;overflow:hidden;position:relative}
+.snap .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.snap:hover .ph img{transform:scale(1.08)}
+.snap .tag{position:absolute;top:14px;left:14px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:999px;color:#fff;backdrop-filter:blur(4px)}
+.snap .tag.gp{background:rgba(28,79,216,.88)}
+.snap .tag.sk{background:rgba(232,87,15,.88)}
+.snap .body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column}
+.snap h3{font-size:1.45rem;margin-bottom:8px}
+.snap p{color:var(--ink-soft);font-size:.92rem;flex:1}
+.snap .go{margin-top:16px;font-weight:700;font-size:.88rem;color:var(--blue);display:inline-flex;gap:8px;align-items:center;transition:gap .25s}
+.snap:hover .go{gap:13px}
+
+/* ============ SPLIT INTRO ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.split .imgwrap{position:relative}
+.split .imgwrap img{border-radius:26px;box-shadow:var(--shadow-lg);height:440px;width:100%;object-fit:cover}
+.split .imgwrap .accent{position:absolute;inset:-16px 16px 16px -16px;border:2px solid var(--orange);border-radius:26px;z-index:-1;opacity:.35}
+.checklist{list-style:none;display:grid;gap:12px;margin-top:22px}
+.checklist li{position:relative;padding-left:36px;color:var(--ink-soft);font-size:.97rem}
+.checklist li::before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:var(--blue-tint) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231c4fd8" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center/12px no-repeat}
+
+/* ============ VIDEO FEATURE ============ */
+.video-feature{background:#0d1420;color:#f5f1e8;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow-lg)}
+.video-feature .txt{padding:56px 52px;display:flex;flex-direction:column;justify-content:center}
+.video-feature .txt .eyebrow{color:#ffb38a}
+.video-feature h3{font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;margin-bottom:14px}
+.video-feature p{color:#c8c2b4;font-size:.97rem;margin-bottom:26px}
+.video-wrap{position:relative;min-height:380px;background:#000}
+.video-wrap video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.play-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,14,20,.35);transition:opacity .4s;cursor:pointer;z-index:2}
+.play-overlay.hidden{opacity:0;pointer-events:none}
+.play-btn{width:84px;height:84px;border-radius:50%;background:var(--orange);border:none;display:grid;place-items:center;animation:pulse-ring 2.2s infinite;transition:transform .25s}
+.play-btn:hover{transform:scale(1.1)}
+.play-btn svg{width:30px;height:30px;fill:#fff;margin-left:5px}
+
+/* ============ TEAM ============ */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.doc{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s,box-shadow .35s}
+.doc:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.doc .photo{height:290px;overflow:hidden}
+.doc .photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s}
+.doc:hover .photo img{transform:scale(1.06)}
+.doc .info{padding:24px 26px 28px}
+.doc h3{font-size:1.5rem}
+.doc .quals{font-size:.73rem;color:var(--ink-soft);margin:6px 0 12px;line-height:1.55}
+.doc .focus{font-size:.88rem;color:var(--ink-soft)}
+.doc .focus b{color:var(--orange);font-weight:700}
+.doc .info h3.has-bio{cursor:help;outline:none}
+.doc .info h3.has-bio::after{content:"";display:inline-block;width:15px;height:15px;margin-left:8px;vertical-align:2px;border-radius:50%;background:var(--blue-tint) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231c4fd8"><circle cx="12" cy="6" r="2"/><rect x="10.5" y="10" width="3" height="10" rx="1.4"/></svg>') center/8px no-repeat;opacity:.55;transition:opacity .2s}
+.doc .info h3.has-bio:hover::after,.doc .info h3.has-bio:focus::after{opacity:1}
+#bio-tip{position:fixed;z-index:400;width:min(360px,86vw);max-height:60vh;overflow:auto;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-lg);font-family:var(--sans);font-size:.84rem;line-height:1.6;color:var(--ink-soft);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility .22s;pointer-events:none}
+#bio-tip.show{opacity:1;visibility:visible;transform:none}
+#bio-tip .bt-name{font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-bottom:8px;font-weight:600}
+#bio-tip p{margin-bottom:9px}
+#bio-tip p:last-child{margin-bottom:0}
+.doc .photo.avatar{display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-tint),var(--orange-tint));position:relative}
+.doc .photo.avatar img.staff{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.doc .photo.avatar span{font-family:var(--serif);font-size:3rem;color:var(--blue);width:128px;height:128px;border-radius:50%;background:var(--bg-2);display:grid;place-items:center;border:2px solid var(--line)}
+html[data-theme="dark"] .doc .photo.avatar span{color:#8fa8ff}
+.doc.compact .photo{height:280px}
+.role-chip{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--orange-tint);color:var(--orange-deep);margin:8px 0 10px}
+html[data-theme="dark"] .role-chip{color:#ffb38a}
+
+/* ============ SUB NAV (detail pages) ============ */
+.pagehead{padding:64px 0 34px;background:linear-gradient(160deg,var(--blue-tint),var(--bg) 55%,var(--orange-tint));border-bottom:1px solid var(--line)}
+.pagehead.orange{background:linear-gradient(160deg,var(--orange-tint),var(--bg) 55%,var(--blue-tint))}
+.pagehead h1{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:450}
+.pagehead .sub{font-size:1.05rem}
+.crumb{font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:18px}
+.crumb a{color:var(--blue)}
+.subnav{position:sticky;top:71px;z-index:150;background:var(--navbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);overflow-x:auto}
+.subnav .container{display:flex;gap:6px;padding:10px 0;white-space:nowrap}
+.subnav a{font-size:.85rem;font-weight:600;color:var(--ink-soft);padding:8px 16px;border-radius:999px;transition:.25s}
+.subnav a:hover,.subnav a.on{background:var(--ink);color:#fff}
+
+/* ============ DETAIL BLOCKS ============ */
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:70px 0;border-bottom:1px solid var(--line)}
+.detail:last-of-type{border-bottom:none}
+.detail.flip .media{order:2}
+.detail .media img{border-radius:24px;box-shadow:var(--shadow-md);width:100%;height:400px;object-fit:cover}
+.detail h2{font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:12px}
+.detail .kick{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;display:block}
+.detail .kick.blue{color:var(--blue)}
+.detail .kick.orange{color:var(--orange)}
+.detail p.body{color:var(--ink-soft);font-size:.98rem;margin-bottom:8px}
+.detail .price-line{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px}
+.chip{font-size:.8rem;font-weight:700;background:var(--bg-3);border:1px solid var(--line);border-radius:999px;padding:7px 15px;color:var(--ink)}
+.chip.hl{background:var(--orange-tint);border-color:#f6c9ac;color:var(--orange-deep)}
+.chip.bl{background:var(--blue-tint);border-color:#c4d2f6;color:var(--blue-deep)}
+
+/* ============ PROCESS STEPS ============ */
+.steps{counter-reset:step;display:grid;gap:0;margin-top:44px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--line);position:relative}
+.step:last-child{border-bottom:none}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--serif);font-size:1.9rem;color:var(--orange);font-weight:500}
+.step h4{font-size:1.08rem;font-weight:700;margin-bottom:5px;font-family:var(--sans)}
+.step p{color:var(--ink-soft);font-size:.93rem}
+
+/* ============ ACCORDION ============ */
+.acc{border:1px solid var(--line);border-radius:18px;background:var(--bg-2);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .3s}
+.acc.open{box-shadow:var(--shadow-md)}
+.acc .q{width:100%;background:none;border:none;text-align:left;font-size:1rem;font-weight:700;color:var(--ink);padding:22px 58px 22px 24px;position:relative}
+.acc .q::after{content:"";position:absolute;right:22px;top:50%;width:26px;height:26px;transform:translateY(-50%);border-radius:50%;background:var(--orange-tint) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23e8570f" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>') center/13px no-repeat;transition:transform .35s}
+.acc.open .q::after{transform:translateY(-50%) rotate(45deg)}
+.acc .a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.3,1)}
+.acc .a>div{padding:0 24px 24px;color:var(--ink-soft);font-size:.94rem}
+
+/* ============ BMI CALC ============ */
+.bmi{background:var(--bg-2);border:1px solid var(--line);border-radius:26px;padding:38px;box-shadow:var(--shadow-md)}
+.bmi h3{font-size:1.6rem;margin-bottom:6px}
+.bmi p.hint{color:var(--ink-soft);font-size:.88rem;margin-bottom:22px}
+.bmi .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.bmi label{font-size:.8rem;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:6px}
+.bmi input{width:100%;padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);font-family:inherit;font-size:1rem;background:var(--bg);transition:border .25s}
+.bmi input:focus{outline:none;border-color:var(--blue)}
+.bmi-result{margin-top:20px;padding:20px;border-radius:16px;background:var(--bg-3);font-size:.95rem;display:none}
+.bmi-result.show{display:block;animation:pagein .4s}
+.bmi-result .val{font-family:var(--serif);font-size:2.2rem;color:var(--blue-deep)}
+.bmi-result .cat{font-weight:700}
+.bmi-bar{height:10px;border-radius:6px;margin:14px 0 6px;background:linear-gradient(90deg,#7db4f0 25%,#65c98a 25% 45%,#f2c14e 45% 62%,#e8570f 62%);position:relative}
+.bmi-bar .dot{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:#fff;border:3.5px solid var(--ink);transform:translate(-50%,-50%);transition:left .6s cubic-bezier(.2,.7,.3,1)}
+
+/* ============ PRICING ============ */
+.ptabs{display:flex;gap:10px;flex-wrap:wrap;margin:42px 0 30px}
+.ptab{padding:11px 22px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg-2);color:var(--ink-soft);font-weight:700;font-size:.87rem;transition:.25s}
+.ptab:hover{border-color:var(--ink)}
+.ptab.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.ppanel{display:none;grid-template-columns:repeat(3,1fr);gap:18px}
+.ppanel.active{display:grid;animation:pagein .45s}
+.pcard{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.pcard h5{font-size:.98rem;font-weight:800}
+.pcard .amount{font-family:var(--serif);font-size:2rem;color:var(--orange);margin:8px 0 8px}
+.pcard .amount span{font-size:.95rem;color:var(--ink-soft)}
+.pcard small{color:var(--ink-soft);font-size:.85rem;line-height:1.6}
+
+/* ============ OFFERS ============ */
+.offers-band{background:linear-gradient(120deg,var(--blue-deep),#1a3a8f 50%,var(--orange-deep));border-radius:30px;color:#fff;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;overflow:hidden;position:relative;box-shadow:var(--shadow-lg)}
+.offers-band::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);top:-120px;right:-80px}
+.offers-band h3{font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;margin-bottom:12px}
+.offers-band p{color:#dfe4f2;font-size:.95rem}
+.offers{display:grid;gap:13px;position:relative;z-index:1}
+.offer{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:15px;padding:16px 20px;font-size:.9rem;backdrop-filter:blur(4px);transition:transform .25s,background .25s}
+.offer:hover{transform:translateX(6px);background:rgba(255,255,255,.16)}
+.offer b{color:#ffcf9e}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;margin-top:48px;align-items:start}
+.c-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.c-card{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:24px;font-size:.93rem;box-shadow:var(--shadow-sm);transition:transform .3s}
+.c-card:hover{transform:translateY(-4px)}
+.c-card .t{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+.c-card a{color:var(--blue);font-weight:600}
+.c-card.wide{grid-column:1/-1}
+.c-card table{width:100%;border-collapse:collapse}
+.c-card td{padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
+.c-card tr:last-child td{border-bottom:none}
+.c-card td:last-child{text-align:right;font-weight:600;color:var(--ink)}
+.book-box{background:#101a2c;color:#f0ebe0;border-radius:26px;padding:44px 40px;text-align:center;box-shadow:var(--shadow-lg)}
+.book-box h3{color:#fff;font-size:1.9rem;margin-bottom:10px}
+.book-box p{color:#b9b2a2;font-size:.93rem;margin-bottom:26px}
+.book-box .btn{width:100%;max-width:330px;margin:0 auto 12px}
+
+/* ============ CTA STRIP ============ */
+.cta-strip{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0;text-align:center}
+.cta-strip h2{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:12px}
+.cta-strip p{color:var(--ink-soft);margin-bottom:28px}
+
+/* ============ FOOTER ============ */
+footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
+.foot-grid h6{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8b8577;margin-bottom:16px}
+.foot-grid ul{list-style:none;display:grid;gap:9px}
+.foot-grid ul a{transition:color .2s}
+.foot-grid ul a:hover{color:#ffb38a}
+.foot-brand .fb-title{font-family:var(--serif);color:#fff;font-size:.98rem;letter-spacing:.01em;white-space:nowrap;margin-bottom:10px}
+.foot-brand p{max-width:300px;font-size:.87rem}
+.cqc-note{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:#8b8577}
+.cqc-note a{color:#ffb38a}
+
+/* ============ FLOATING WA ============ */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:180;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .25s}
+.wa-float:hover{transform:scale(1.12)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* ============ BACK TO TOP ============ */
+#totop{position:fixed;bottom:96px;right:32px;z-index:180;width:44px;height:44px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);box-shadow:var(--shadow-md);display:grid;place-items:center;opacity:0;pointer-events:none;transition:.3s;font-size:1.1rem;color:var(--ink)}
+#totop.show{opacity:1;pointer-events:auto}
+#totop:hover{transform:translateY(-4px)}
+
+/* ============ TREATMENT FINDER ============ */
+.finder{max-width:820px;margin:60px auto 0;background:var(--bg-2);border:1px solid var(--line);border-radius:26px;padding:38px;box-shadow:var(--shadow-md)}
+.finder h3{font-size:1.5rem;margin-bottom:6px}
+.finder .fq{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px}
+.fchips{display:flex;gap:10px;flex-wrap:wrap}
+.fchip{font-size:.88rem;font-weight:700;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg-3);color:var(--ink);transition:.25s;cursor:pointer}
+.fchip:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-tint);transform:translateY(-2px)}
+.fresult{display:none;margin-top:8px;animation:pagein .45s}
+.fresult.show{display:block}
+.fresult .rcard{background:linear-gradient(140deg,var(--blue-tint),var(--orange-tint));border:1px solid var(--line);border-radius:20px;padding:26px}
+.fresult .rcard .rk{font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.fresult .rcard h4{font-family:var(--serif);font-size:1.5rem;margin-bottom:8px}
+.fresult .rcard p{color:var(--ink-soft);font-size:.92rem;margin-bottom:16px}
+.fresult .rcard .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.fresult .rcard .meta span{font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink)}
+.fback{background:none;border:none;color:var(--ink-soft);font-size:.82rem;font-weight:700;margin-top:18px;text-decoration:underline;cursor:pointer}
+.fback:hover{color:var(--ink)}
+
+/* ============ CHATBOT ============ */
+.chat-fab{position:fixed;bottom:26px;right:26px;z-index:240;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));border:none;box-shadow:0 14px 36px rgba(28,79,216,.45);display:grid;place-items:center;transition:transform .25s;animation:pulse-ring 3s infinite}
+.chat-fab:hover{transform:scale(1.1)}
+.chat-fab svg{width:30px;height:30px;fill:#fff}
+.chat-fab .close-ic{display:none}
+.chat-fab.open .chat-ic{display:none}
+.chat-fab.open .close-ic{display:block}
+.chat-panel{position:fixed;bottom:102px;right:26px;width:min(396px,calc(100vw - 24px));height:min(580px,calc(100vh - 150px));background:#fff;border-radius:24px;box-shadow:0 34px 90px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:239;transform:translateY(26px) scale(.95);opacity:0;pointer-events:none;transition:.35s cubic-bezier(.2,.7,.3,1)}
+.chat-panel.open{transform:none;opacity:1;pointer-events:auto}
+.chat-head{background:linear-gradient(120deg,#070c1c,#1c4fd8 75%,#e8570f 170%);color:#fff;padding:16px 20px;display:flex;gap:12px;align-items:center;flex:none}
+.chat-head .av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:1.3rem;flex:none}
+.chat-head .nm{font-weight:800;font-size:.98rem}
+.chat-head .st{font-size:.74rem;color:#bcd0ff;display:flex;align-items:center;gap:6px}
+.chat-head .st::before{content:"";width:7px;height:7px;border-radius:50%;background:#37d67f;box-shadow:0 0 8px #37d67f}
+.chat-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:#f7f5f0}
+.msg{max-width:86%;padding:12px 15px;border-radius:16px;font-size:.87rem;line-height:1.55;animation:pagein .3s}
+.msg.bot{background:#fff;border:1px solid #e8e2d4;border-bottom-left-radius:6px;color:var(--ink)}
+.msg.user{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
+.msg.bot a{color:var(--orange);font-weight:700;text-decoration:underline}
+.msg.bot b{color:var(--blue-deep)}
+.msg.bot ul{margin:6px 0 0 18px}
+.msg.typing{display:flex;gap:5px;padding:15px 17px}
+.msg.typing i{width:7px;height:7px;border-radius:50%;background:#b3aa97;animation:blink 1.2s infinite}
+.msg.typing i:nth-child(2){animation-delay:.2s}
+.msg.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}
+.chat-chips{display:flex;gap:8px;flex-wrap:wrap;padding:4px 16px 10px;background:#f7f5f0;flex:none}
+.chipbtn{font-size:.74rem;font-weight:700;padding:7px 13px;border-radius:999px;border:1.5px solid #ddd6c6;background:#fff;color:var(--ink-soft);transition:.2s}
+.chipbtn:hover{border-color:var(--blue);color:var(--blue)}
+.chat-input{display:flex;gap:10px;padding:12px;border-top:1px solid #e8e2d4;background:#fff;flex:none}
+.chat-input input{flex:1;border:1.5px solid #e0dacb;border-radius:999px;padding:11px 16px;font-family:inherit;font-size:.9rem;outline:none}
+.chat-input input:focus{border-color:var(--blue)}
+.chat-send{width:44px;height:44px;border-radius:50%;background:var(--orange);border:none;display:grid;place-items:center;flex:none;transition:transform .2s}
+.chat-send:hover{transform:scale(1.08)}
+.chat-send svg{width:19px;height:19px;fill:#fff}
+.chat-note{font-size:.66rem;color:#a39a86;text-align:center;padding:0 14px 10px;background:#fff;flex:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1280px){.nav-cta .btn-outline{display:none}}
+@media(max-width:1430px){
+  nav.menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:12px 5% 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg)}
+  nav.menu.open{display:flex}
+  nav.menu a{padding:14px 12px;border-radius:12px}
+  .hamburger{display:flex}
+}
+@media(max-width:1020px){
+  .hero .container,.split,.video-feature,.detail,.contact-grid,.offers-band{grid-template-columns:1fr}
+  .detail.flip .media{order:0}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .snap-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .ppanel.active{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-photo img{height:380px}
+  .fc1{left:6px}.fc2{right:6px}
+  .tool-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  section{padding:64px 0}
+  .snap-grid,.team-grid,.ppanel.active,.c-cards,.foot-grid,.bmi .fields{grid-template-columns:1fr}
+  .video-feature .txt{padding:38px 28px}
+  .offers-band{padding:36px 26px}
+  .brand img.lg-aes{display:none}
+  .lg-div{display:none}
+  .brand img.lg-spgp{height:42px}
+  .nav-cta .btn-orange{padding:11px 18px;font-size:.82rem}
+  .detail .media img{height:290px}
+  .float-card{display:none}
+  .finder{padding:26px 20px}
+  .chat-panel{right:12px}
+  .foot-brand .fb-title{white-space:normal;font-size:1rem}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ======= TOP STRIP ======= -->
+<div class="topstrip">
+  <div class="track"><span>
+    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+  </span><span>
+    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+  </span></div>
+</div>
+
+<!-- ======= NAV ======= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#/" class="brand" data-route="home" aria-label="Shenfield Private GP | Aesthetk by Dr K">
+      <!-- Official logo artwork, served from your existing sites -->
+      <img class="lg-spgp" src="https://www.shenfieldprivategp.com/assets/logo/LogoText.webp" alt="Shenfield Private GP">
+      <span class="lg-div"></span>
+      <img class="lg-aes" src="https://aesthetk.com/wp-content/uploads/2024/01/logo-transparency2.png" alt="Aesthetk by Dr K — Specialist Skin and Hair Clinic">
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#/" data-route="home">Home</a>
+      <a href="#/gp" data-route="gp">Private GP</a>
+      <a href="#/womens" data-route="womens">Women's Health</a>
+      <a href="#/mental" data-route="mental">Mental Health</a>
+      <a href="#/skin" data-route="skin">Skin &amp; Aesthetics</a>
+      <a href="#/team" data-route="team">Our Team</a>
+      <a href="#/pricing" data-route="pricing">Pricing</a>
+      <a href="#/contact" data-route="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="tel:01277503503">01277 503 503</a>
+      <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Online</a>
+      <button class="theme-btn" id="theme-btn" aria-label="Switch theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     PAGE: HOME
+================================================================ -->
+<main class="page" id="page-home">
+
+  <section class="hero">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <div class="container">
+      <div>
+        <div class="hero-badges reveal">
+          <span class="pill glow">🩺 Private GP Services · Advanced Digital Mole Mapping</span>
+          <span class="pill"><b>CQC</b> Regulated</span>
+          <span class="pill">Shenfield · Brentwood</span>
+        </div>
+        <h1 class="reveal">Complete care, <br>from your GP to <em>your glow</em>.</h1>
+        <p class="lead reveal">Welcome to your local clinic at 40 Hutton Road, Shenfield — trusted family doctors, specialist women's health &amp; gynaecology, consultant-led mental health &amp; memory care, advanced dermatology with digital mole mapping, and doctor-led aesthetics — all in one place.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Appointment</a>
+          <a class="btn btn-soft" href="#finder" onclick="event.preventDefault();document.getElementById('finder').scrollIntoView({behavior:'smooth'})">🧭 Find My Treatment</a>
+          <button class="btn btn-soft" onclick="toggleChat(true)">💬 Ask our AI Assistant</button>
+        </div>
+      </div>
+      <div class="hero-visual reveal-r">
+        <div class="hero-photo" id="tilt">
+          <div class="scanline"></div>
+          <img src="https://www.shenfieldprivategp.com/assets/img/modern_gp_clinic_interaction_no_faces_1767990325301.webp" alt="Inside the clinic">
+        </div>
+        <div class="float-card fc1"><div class="h">🩺 GP Consultation</div><div class="s">Unhurried appointments · £135</div></div>
+        <div class="float-card fc2"><div class="h"><svg width="17" height="17" viewBox="0 0 24 24" style="display:inline-block;vertical-align:-3px;margin-right:5px" aria-hidden="true"><circle cx="9.5" cy="9.5" r="6" fill="none" stroke="#1c4fd8" stroke-width="2.6"/><circle cx="9.5" cy="9.5" r="2.6" fill="#e8570f"/><path d="M14.2 14.2 L20.5 20.5" stroke="#1c4fd8" stroke-width="3.2" stroke-linecap="round"/></svg>Digital Mole Mapping</div><div class="s">Skin cancer early detection</div></div>
+        <div class="float-card fc3"><div class="h">🌷 Women's Health &amp; Gynaecology</div><div class="s">Menopause, HRT, coils &amp; implants</div></div>
+        <div class="float-card fc4"><div class="h">🧠 Mental Health &amp; Memory</div><div class="s">Consultant psychiatrist-led — COMPASS</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track"><span>
+      Private GP <i>✦</i> Digital Mole Mapping <i>✦</i> General Dermatology <i>✦</i> Women’s Health <i>✦</i> Weight Management <i>✦</i> Mental Health &amp; Memory <i>✦</i> ADHD &amp; Autism Assessments <i>✦</i> Anti-Wrinkle <i>✦</i> Skin Boosters <i>✦</i> Minor Surgery <i>✦</i> Corporate Medicals <i>✦</i> Cardiology Diagnostics <i>✦</i> Hyperhidrosis <i>✦</i>
+    </span><span>
+      Private GP <i>✦</i> Digital Mole Mapping <i>✦</i> General Dermatology <i>✦</i> Women’s Health <i>✦</i> Weight Management <i>✦</i> Mental Health &amp; Memory <i>✦</i> ADHD &amp; Autism Assessments <i>✦</i> Anti-Wrinkle <i>✦</i> Skin Boosters <i>✦</i> Minor Surgery <i>✦</i> Corporate Medicals <i>✦</i> Cardiology Diagnostics <i>✦</i> Hyperhidrosis <i>✦</i>
+    </span></div>
+  </div>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid" data-stagger>
+        <div class="stat"><div class="num"><span data-count="30">0</span><i>+</i></div><div class="lbl">Years serving Brentwood</div></div>
+        <div class="stat"><div class="num"><span data-count="7">0</span></div><div class="lbl">Expert clinicians</div></div>
+        <div class="stat"><div class="num"><span data-count="50">0</span><i>+</i></div><div class="lbl">Treatments offered</div></div>
+        <div class="stat"><div class="num">CQC</div><div class="lbl">Regulated provider</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNAPSHOTS -->
+  <section id="home-services">
+    <div class="container">
+      <div class="center reveal">
+        <div class="eyebrow">Our services at a glance</div>
+        <h2 class="title">What can we help you with today?</h2>
+        <p class="sub">Tap any card for the full detail — what's involved, what it costs, and how to book.</p>
+      </div>
+      <div class="snap-grid" data-stagger>
+        <a class="snap" href="#/gp" data-anchor="gp-consult">
+          <div class="ph"><span class="tag gp">Private GP</span><img src="https://www.shenfieldprivategp.com/assets/img/service-general.webp" alt="GP consultation" loading="lazy"></div>
+          <div class="body"><h3>GP Consultations</h3><p>Same-day, unhurried appointments for illnesses, prescriptions and referrals.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/skin" data-anchor="sk-mole">
+          <div class="ph"><span class="tag sk">Skin</span><img src="mole-mapping-machine.jpg" onerror="this.onerror=null;this.src='https://aesthetk.com/wp-content/uploads/2024/01/asthtik-photo-396x360.jpg';this.style.objectPosition='center'" style="object-position:center 12%" alt="FotoFinder ATBM Master mole mapping system" loading="lazy"></div>
+          <div class="body"><h3>Digital Full-Body Mole Mapping</h3><p>State-of-the-art imaging tracks every mole for the earliest detection of skin cancer. Watch how it works.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/skin" data-anchor="sk-clinic">
+          <div class="ph"><span class="tag sk">Skin</span><img src="https://aesthetk.com/wp-content/uploads/2024/01/skin-rejuvenation-with-botox-and-fillers-396x360.jpeg" alt="Skin clinic" loading="lazy"></div>
+          <div class="body"><h3>Medical &amp; Cosmetic Skin Clinic</h3><p>Anti-wrinkle, skin boosters, polynucleotides, fillers, lesion removal and acne care.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/skin" data-anchor="sk-derm">
+          <div class="ph"><span class="tag sk">Skin</span><img src="https://aesthetk.com/wp-content/uploads/2024/04/woman-acne-cheek-1200x800-1-396x360.jpg" alt="General dermatology" loading="lazy"></div>
+          <div class="body"><h3>General Dermatology</h3><p>Acne, eczema, psoriasis, rosacea and hair loss — expert diagnosis and personalised treatment plans.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/womens" data-anchor="wh-main">
+          <div class="ph"><span class="tag gp">Women's Health</span><img src="https://www.shenfieldprivategp.com/assets/img/service-menopause.webp" alt="Women's health and gynaecology" loading="lazy"></div>
+          <div class="body"><h3>Women's Health &amp; Gynaecology</h3><p>Menopause &amp; HRT, contraception with coil &amp; implant fitting, and gynaecology — led by Dr Liliana Szittya.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/mental" data-anchor="nd-main">
+          <div class="ph"><span class="tag gp">Neurodiversity</span><img src="https://www.shenfieldprivategp.com/assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp" alt="ADHD and autism assessments" loading="lazy"></div>
+          <div class="body"><h3>ADHD &amp; Autism Assessments</h3><p>CAMHS consultant-led neurodiversity assessments for children, young people and adults — face-to-face in Shenfield.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/mental" data-anchor="mh-main">
+          <div class="ph"><span class="tag gp">COMPASS</span><img src="https://aesthetk.com/wp-content/uploads/2025/01/pexels-karolina-grabowska-4047186-396x360.jpg" alt="Mental health, memory and dementia" loading="lazy"></div>
+          <div class="body"><h3>Mental Health, Memory &amp; Dementia</h3><p>Consultant Psychiatrist-led assessments — adult mental health, memory &amp; dementia, and capacity/LPA reports.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/skin" data-anchor="sk-weight">
+          <div class="ph"><span class="tag sk">Wellness</span><img src="https://aesthetk.com/wp-content/uploads/2025/02/pexels-mikhail-nilov-8670203-396x360.jpg" alt="Weight management" loading="lazy"></div>
+          <div class="body"><h3>Personalised Weight Management</h3><p>Doctor-led programmes with Mounjaro &amp; Wegovy — check your BMI with our calculator.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/gp" data-anchor="gp-surgery">
+          <div class="ph"><span class="tag gp">Private GP</span><img src="https://www.shenfieldprivategp.com/assets/img/service-minor-surgery.webp" alt="Minor surgery" loading="lazy"></div>
+          <div class="body"><h3>Minor Surgery</h3><p>Mole, cyst and lipoma removal by experienced GPs and a Consultant Plastic Surgeon.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/corporate" data-anchor="corp-main">
+          <div class="ph"><span class="tag gp">For Employers</span><img src="https://www.shenfieldprivategp.com/assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp" alt="Corporate medicals" loading="lazy"></div>
+          <div class="body"><h3>Corporate Medicals</h3><p>GP-led team health assessments with digital mole mapping included — the skin health check most businesses miss.</p><span class="go">See details →</span></div>
+        </a>
+        <a class="snap" href="#/cardiology" data-anchor="cardio-main">
+          <div class="ph"><span class="tag gp">Cardiology</span><img src="https://www.shenfieldprivategp.com/assets/img/service-healthcheck.webp" alt="Cardiology diagnostics" loading="lazy"></div>
+          <div class="body"><h3>Cardiology Diagnostics</h3><p>ECG, Holter, 24-hr blood pressure and echocardiography — hospital-grade heart tests, closer to home.</p><span class="go">See details →</span></div>
+        </a>
+      </div>
+
+      <!-- SMART TREATMENT FINDER -->
+      <div class="finder reveal" id="finder">
+        <h3>🧭 Not sure what you need? Try the Smart Treatment Finder</h3>
+        <p class="fq" id="finder-q">What brings you in today?</p>
+        <div class="fchips" id="finder-chips"></div>
+        <div class="fresult" id="finder-result"></div>
+        <button class="fback" id="finder-back" style="display:none">← Start again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / SPLIT -->
+  <section style="background:var(--bg-2)">
+    <div class="container split">
+      <div class="imgwrap reveal-l">
+        <div class="accent"></div>
+        <img src="https://www.shenfieldprivategp.com/assets/img/choose-care.webp" alt="Compassionate care" loading="lazy">
+      </div>
+      <div class="reveal-r">
+        <div class="eyebrow">Why choose us</div>
+        <h2 class="title">Healthcare that knows you by name</h2>
+        <p class="sub">We measure our success only by the care we give and the trust placed in us. Every appointment is unhurried, every plan is personal, and you'll see the same doctors visit after visit.</p>
+        <ul class="checklist">
+          <li>Experienced, popular local doctors with decades of clinical expertise</li>
+          <li>Same-day appointments for urgent medical needs</li>
+          <li>Advanced skin diagnostics led by an international expert in dermoscopy</li>
+          <li>Family-friendly practice welcoming all ages</li>
+          <li>Modern facilities with state-of-the-art equipment</li>
+        </ul>
+        <div style="margin-top:28px"><a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Your Consultation</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO FEATURE -->
+  <section>
+    <div class="container">
+      <div class="video-feature reveal">
+        <div class="txt">
+          <div class="eyebrow">Watch: total body mapping</div>
+          <h3>See how digital mole mapping works</h3>
+          <p>Our automated total body mapping system photographs your skin in minutes, digitally stitches a complete map of every mole, and compares it visit-to-visit — so even the smallest change never goes unnoticed.</p>
+          <div><a class="btn btn-orange" href="#/skin" data-anchor="sk-mole">Explore Mole Mapping</a></div>
+        </div>
+        <div class="video-wrap">
+          <video id="molevid-home" preload="metadata" playsinline controls src="https://aesthetk.com/wp-content/uploads/2024/02/Patient-Video-Total-Body-Mapping-Atbm-Master-Fotofindersystems-Subtitles-Audio-En.mp4#t=1.5"></video>
+          <div class="play-overlay" data-video="molevid-home"><button class="play-btn" aria-label="Play video"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section style="background:var(--bg-2)" id="home-team">
+    <div class="container">
+      <div class="center reveal">
+        <div class="eyebrow">Meet your doctors</div>
+        <h2 class="title">Experienced hands, familiar faces</h2>
+        <p class="sub">Decades of combined clinical experience and a shared belief in taking time to truly listen.</p>
+      </div>
+      <div class="team-grid" data-stagger>
+        <div class="doc">
+          <div class="photo"><img src="dr-ayub-khan.jpg" onerror="this.onerror=null;this.src='https://www.shenfieldprivategp.com/assets/optimized/images/img/doctor-img2.png.webp'" alt="Dr Ayub Khan" loading="lazy"></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Ayub Khan is an experienced NHS General Practitioner with a special interest in Dermatology and is the founder of Aesthetk. Known to many patients as Dr K, he combines evidence-based medicine with advanced skin expertise to deliver high-quality, personalised care.</p><p>An International Academic Expert in Dermoscopy, he holds a Master's degree in Dermoscopy and Preventative Dermato-Oncology from the Medical University of Graz, Austria, alongside postgraduate qualifications from Queen Mary University of London and Cardiff University. His specialist knowledge allows him to provide comprehensive skin assessments, including meticulous full-body digital mole mapping for the early detection and monitoring of skin cancer.</p><p>At Shenfield Private GP, Dr Khan is committed to a patient-centred approach, ensuring patients feel listened to, informed and involved in decisions about their care. He is known for his attention to detail, clear explanations and calm, reassuring manner. By integrating advanced diagnostic techniques with holistic general practice, he supports patients in maintaining long-term skin health and overall wellbeing.</p>">Dr Ayub Khan</h3><span class="role-chip">Medical Director</span><div class="quals">MBBS, MSc, MRCGP, DipPracDerm, PGCert Aesthetic Medicine, MSc Dermoscopy &amp; Preventative Dermato-Oncology, International Masters in Aesthetic Medicine</div><div class="focus"><b>Focus:</b> Family medicine, dermoscopy, digital mole mapping &amp; skin cancer detection, aesthetic medicine. Known to patients as Dr K.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo"><img src="dr-kannan-athreya.jpg" onerror="this.onerror=null;this.src='https://www.shenfieldprivategp.com/assets/img/doctor-img2_new.webp'" alt="Dr Kannan Athreya" loading="lazy"></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Athreya is a highly experienced local General Practitioner, having served Brentwood for thirty years. After 18 years as an NHS Partner at Mount Avenue Surgery, he commenced work as a Private GP in 2014, and is now delighted to be back in Shenfield working at Shenfield Private GP.</p><p>He believes in taking time to truly understand his patients as individuals, their circumstances, and what matters most to them, allowing care to be tailored in a thoughtful and meaningful way. Whilst all aspects of Family Practice are at the core of his expertise, he is particularly passionate about supporting patients experiencing mental health challenges such as anxiety, depression, stress and trauma.</p><p>Dr Athreya also has extensive experience in dermatology, aesthetics and minor surgery. He holds a Diploma in Dermatology with distinction and a Professional BTEC Award in Laser and Aesthetic Therapies — from managing chronic skin conditions in children, such as eczema, to the careful assessment and removal of benign skin lesions and cysts.</p>">Dr Kannan Athreya</h3><span class="role-chip">General Practitioner</span><div class="quals">MBBS, DRCOG, DipDerm (Distinction)</div><div class="focus"><b>Focus:</b> Family medicine, mental health, dermatology &amp; minor surgery. Thirty years serving Brentwood — now back in Shenfield.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" style="object-position:center top" src="dr-liliana-szittya.jpg" alt="Dr Liliana Szittya" loading="lazy" onerror="this.style.display='none'"><span>LS</span></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Liliana Szittya is an experienced GP with an Extended Role in Women's Health and Gynaecology, combining expertise in general practice with extensive postgraduate training in Obstetrics and Gynaecology.</p><p>Prior to entering General Practice she trained in Obstetrics and Gynaecology in Ireland and New Zealand, and holds an MSc in Obstetrics &amp; Gynaecology with First Class Honours and MRCPI in Obstetrics &amp; Gynaecology. She currently works across NHS General Practice and specialist community gynaecology services.</p><p>Her specialist interests include menopause and perimenopause, HRT, premature ovarian insufficiency, menstrual and abnormal bleeding problems, pelvic symptoms, contraception, coil and contraceptive implant procedures, and urogynaecological concerns. She holds the DFSRH and FSRH qualifications in intrauterine and contraceptive implant techniques and is currently completing the British Menopause Society Advanced Certificate in Menopause Care.</p><p>She provides a discreet, evidence-based and highly personalised approach to women's healthcare, with an emphasis on listening carefully, clear communication and shared decision-making.</p>">Dr Liliana Szittya</h3><span class="role-chip">GP — Women's Health</span><div class="quals">MD, MSc Obstetrics &amp; Gynaecology, MRCGP, MRCPI (O&amp;G), DFSRH, DRCOG</div><div class="focus"><b>Focus:</b> Women's health &amp; gynaecology — menopause &amp; HRT, contraception and coil &amp; implant fitting.</div></div>
+        </div>
+      </div>
+      <div class="center reveal" style="margin-top:36px"><a class="btn btn-blue" href="#/team">Meet the Full Team →</a></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div class="container reveal">
+      <h2>Ready when you are</h2>
+      <p>Secure online booking, 24/7 — choose your doctor, service and time in seconds.</p>
+      <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Your Appointment</a>
+    </div>
+  </div>
+</main>
+
+<!-- ================================================================
+     PAGE: PRIVATE GP (detailed)
+================================================================ -->
+<main class="page" id="page-gp">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Private GP</div>
+      <h1 class="reveal">Private GP Services</h1>
+      <p class="sub reveal">Affordable private healthcare with trusted local doctors — unhurried consultations, continuity of care, and appointments when you actually need them.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book GP Consultation — £135</a></div>
+    </div>
+  </div>
+  <div class="subnav"><div class="container">
+    <a href="#gp-consult">Consultations</a>
+    <a href="#gp-longterm">Long-Term Care</a>
+    <a href="#gp-screening">Health Checks</a>
+    <a href="#gp-surgery">Minor Surgery</a>
+    <a href="#gp-faq">FAQs</a>
+  </div></div>
+
+  <div class="container">
+    <div class="detail" id="gp-consult">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/service-general.webp" alt="GP consultation" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">GP Care</span>
+        <h2>GP Consultations &amp; Minor Illnesses</h2>
+        <p class="body">Fast access to private GP appointments for acute health concerns — without long waiting times. Every appointment is unhurried, with time to listen properly, examine thoroughly and plan clearly.</p>
+        <ul class="checklist">
+          <li>Same-day appointments for acute concerns</li>
+          <li>Assessment of infections, rashes, fevers and minor injuries</li>
+          <li>Private prescriptions issued when clinically appropriate</li>
+          <li>Clear advice, reassurance and safety-netting</li>
+          <li>Home visits available within 3 miles (£400)</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Consultation £135</span><span class="chip bl">Same-day appointments</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+
+    <div class="detail flip" id="gp-longterm">
+      <div class="media reveal-r"><img src="https://www.shenfieldprivategp.com/assets/img/service-healthcheck.webp" alt="Long-term condition care" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick blue">GP Care</span>
+        <h2>Long-Term Condition Management</h2>
+        <p class="body">Ongoing, joined-up care for chronic conditions with one doctor who knows your history — not a different face every visit.</p>
+        <ul class="checklist">
+          <li>Diabetes, asthma, hypertension, thyroid disorders and more</li>
+          <li>Personalised treatment plans tailored to your lifestyle</li>
+          <li>Medication reviews and optimisation</li>
+          <li>Regular monitoring, blood tests and follow-up</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">From £135</span><span class="chip bl">Continuity of care</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+
+    <div class="detail flip" id="gp-screening">
+      <div class="media reveal-r"><img src="https://www.shenfieldprivategp.com/assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp" alt="Health screening" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick blue">Prevention</span>
+        <h2>Health Checks &amp; Screening</h2>
+        <p class="body">Preventive care that catches problems before they start — comprehensive assessments with full blood diagnostics and a detailed written report.</p>
+        <ul class="checklist">
+          <li>Men's Health Check — £900 (incl. prostate &amp; cardiovascular screening)</li>
+          <li>Women's Health Check — £875 (incl. hormonal evaluation)</li>
+          <li>ECG heart rhythm analysis — £100</li>
+          <li>ECHO &amp; 24-hour blood pressure monitoring with our cardiac physiologist</li>
+          <li>HGV / DVLA medicals — £250</li>
+          <li>Ear wax removal £65 + consultation</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">ECG £100</span><span class="chip bl">Detailed reports included</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+
+    <div class="detail" id="gp-surgery">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/service-minor-surgery.webp" alt="Minor surgery" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">Procedures</span>
+        <h2>Minor Surgery</h2>
+        <p class="body">Safe, professional procedures under local anaesthetic — performed by experienced GPs and, for complex cases, a Consultant Plastic Surgeon. Cosmetic outcome is always respected with careful wound closure.</p>
+        <ul class="checklist">
+          <li>Skin tags &amp; warts from £300 · mole excision from £400</li>
+          <li>Cyst excision from £500 (GP) / £895 (surgeon, up to 2cm)</li>
+          <li>Lipoma excision £895 · punch biopsy £450</li>
+          <li>Mole shave £450 · histology from £150</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">From £300</span><span class="chip bl">Histology available</span><span class="chip">Local anaesthetic</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GP FAQ -->
+  <section id="gp-faq" style="background:var(--bg-2)">
+    <div class="container" style="max-width:860px">
+      <div class="center reveal"><div class="eyebrow">Good to know</div><h2 class="title">GP appointment FAQs</h2></div>
+      <div style="margin-top:40px" data-stagger>
+        <div class="acc"><button class="q">How do I book an appointment?</button><div class="a"><div>Book online in under a minute, call 01277 503 503, or message us on WhatsApp. We offer same-day appointments for urgent needs and advance booking for routine care.</div></div></div>
+        <div class="acc"><button class="q">What should I bring to my appointment?</button><div class="a"><div>A valid photo ID, proof of address, a list of current medications, and any relevant medical records or test results from other providers.</div></div></div>
+        <div class="acc"><button class="q">Do you offer urgent appointments?</button><div class="a"><div>Yes — we reserve same-day slots for urgent medical needs. Please call early in the morning to secure an urgent appointment.</div></div></div>
+        <div class="acc"><button class="q">Is the clinic wheelchair accessible?</button><div class="a"><div>We are located on the first floor and the building does not currently have wheelchair access. Please contact us in advance to discuss mobility or accessibility needs — we will make every reasonable effort to find suitable arrangements.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-strip"><div class="container reveal">
+    <h2>See a doctor this week</h2><p>Unhurried consultations with doctors who know you.</p>
+    <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book GP Appointment</a>
+  </div></div>
+</main>
+
+<!-- ================================================================
+     PAGE: SKIN & AESTHETICS (detailed)
+================================================================ -->
+<main class="page" id="page-skin">
+  <div class="pagehead orange">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Skin &amp; Aesthetics</div>
+      <h1 class="reveal">Specialist Skin &amp; Hair Clinic</h1>
+      <p class="sub reveal">Where advanced dermatology meets personalised care — digital mole mapping, medical &amp; cosmetic skin treatments, weight management and more, led by Dr K.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Skin Consultation — £135</a></div>
+    </div>
+  </div>
+  <div class="subnav"><div class="container">
+    <a href="#sk-mole">Mole Mapping</a>
+    <a href="#sk-derm">Dermatology</a>
+    <a href="#sk-clinic">Skin Clinic</a>
+    <a href="#sk-boosters">Boosters &amp; Fillers</a>
+    <a href="#sk-weight">Weight Management</a>
+    <a href="#sk-hyper">Hyperhidrosis</a>
+    <a href="#sk-lesions">Lesion Removal</a>
+  </div></div>
+
+  <div class="container">
+    <!-- MOLE MAPPING with video + process -->
+    <div class="detail" id="sk-mole" style="align-items:start">
+      <div class="media reveal-l">
+        <div class="video-wrap" style="border-radius:24px;overflow:hidden;min-height:320px;position:relative;box-shadow:var(--shadow-md)">
+          <video id="molevid" preload="metadata" playsinline controls src="https://aesthetk.com/wp-content/uploads/2024/02/Patient-Video-Total-Body-Mapping-Atbm-Master-Fotofindersystems-Subtitles-Audio-En.mp4#t=1.5"></video>
+          <div class="play-overlay" data-video="molevid"><button class="play-btn" aria-label="Play video"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+        </div>
+        <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">▶ Watch: what's involved in total body mapping (2 min)</p>
+      </div>
+      <div class="reveal-r">
+        <span class="kick orange">Skin health</span>
+        <h2>Digital Full-Body Mole Mapping</h2>
+        <p class="body">Your skin tells a story. Using cutting-edge full-body digital dermoscopy, we detect and diagnose suspicious lesions at the earliest possible stage — with high-quality images captured at every visit for precise comparison over time.</p>
+        <ul class="checklist">
+          <li>Expert-led dermoscopy by Dr K — international academic expert</li>
+          <li>Automated camera captures your whole body in minutes</li>
+          <li>Images digitally stitched into a complete mole map</li>
+          <li>Microimaging of any moles of concern</li>
+          <li>Same-visit review with written report — sharable with your GP or for NHS/private referral</li>
+          <li>Personalised recall: 3–6 months or annually based on your risk</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Digital mapping £350</span><span class="chip">Screening £250</span><span class="chip">Single mole check £135</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Mole Mapping</a>
+      </div>
+    </div>
+
+    <!-- process steps -->
+    <section style="padding:10px 0 60px">
+      <div class="center reveal"><h2 class="title" style="font-size:1.9rem">Your mole mapping visit, step by step</h2></div>
+      <div class="steps" data-stagger style="max-width:820px;margin-inline:auto">
+        <div class="step"><div><h4>Consultation with Dr K</h4><p>Your appointment begins with a personal consultation — Dr K conducts the entire mapping process himself. A chaperone is available, and a family member is welcome to attend.</p></div></div>
+        <div class="step"><div><h4>Automated total body photography</h4><p>An automatic lift positions the camera to your height and body shape, capturing four rapid photos of each side of your body.</p></div></div>
+        <div class="step"><div><h4>Digital stitching &amp; dermoscopy</h4><p>Photos are stitched into a comprehensive whole-body view with detailed pictures of each mole. Any mole of concern is captured in extra detail with microimaging.</p></div></div>
+        <div class="step"><div><h4>Same-visit review &amp; report</h4><p>Dr K reviews the images with you — confirming no moles of concern, or identifying any that need review, with a report for NHS or private referral.</p></div></div>
+        <div class="step"><div><h4>Personalised follow-up plan</h4><p>Based on your risk, we recommend when to return — 3–6 months or annually. Repeat visits highlight new or changed moles, essential for early detection.</p></div></div>
+      </div>
+    </section>
+
+    <!-- GENERAL DERMATOLOGY -->
+    <div class="detail flip" id="sk-derm">
+      <div class="media reveal-r"><img src="https://aesthetk.com/wp-content/uploads/2024/04/woman-acne-cheek-1200x800-1-396x360.jpg" alt="General dermatology" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick orange">General dermatology</span>
+        <h2>Common Skin &amp; Hair Conditions</h2>
+        <p class="body">Expert diagnosis and management of everyday skin and hair concerns — by GPs with specialist dermatology qualifications and years of clinical experience.</p>
+        <ul class="checklist">
+          <li>Acne and acne scarring</li>
+          <li>Eczema and dermatitis — including childhood eczema</li>
+          <li>Psoriasis and rosacea</li>
+          <li>Hair loss assessment and treatment</li>
+          <li>Pigmentation, blemishes and uneven skin tone</li>
+          <li>Clear management plans, referrals and follow-up where needed</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Consultation £135</span><span class="chip bl">Dermoscopy included</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+
+    <!-- SKIN CLINIC -->
+    <div class="detail" id="sk-clinic">
+      <div class="media reveal-l"><img src="https://aesthetk.com/wp-content/uploads/2024/01/benefits-of-botox-396x360.webp" alt="Skin clinic treatments" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick orange">Medical &amp; cosmetic</span>
+        <h2>The Skin Clinic</h2>
+        <p class="body">A sanctuary of rejuvenation where medical and cosmetic skin care come together. We address far more than wrinkles — from benign lesions and acne to excessive sweating and migraines, with a personalised care plan for every patient.</p>
+        <ul class="checklist">
+          <li>Anti-wrinkle treatments — forehead, frown, crow's feet, gummy smile, chin, jaw slimming &amp; more (from £225)</li>
+          <li>Diagnosis &amp; management of acne, eczema, psoriasis, rosacea</li>
+          <li>Skin blemish &amp; pigmentation treatment</li>
+          <li>Under-eye care — Lumi Eyes, Nucleofill, Plinest (from £185)</li>
+          <li>Migraine treatment £550 · bruxism (teeth grinding) £425</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Anti-wrinkle from £225</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+
+    <!-- BOOSTERS -->
+    <div class="detail flip" id="sk-boosters">
+      <div class="media reveal-r"><img src="https://aesthetk.com/wp-content/uploads/2025/01/pexels-shvetsa-4586711-396x360.jpg" alt="Skin boosters" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick orange">Rejuvenation</span>
+        <h2>Skin Boosters, Polynucleotides &amp; Fillers</h2>
+        <p class="body">Deeply hydrate, firm and revitalise — advanced treatments that stimulate your skin's own collagen and elastin for a natural, dewy glow that still looks like you.</p>
+        <ul class="checklist">
+          <li><b>Profhilo</b> — hydration &amp; firmness for face, neck, hands (£295 · 2 sessions £550)</li>
+          <li><b>Sunekos</b> — dark circles, bags &amp; fine lines (£265 · 3 sessions £725)</li>
+          <li><b>Restylane</b> — elasticity &amp; sun damage repair (£265)</li>
+          <li><b>Polynucleotides / Nucleofill</b> — cellular renewal (from £275)</li>
+          <li><b>Radiesse</b> — biostimulatory filler for cheeks, jawline, hands (from £550)</li>
+          <li><b>Dermal fillers</b> — lips from £200, cheeks &amp; temples £350, jawline £300</li>
+          <li>Tear trough rejuvenation, profile balancing &amp; elective dissolving</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">From £185</span><span class="chip bl">Package prices available</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+
+    <!-- WEIGHT + BMI CALC -->
+    <div class="detail" id="sk-weight" style="align-items:start">
+      <div class="reveal-l">
+        <span class="kick orange">Wellness</span>
+        <h2>Personalised Weight Management</h2>
+        <p class="body">Doctor-led weight loss programmes to transform your life. Obesity is complex — genetics, physiology and environment all play a part. We treat it as the chronic condition it is, never a lack of self-control.</p>
+        <ul class="checklist">
+          <li>Weekly injectable medication (Mounjaro &amp; Wegovy) — reduces appetite &amp; cravings</li>
+          <li>Nutritional guidance for sustainable, healthy loss</li>
+          <li>Support from doctors, dieticians and personal trainers</li>
+          <li>Eligibility: 18+, BMI over 30 (or 27+ with a weight-related condition)</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Consultation £135</span><span class="chip bl">Doctor-led programme</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Weight Consultation</a>
+      </div>
+      <div class="reveal-r">
+        <div class="bmi">
+          <h3>Check your BMI</h3>
+          <p class="hint">A quick guide to whether doctor-led weight loss treatment may be suitable for you.</p>
+          <div class="fields">
+            <div><label for="bmi-h">Height (cm)</label><input type="number" id="bmi-h" placeholder="e.g. 170" min="100" max="250"></div>
+            <div><label for="bmi-w">Weight (kg)</label><input type="number" id="bmi-w" placeholder="e.g. 80" min="30" max="300"></div>
+          </div>
+          <button class="btn btn-blue" id="bmi-go" style="width:100%">Calculate BMI</button>
+          <div class="bmi-result" id="bmi-out">
+            <div class="val" id="bmi-val">—</div>
+            <div class="bmi-bar"><div class="dot" id="bmi-dot" style="left:0%"></div></div>
+            <div id="bmi-msg"></div>
+          </div>
+          <p class="hint" style="margin-top:14px;margin-bottom:0">This is a guide only, not a medical assessment. Book a consultation for personalised advice.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HYPERHIDROSIS -->
+    <div class="detail flip" id="sk-hyper">
+      <div class="media reveal-r"><img src="https://aesthetk.com/wp-content/uploads/2024/08/Excessive-Sweating-Feature-Image.jpg" alt="Hyperhidrosis treatment" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick orange">Confidence</span>
+        <h2>Hyperhidrosis (Excessive Sweating)</h2>
+        <p class="body">Excessive sweating doesn't have to control your life. Our non-invasive treatment blocks sweat-stimulating nerves — restoring comfort and confidence in a discreet, understanding environment.</p>
+        <ul class="checklist">
+          <li>Expert assessment of hands, feet, underarms and face</li>
+          <li>Precise botulinum toxin injections</li>
+          <li>Tailored lifestyle guidance on managing triggers</li>
+          <li>Regular follow-up to ensure optimal results</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">From £495</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+
+    <!-- LESIONS -->
+    <div class="detail" id="sk-lesions">
+      <div class="media reveal-l"><img src="https://aesthetk.com/wp-content/uploads/2024/04/limclinic-and-surgery-mole-warts-skintags.jpg" alt="Skin lesion removal" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick orange">Procedures</span>
+        <h2>Skin Lesion &amp; Mole Removal</h2>
+        <p class="body">Expert removal of moles, skin tags, warts and other irregularities — whether for medical reasons or cosmetic confidence. Precise techniques, minimal downtime, and histology arranged where clinically indicated.</p>
+        <ul class="checklist">
+          <li>Skin tags, warts, verrucae &amp; seborrhoeic keratosis from £250</li>
+          <li>Age spots, xanthelasma, blood spots &amp; red veins</li>
+          <li>Mole removal by GP (from £400) or Consultant Plastic Surgeon (£550)</li>
+          <li>Cysts &amp; lipomas up to 2cm (£895, surgeon-led)</li>
+          <li>Careful wound closure respecting cosmetic outcome</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">From £250</span><span class="chip bl">Histology available</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Your skin deserves an expert</h2><p>Book a consultation with Dr K and the team — and know your skin is in safe hands.</p>
+    <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Skin Consultation</a>
+  </div></div>
+</main>
+
+
+<!-- ================================================================
+     PAGE: WOMEN'S HEALTH
+================================================================ -->
+<main class="page" id="page-womens">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Women's Health</div>
+      <h1 class="reveal">Women's Health &amp; Gynaecology</h1>
+      <p class="sub reveal">A dedicated GP-led women's health clinic — specialist care in gynaecology, menopause and sexual &amp; reproductive health, delivered with sensitivity and unhurried time to listen.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Women's Health Consultation — £135</a></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="detail" id="wh-main">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/service-menopause.webp" alt="Women's health clinic" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">Women's Health</span>
+        <h2>Women's Health &amp; Gynaecology</h2>
+        <p class="body">A dedicated GP-led women's health clinic, led by <b>Dr Liliana Szittya</b>, GP with an Extended Role in Women's Health &amp; Gynaecology and specialist obstetrics &amp; gynaecology training. Evidence-based, personalised care with unhurried consultations and shared decision-making.</p>
+        <ul class="checklist">
+          <li>Menopause &amp; perimenopause care — HRT counselling and prescribing, including testosterone expertise</li>
+          <li>Premature ovarian insufficiency</li>
+          <li>Abnormal uterine bleeding assessment</li>
+          <li>Pelvic pain &amp; gynaecological symptom assessment</li>
+          <li>Urogynaecological assessment &amp; pessary management</li>
+          <li>Contraception — coil (IUD/IUS) fitting &amp; removal, implant insertion &amp; removal, LARC counselling</li>
+          <li>Cervical screening, cervical and vaginal swabs</li>
+          <li>In-clinic gynaecology procedures — cervical polypectomy, ectropion treatment, vulval and endometrial Pipelle biopsy</li>
+          <li>Ring and cube pessary fitting with follow-up</li>
+          <li>Preventative healthcare and screening</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Consultation £135</span><span class="chip">Extended menopause consultation £285</span><span class="chip bl">Specialist gynaecology expertise</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Specialist care, close to home</h2><p>Unhurried women's health consultations with specialist gynaecology expertise.</p>
+    <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Appointment</a>
+  </div></div>
+</main>
+
+<!-- ================================================================
+     PAGE: MENTAL HEALTH, MEMORY & DEMENTIA
+================================================================ -->
+<main class="page" id="page-mental">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Mental Health &amp; Memory</div>
+      <h1 class="reveal">COMPASS — Mental Health, Memory &amp; Capacity</h1>
+      <p class="sub reveal">The <b>Comprehensive Mental Health, Assessment &amp; Psychiatric Service</b> — Consultant-led assessments delivered from our CQC-registered clinic, with integrated GP support — including CAMHS consultant-led ADHD and autism assessments for children, young people and adults. Rapid access and transparent pricing.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Assessment</a></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail" id="mh-main">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/choose-care.webp" alt="COMPASS mental health service" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">Consultant Psychiatrist-led</span>
+        <h2 style="font-size:clamp(1.45rem,2.4vw,1.95rem);line-height:1.25;letter-spacing:.01em">Comprehensive Mental Health, Assessment &amp; Psychiatric Service <span style="white-space:nowrap">(COMPASS)</span></h2>
+        <p class="body">COMPASS offers timely, in-person access to Consultant Psychiatrist <b>Dr Afifa Qazi</b> (MBBS, FRCPsych) — Royal College of Psychiatrists' Psychiatrist of the Year 2022, with specialist expertise in old age psychiatry, memory assessment and dementia — covering the full breadth of adult mental health, memory and dementia assessment, and formal capacity work, all under one roof.</p>
+        <ul class="checklist">
+          <li>Initial psychiatric consultations (75–90 minutes) — full history, mental state examination and management plan</li>
+          <li>Full diagnostic assessments for complex presentations, with written report and treatment plan</li>
+          <li>Comprehensive memory &amp; dementia assessments with cognitive testing (ACE-III, MMSE, MoCA)</li>
+          <li>Mental capacity, LPA and testamentary capacity assessments with formal written reports</li>
+          <li>Court of Protection (COP3 / PA14) and medico-legal psychiatric reports</li>
+          <li>Integrated GP support — prescriptions, medication monitoring and reviews between consultant appointments (£135)</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Initial consultation £395</span><span class="chip">Memory assessment £1,095</span><span class="chip bl">LPA Capacity Assessment &amp; Certificate from £650</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Assessment</a>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:var(--bg-2)">
+    <div class="container">
+      <div class="center reveal">
+        <div class="eyebrow">Four clinics, one service</div>
+        <h2 class="title">What COMPASS covers</h2>
+      </div>
+      <div class="snap-grid reveal" data-stagger style="margin-top:44px;grid-template-columns:repeat(2,1fr)">
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>🧠 Adult Psychiatric Assessment</h3><p>Depression, anxiety disorders, OCD, PTSD &amp; complex PTSD, bipolar disorder, personality disorders and psychosis — diagnostic assessment, formulation and treatment planning.</p><span class="go" style="color:var(--ink-soft)">Initial consultation £395 · full diagnostic assessment £795</span></div>
+        </div>
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>🧩 Memory &amp; Dementia Assessment</h3><p>Mild cognitive impairment, early-onset dementia, Alzheimer's, vascular and Lewy body dementia — cognitive testing, clinical assessment and full written diagnostic report.</p><span class="go" style="color:var(--ink-soft)">Comprehensive assessment £1,095</span></div>
+        </div>
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>⚖️ Mental Capacity Assessment</h3><p>Decision-specific capacity assessments for care, property, finances and medical treatment — standard and complex cases, with Court of Protection (COP3 / PA14) reports.</p><span class="go" style="color:var(--ink-soft)">From £650 · COP3/PA14 from £695</span></div>
+        </div>
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>📜 Testamentary &amp; LPA Capacity</h3><p>Formal capacity assessments for making a will or executing a Lasting Power of Attorney — written medico-legal opinions for solicitors, will-writing firms and the court.</p><span class="go" style="color:var(--ink-soft)">LPA from £650 · testamentary from £700</span></div>
+        </div>
+      </div>
+      <div class="center reveal" style="margin-top:26px"><a class="btn btn-orange" href="#nd-main" onclick="event.preventDefault();document.getElementById('nd-main').scrollIntoView({behavior:'smooth'})">🧩 Neurodiversity — ADHD &amp; Autism Assessments →</a></div>
+      <p class="sub center reveal" style="margin:30px auto 0">Solicitors, will-writing firms, care homes and local authorities: we welcome professional instructions — contact <a href="mailto:contact@shenfieldprivategp.com" style="color:var(--blue);font-weight:700">contact@shenfieldprivategp.com</a> or call <a href="tel:01277503503" style="color:var(--blue);font-weight:700">01277 503 503</a>.</p>
+    </div>
+  </section>
+
+  <section id="nd-main">
+    <div class="container">
+      <div class="detail" style="border-bottom:none;padding-top:20px">
+        <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/family_consultation_gp_clinic_no_faces_1767990311688.webp" alt="Neurodiversity assessment" loading="lazy"></div>
+        <div class="reveal-r">
+          <span class="kick orange">CAMHS Consultant-led</span>
+          <h2>Neurodiversity — ADHD &amp; Autism Assessments</h2>
+          <p class="body">Our neurodevelopmental service is led by <b>Dr Mudasir Nazir, Consultant Child &amp; Adolescent Psychiatrist (CAMHS)</b> — an Honorary Clinical Lecturer at Imperial College London and elected member of the Royal College of Psychiatrists' CAMHS Faculty. Assessments for children, young people and adults, delivered in person in Shenfield.</p>
+          <ul class="checklist">
+            <li><b>Consultant-led, not questionnaire-led</b> — full clinical, developmental and psychosocial assessment in line with NICE guidance, never a rating scale alone</li>
+            <li>ADHD diagnostic assessment — children, young people and adults</li>
+            <li>Autism (ASD) diagnostic assessment</li>
+            <li>Combined ADHD + autism assessment in one coordinated pathway</li>
+            <li>Structured information from parents, carers and school, with a comprehensive written report and school recommendations</li>
+            <li>Medication initiation, titration and ongoing reviews, with physical health monitoring on site</li>
+            <li>Face-to-face care and continuity — not a remote-only service</li>
+          </ul>
+          <div class="price-line"><span class="chip hl">CAMHS Consultant-led</span><span class="chip">Face-to-face in Shenfield</span><span class="chip bl">Children, young people &amp; adults</span></div>
+          <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Assessment</a>
+        </div>
+      </div>
+
+      <div class="center reveal" style="margin-top:20px"><div class="eyebrow">Neurodiversity pathway</div><h2 class="title" style="font-size:1.9rem">How an assessment works</h2></div>
+      <div class="steps" data-stagger style="max-width:820px;margin-inline:auto">
+        <div class="step"><div><h4>Referral or self-referral</h4><p>Contact us directly or be referred by your GP or school. We gather GP details, consent and any previous reports before booking.</p></div></div>
+        <div class="step"><div><h4>Pre-assessment information</h4><p>Developmental and medical history from parents or carers, school and teacher collateral, rating scales, and any previous CAMHS, paediatric, psychology or EHCP reports.</p></div></div>
+        <div class="step"><div><h4>Specialist diagnostic assessment</h4><p>A full clinical assessment with the Consultant Child &amp; Adolescent Psychiatrist — developmental and psychiatric history, observer reports and mental state assessment.</p></div></div>
+        <div class="step"><div><h4>Formulation and written report</h4><p>Diagnostic conclusion against recognised criteria, functional impact across settings, coexisting conditions, strengths and support needs, plus school recommendations and a treatment plan.</p></div></div>
+        <div class="step"><div><h4>Treatment and follow-up</h4><p>Where medication is appropriate, initiation, titration and monitoring are provided in clinic. Shared-care prescribing by an NHS GP depends on the individual practice and local NHS arrangements, and cannot be guaranteed.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="center reveal"><div class="eyebrow">What to expect</div><h2 class="title" style="font-size:1.9rem">Your COMPASS journey</h2></div>
+      <div class="steps" data-stagger style="max-width:820px;margin-inline:auto">
+        <div class="step"><div><h4>Enquiry or referral</h4><p>Contact us directly, or be referred by your GP, solicitor or family. Our team gathers your details and books the right appointment.</p></div></div>
+        <div class="step"><div><h4>Initial consultation (75–90 minutes)</h4><p>A full psychiatric history, mental state examination and preliminary formulation with the Consultant Psychiatrist — determining the right assessment pathway for you.</p></div></div>
+        <div class="step"><div><h4>Assessment &amp; evaluation</h4><p>Structured diagnostic assessment, cognitive testing or capacity evaluation as clinically indicated.</p></div></div>
+        <div class="step"><div><h4>Written report</h4><p>A full written report — diagnostic, capacity, memory assessment or medico-legal opinion as appropriate.</p></div></div>
+        <div class="step"><div><h4>Follow-up &amp; ongoing care</h4><p>Consultant follow-ups (£250) for medication and treatment review, with GP-led reviews, monitoring and private prescriptions between appointments.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Specialist assessments, close to home</h2><p>Consultant Psychiatrist-led mental health, memory and capacity assessments — under half the typical London price for memory assessment.</p>
+    <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Assessment</a>
+  </div></div>
+</main>
+
+<!-- ================================================================
+     PAGE: OUR TEAM
+================================================================ -->
+<main class="page" id="page-team">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Our Team</div>
+      <h1 class="reveal">Meet the team</h1>
+      <p class="sub reveal">Experienced clinicians and a friendly practice team — all dedicated to looking after you and your family.</p>
+      <div style="margin-top:22px" class="reveal"><a class="btn btn-orange" href="#/careers">💼 We're hiring — Join Our Team</a></div>
+    </div>
+  </div>
+  <section style="padding-top:56px">
+    <div class="container">
+      <div class="center reveal"><div class="eyebrow">Clinical team</div><h2 class="title" style="font-size:2rem">Your clinicians</h2></div>
+      <div class="team-grid" data-stagger style="margin-top:40px">
+        <div class="doc">
+          <div class="photo"><img src="dr-ayub-khan.jpg" onerror="this.onerror=null;this.src='https://www.shenfieldprivategp.com/assets/optimized/images/img/doctor-img2.png.webp'" alt="Dr Ayub Khan" loading="lazy"></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Ayub Khan is an experienced NHS General Practitioner with a special interest in Dermatology and is the founder of Aesthetk. Known to many patients as Dr K, he combines evidence-based medicine with advanced skin expertise to deliver high-quality, personalised care.</p><p>An International Academic Expert in Dermoscopy, he holds a Master's degree in Dermoscopy and Preventative Dermato-Oncology from the Medical University of Graz, Austria, alongside postgraduate qualifications from Queen Mary University of London and Cardiff University. His specialist knowledge allows him to provide comprehensive skin assessments, including meticulous full-body digital mole mapping for the early detection and monitoring of skin cancer.</p><p>At Shenfield Private GP, Dr Khan is committed to a patient-centred approach, ensuring patients feel listened to, informed and involved in decisions about their care. He is known for his attention to detail, clear explanations and calm, reassuring manner. By integrating advanced diagnostic techniques with holistic general practice, he supports patients in maintaining long-term skin health and overall wellbeing.</p>">Dr Ayub Khan</h3><span class="role-chip">Medical Director</span><div class="quals">MBBS, MSc, MRCGP, DipPracDerm, PGCert Aesthetic Medicine, MSc Dermoscopy &amp; Preventative Dermato-Oncology, International Masters in Aesthetic Medicine</div><div class="focus"><b>Focus:</b> Family medicine, dermoscopy, digital mole mapping &amp; skin cancer detection, aesthetic medicine. Known to patients as Dr K.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo"><img src="dr-kannan-athreya.jpg" onerror="this.onerror=null;this.src='https://www.shenfieldprivategp.com/assets/img/doctor-img2_new.webp'" alt="Dr Kannan Athreya" loading="lazy"></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Athreya is a highly experienced local General Practitioner, having served Brentwood for thirty years. After 18 years as an NHS Partner at Mount Avenue Surgery, he commenced work as a Private GP in 2014, and is now delighted to be back in Shenfield working at Shenfield Private GP.</p><p>He believes in taking time to truly understand his patients as individuals, their circumstances, and what matters most to them, allowing care to be tailored in a thoughtful and meaningful way. Whilst all aspects of Family Practice are at the core of his expertise, he is particularly passionate about supporting patients experiencing mental health challenges such as anxiety, depression, stress and trauma.</p><p>Dr Athreya also has extensive experience in dermatology, aesthetics and minor surgery. He holds a Diploma in Dermatology with distinction and a Professional BTEC Award in Laser and Aesthetic Therapies — from managing chronic skin conditions in children, such as eczema, to the careful assessment and removal of benign skin lesions and cysts.</p>">Dr Kannan Athreya</h3><span class="role-chip">General Practitioner</span><div class="quals">MBBS, DRCOG, DipDerm (Distinction)</div><div class="focus"><b>Focus:</b> Family medicine, mental health, dermatology &amp; minor surgery — thirty years serving the Brentwood community.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" style="object-position:center top" src="dr-liliana-szittya.jpg" alt="Dr Liliana Szittya" loading="lazy" onerror="this.style.display='none'"><span>LS</span></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Liliana Szittya is an experienced GP with an Extended Role in Women's Health and Gynaecology, combining expertise in general practice with extensive postgraduate training in Obstetrics and Gynaecology.</p><p>Prior to entering General Practice she trained in Obstetrics and Gynaecology in Ireland and New Zealand, and holds an MSc in Obstetrics &amp; Gynaecology with First Class Honours and MRCPI in Obstetrics &amp; Gynaecology. She currently works across NHS General Practice and specialist community gynaecology services.</p><p>Her specialist interests include menopause and perimenopause, HRT, premature ovarian insufficiency, menstrual and abnormal bleeding problems, pelvic symptoms, contraception, coil and contraceptive implant procedures, and urogynaecological concerns. She holds the DFSRH and FSRH qualifications in intrauterine and contraceptive implant techniques and is currently completing the British Menopause Society Advanced Certificate in Menopause Care.</p><p>She provides a discreet, evidence-based and highly personalised approach to women's healthcare, with an emphasis on listening carefully, clear communication and shared decision-making.</p>">Dr Liliana Szittya</h3><span class="role-chip">GP — Women's Health &amp; Gynaecology</span><div class="quals">MD, MSc Obstetrics &amp; Gynaecology, MRCGP, MRCPI (O&amp;G), DFSRH, DRCOG</div><div class="focus"><b>Focus:</b> GP with an Extended Role in Women's Health &amp; Gynaecology — menopause &amp; HRT, contraception (coil &amp; implant fitting), abnormal bleeding, pelvic pain and urogynaecology.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" src="dr-afifa-qazi.jpg" alt="Dr Afifa Qazi" loading="lazy" onerror="this.style.display='none'"><span>AQ</span></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Afifa Qazi, MBBS, FRCPsych, offers Consultant Psychiatry services, providing expert assessment, diagnosis and treatment planning across a range of mental health needs, with particular specialist expertise in Old Age Psychiatry, memory assessment and dementia.</p><p>She brings extensive clinical and senior leadership experience, combining evidence-based practice with a compassionate, person-centred approach to complex presentations.</p><p>Her work has received national recognition, including an HSJ Award in 2018 for the design and development of specialist community services, being named Psychiatrist of the Year by the Royal College of Psychiatrists in 2022, and being shortlisted for HSJ Clinical Leader of the Year in 2024.</p>">Dr Afifa Qazi</h3><span class="role-chip">Consultant Psychiatrist</span><div class="quals">MBBS, FRCPsych · Multiple award-winning Consultant Psychiatrist</div><div class="focus"><b>Focus:</b> Expert assessment, diagnosis and treatment planning across a range of mental health needs, with particular specialist expertise in old age psychiatry, memory assessment and dementia.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" style="object-position:center 18%" src="dr-mudasir-nazir.jpg" alt="Dr Mudasir Nazir" loading="lazy" onerror="this.style.display='none'"><span>MN</span></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Dr Mudasir Nazir is a highly experienced Consultant Child and Adolescent Psychiatrist, with specialist training in Sheffield and London. He combines senior clinical expertise with academic and leadership experience to provide thoughtful, evidence-based care for children, young people and their families.</p><p>He is an Honorary Clinical Lecturer at Imperial College London and has previously held academic and research roles within Imperial's Department of Brain Sciences. He also holds an Executive MBA from Warwick Business School and is a Member of the Royal College of Psychiatrists. Within the College's Faculty of Child and Adolescent Psychiatry he is an elected member and serves as Faculty lead for Recruitment and Retention, and he is an Expert Advisor to the Association for Young People's Health.</p><p>His clinical approach considers the whole child, carefully exploring emotional, behavioural, developmental, family and social factors to reach an accurate diagnosis and develop an individualised plan of care, with a particular emphasis on early identification and intervention.</p><p>Dr Nazir provides a calm, respectful and supportive environment where both young people and their families have the time and space to feel heard, understood and involved in decisions about their care.</p>">Dr Mudasir Nazir</h3><span class="role-chip">Consultant Child &amp; Adolescent Psychiatrist</span><div class="quals">MB BS, MMedSci, MBA, EPA, MRCPsych · Honorary Clinical Lecturer, Imperial College London · Elected Member &amp; Faculty Lead for R&amp;R, Royal College of Psychiatrists CAMHS Faculty · Expert Advisor to the Association for Young People's Health</div><div class="focus"><b>Focus:</b> ADHD and autism assessment for children, young people and adults.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo"><img src="dr-kaushik-rakshit.jpg" alt="Mr Kaushik Rakshit" loading="lazy"></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Mr Kaushik Rakshit is a highly accomplished plastic surgeon and Fellow of the Royal College of Surgeons of Edinburgh, with over 20 years of NHS experience.</p><p>Renowned for his expertise in skin cancer surgery, scar management and paediatric plastic surgery, he combines precision with a patient-centred approach. His advanced skills in hand surgery and commitment to excellence ensure both functional restoration and aesthetic enhancement, providing tailored care that prioritises safety, confidence and quality of life.</p>">Mr Kaushik Rakshit</h3><span class="role-chip">Consultant Plastic Surgeon</span><div class="quals">MBBS, MS, MCh (Plastic Surgery), FRCS Ed</div><div class="focus"><b>Focus:</b> Surgeon-led minor operations — mole, cyst and lipoma excision, punch biopsies and complex lesion removal with meticulous cosmetic closure.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" src="sarah-tappin.jpg" alt="Sarah Tappin" loading="lazy" onerror="this.style.display='none'"><span>ST</span></div>
+          <div class="info"><h3>Sarah Tappin</h3><span class="role-chip">Aesthetician</span><div class="focus"><b>Focus:</b> Aesthetic treatments including anti-wrinkle, skin boosters and dermal fillers — natural results with a gentle touch.</div></div>
+        </div>
+        <div class="doc">
+          <div class="photo avatar"><img class="staff" src="denise-hughes.jpg" alt="Denise Hughes" loading="lazy" onerror="this.style.display='none'"><span>DH</span></div>
+          <div class="info"><h3 class="has-bio" tabindex="0" data-bio="<p>Denise Hughes is a highly experienced Cardiac Physiologist with over 30 years of specialist expertise in cardiology, working across private practices in Essex and Harley Street.</p><p>Trained in Manchester and London, Denise provides a comprehensive range of cardiac diagnostic services, including echocardiography (cardiac ultrasound), ECGs, Holter monitoring, and 24-hour and 48-hour ambulatory blood pressure monitoring. She has a particular interest in sports cardiac screening, supporting athletes and active individuals in understanding and safeguarding their heart health.</p><p>Known for her calm and thorough approach, Denise is committed to delivering high-quality, patient-centred cardiac care in a welcoming and professional environment.</p><p>Outside of work, Denise enjoys an active lifestyle, with a love of walking, outdoor activities, and a keen interest in general wellbeing and nutrition. She values time spent with family and making the most of holidays whenever she can.</p>">Denise Hughes</h3><span class="role-chip">Cardiac Physiologist</span><div class="quals">BSc Cardiac Physiology</div><div class="focus"><b>Focus:</b> Cardiac Physiology, Echocardiography, Sports Cardiac Screening — Echocardiography, ECG, Holter Monitoring, 24hr/48hr Blood Pressure Monitoring.</div></div>
+        </div>
+      </div>
+
+      <div class="center reveal" style="margin-top:76px"><div class="eyebrow">Practice team</div><h2 class="title" style="font-size:2rem">Here to help</h2></div>
+      <div class="team-grid" data-stagger style="margin-top:40px">
+        <div class="doc compact">
+          <div class="photo avatar"><img class="staff" src="karen-webster.jpg" alt="Karen Webster" loading="lazy" onerror="this.style.display='none'"><span>KW</span></div>
+          <div class="info"><h3>Karen Webster</h3><span class="role-chip">Business Manager</span><div class="focus">Keeps the clinic running smoothly behind the scenes.</div></div>
+        </div>
+        <div class="doc compact">
+          <div class="photo avatar"><img class="staff" src="leigh-clancy.jpg" alt="Leigh Clancy" loading="lazy" onerror="this.style.display='none'"><span>LC</span></div>
+          <div class="info"><h3>Leigh Clancy</h3><span class="role-chip">Clinic Manager</span><div class="focus">Oversees day-to-day clinic operations and patient experience.</div></div>
+        </div>
+        <div class="doc compact">
+          <div class="photo avatar"><img class="staff" src="julie-rolph.jpg" alt="Julie Rolph" loading="lazy" onerror="this.style.display='none'"><span>JR</span></div>
+          <div class="info"><h3>Julie Rolph</h3><span class="role-chip">Receptionist</span><div class="focus">Your friendly first point of contact at the front desk.</div></div>
+        </div>
+        <div class="doc compact">
+          <div class="photo avatar"><img class="staff" src="rina-khan.jpg" alt="Rina Khan" loading="lazy" onerror="this.style.display='none'"><span>RK</span></div>
+          <div class="info"><h3>Rina Khan</h3><span class="role-chip">Receptionist</span><div class="focus">Here to help with appointments, questions and a warm welcome.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Come and meet us</h2><p>Book an appointment with any of our clinicians — we look forward to welcoming you. Clinician yourself? <a href="#/careers" style="color:var(--orange);font-weight:700">We're hiring</a>.</p>
+    <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Appointment</a>
+  </div></div>
+</main>
+
+
+<!-- ================================================================
+     PAGE: CARDIOLOGY DIAGNOSTICS
+================================================================ -->
+<main class="page" id="page-cardiology">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Cardiology Diagnostics</div>
+      <h1 class="reveal">Cardiology Diagnostics</h1>
+      <p class="sub reveal">Hospital-grade heart tests, minutes from home — delivered at our Shenfield clinic by accredited cardiac experts, with no hospital trips and no long waiting lists.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book a Heart Test</a></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail" id="cardio-main">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/service-healthcheck.webp" alt="Cardiac diagnostics" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">Tests closer to home</span>
+        <h2>Heart tests without the hospital trip</h2>
+        <p class="body">Palpitations, breathlessness, high blood pressure or a family history of heart disease shouldn't mean months of waiting or travelling to a hospital. Our full cardiac diagnostic suite is delivered right here in Shenfield, with structured written reports and same-day escalation of urgent findings to our on-site GPs.</p>
+        <ul class="checklist">
+          <li><b>Resting 12-lead ECG</b> — heart rhythm analysis</li>
+          <li><b>24/48-hour Holter monitoring</b> — continuous rhythm recording at home</li>
+          <li><b>Ambulatory blood pressure monitoring (24-hr)</b> — gold-standard BP assessment</li>
+          <li><b>Cardiac event monitoring</b> — longer-term recording to catch intermittent symptoms</li>
+          <li><b>Echocardiography (heart ultrasound)</b> — structure, valves &amp; function</li>
+          <li>Structured written report for every test · urgent findings escalated immediately · on-site GP for follow-up, prescriptions and referral</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">ECG £100</span><span class="chip">Echocardiogram £390</span><span class="chip bl">Reports for every test</span></div>
+        <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+
+    <div class="detail flip" id="cardio-experts">
+      <div class="media reveal-r"><img src="https://aesthetk.com/wp-content/uploads/2025/01/pexels-karolina-grabowska-4047186-396x360.jpg" alt="Cardiac physiologist" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick orange">Delivered by experts</span>
+        <h2>The people hospitals trust with heart tests</h2>
+        <p class="body">Our cardiac diagnostics are delivered by <b>Denise Hughes, Cardiac Physiologist (BSc Cardiac Physiology)</b> — a highly experienced specialist with over 30 years in cardiology across private practices in Essex and Harley Street. Trained in Manchester and London, she provides echocardiography, ECGs, Holter monitoring and 24/48-hour blood pressure monitoring, with a particular interest in sports cardiac screening.</p>
+        <ul class="checklist">
+          <li>BSc Cardiac Physiology — trained in Manchester and London</li>
+          <li>Over 30 years across private practices in Essex and Harley Street</li>
+          <li>Particular interest in sports cardiac screening for athletes and active individuals</li>
+          <li>Hospital-grade equipment brought to your local clinic</li>
+          <li>Tests performed to established clinical protocols with full quality assurance</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">BSc Cardiac Physiology</span><span class="chip bl">30+ years' experience</span></div>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book a Heart Test</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Listen to your heart — locally</h2><p>Expert cardiac testing at 40 Hutton Road, Shenfield — with your GP on site to act on the results.</p>
+    <a class="btn btn-blue" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book a Heart Test</a>
+  </div></div>
+</main>
+
+<!-- ================================================================
+     PAGE: CORPORATE MEDICALS
+================================================================ -->
+<main class="page" id="page-corporate">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Corporate Medicals</div>
+      <h1 class="reveal">Corporate Medicals</h1>
+      <p class="sub reveal">GP-led health assessments for your team — with a difference. We look after the whole employee, including the one area most corporate medicals ignore completely: skin health.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-blue" href="mailto:contact@shenfieldprivategp.com?subject=Corporate%20medicals%20enquiry">Enquire About Packages</a></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail" id="corp-main">
+      <div class="media reveal-l"><img src="https://www.shenfieldprivategp.com/assets/img/service-healthcheck.webp" alt="Corporate medical assessment" loading="lazy"></div>
+      <div class="reveal-r">
+        <span class="kick blue">For employers</span>
+        <h2>GP-led medicals for your team</h2>
+        <p class="body">Comprehensive, unhurried medical assessments for your staff, delivered by experienced doctors at our CQC-registered clinic — two minutes from Shenfield station. Healthy teams take fewer sick days, perform better and stay longer.</p>
+        <ul class="checklist">
+          <li>Full GP medical examination and health review</li>
+          <li>Cardiovascular checks — blood pressure, pulse, ECG with our cardiac nurse</li>
+          <li>Blood panel with clear results interpretation</li>
+          <li>Lifestyle, weight and wellbeing guidance</li>
+          <li>Confidential written report for each employee</li>
+          <li>Group scheduling to minimise time away from work</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Packages tailored to your team</span><span class="chip bl">Contact the clinic for details</span></div>
+        <a class="btn btn-blue" href="tel:01277503503">Call 01277 503 503</a>
+      </div>
+    </div>
+
+    <div class="detail flip" id="corp-skin">
+      <div class="media reveal-r"><img src="https://aesthetk.com/wp-content/uploads/2024/01/asthtik-photo-396x360.jpg" alt="Digital mole mapping for employees" loading="lazy"></div>
+      <div class="reveal-l">
+        <span class="kick orange">What makes us different</span>
+        <h2>Skin health — the gap in most corporate medicals</h2>
+        <p class="body">Skin cancer is one of the most common cancers in the UK, and cases continue to rise — yet most workplace health programmes never look at the skin at all. That gap leaves employees at risk, and early detection is the single biggest factor in outcomes.</p>
+        <ul class="checklist">
+          <li>Most corporate medicals stop at heart, bloods and lifestyle — skin is rarely checked</li>
+          <li>Employees who work outdoors or travel frequently face higher UV exposure</li>
+          <li>Caught early, skin cancer is highly treatable — late detection changes everything</li>
+          <li>Our packages can include <b>digital full-body mole mapping</b> — expert dermoscopy by an international specialist, with a baseline record for future comparison</li>
+          <li>Personalised recall reminders so no employee falls through the gap</li>
+        </ul>
+        <div class="price-line"><span class="chip hl">Includes digital mole mapping</span><span class="chip bl">A benefit your team will actually value</span></div>
+        <a class="btn btn-orange" href="mailto:contact@shenfieldprivategp.com?subject=Corporate%20medicals%20enquiry">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip"><div class="container reveal">
+    <h2>Look after your team, properly</h2><p>Packages are tailored to your organisation's size and needs — contact the clinic for details.</p>
+    <a class="btn btn-blue" href="tel:01277503503">Call 01277 503 503</a>
+    <a class="btn btn-outline" style="margin-left:10px" href="mailto:contact@shenfieldprivategp.com?subject=Corporate%20medicals%20enquiry">Email Us</a>
+  </div></div>
+</main>
+
+<!-- ================================================================
+     PAGE: JOIN OUR TEAM (Careers)
+================================================================ -->
+<main class="page" id="page-careers">
+  <div class="pagehead orange">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / <a href="#/team">Our Team</a> / Join Our Team</div>
+      <h1 class="reveal">Join our team</h1>
+      <p class="sub reveal">We are always looking for enthusiastic GPs to join our expanding team — and we'd love to hear from talented clinicians and practice staff too.</p>
+      <div style="margin-top:26px" class="reveal"><a class="btn btn-orange" href="mailto:contact@shenfieldprivategp.com?subject=Career%20enquiry%20—%20Shenfield%20Private%20GP%20%7C%20Aesthetk">Send Us Your CV</a></div>
+    </div>
+  </div>
+
+  <section style="padding-top:56px">
+    <div class="container split">
+      <div class="imgwrap reveal-l">
+        <div class="accent"></div>
+        <img src="https://www.shenfieldprivategp.com/assets/img/modern_gp_clinic_interaction_no_faces_1767990325301.webp" alt="Inside the clinic" loading="lazy">
+      </div>
+      <div class="reveal-r">
+        <div class="eyebrow">Why work with us</div>
+        <h2 class="title">Grow with a clinic that's going places</h2>
+        <p class="sub">We're a CQC-regulated, doctor-led practice in the heart of Shenfield, combining traditional family medicine with advanced skin diagnostics and aesthetics.</p>
+        <ul class="checklist">
+          <li>Unhurried consultations — practise medicine the way it should be practised</li>
+          <li>Modern facilities including state-of-the-art digital mole mapping technology</li>
+          <li>A friendly, supportive multidisciplinary team of GPs, a consultant plastic surgeon, nurses and practitioners</li>
+          <li>Flexible sessions to fit around NHS and other commitments</li>
+          <li>Opportunities to develop special interests — dermatology, women's health, aesthetics and more</li>
+          <li>Two minutes from Shenfield station (direct lines to London)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2)">
+    <div class="container">
+      <div class="center reveal">
+        <div class="eyebrow">Who we're looking for</div>
+        <h2 class="title">Current opportunities</h2>
+      </div>
+      <div class="snap-grid" data-stagger style="margin-top:44px">
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>🩺 General Practitioners</h3><p>Enthusiastic GPs — including those with extended roles or special interests (dermatology, women's health, minor surgery). Sessional and flexible arrangements available.</p></div>
+        </div>
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>✨ Aesthetic &amp; Cosmetic Practitioners</h3><p>Experienced practitioners to grow our doctor-led aesthetics service, with a safety-first, natural-results philosophy.</p></div>
+        </div>
+        <div class="snap" style="cursor:default">
+          <div class="body"><h3>💙 Nurses &amp; Practice Staff</h3><p>Practice nurses, healthcare assistants and front-of-house staff who share our commitment to warm, personal patient care.</p></div>
+        </div>
+      </div>
+      <div class="center reveal" style="margin-top:44px">
+        <p class="sub" style="margin-bottom:22px">Interested? Send your CV and a short note to <a href="mailto:contact@shenfieldprivategp.com" style="color:var(--blue);font-weight:700">contact@shenfieldprivategp.com</a> — or call <a href="tel:01277503503" style="color:var(--blue);font-weight:700">01277 503 503</a> for an informal chat.</p>
+        <a class="btn btn-orange" href="mailto:contact@shenfieldprivategp.com?subject=Career%20enquiry%20—%20Shenfield%20Private%20GP%20%7C%20Aesthetk">Apply Now</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================================================================
+     PAGE: PRICING
+================================================================ -->
+<main class="page" id="page-pricing">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Pricing</div>
+      <h1 class="reveal">Clear, honest pricing</h1>
+      <p class="sub reveal">Transparent fees with no hidden costs. Choose a category to explore.</p>
+    </div>
+  </div>
+  <section style="padding-top:40px">
+    <div class="container">
+      <div class="ptabs reveal">
+        <button class="ptab active" data-panel="pp-gp">GP Services</button>
+        <button class="ptab" data-panel="pp-wh">Women's Health</button>
+        <button class="ptab" data-panel="pp-skin">Skin &amp; Mole Mapping</button>
+        <button class="ptab" data-panel="pp-aes">Aesthetics</button>
+        <button class="ptab" data-panel="pp-cardio">Cardiology</button>
+        <button class="ptab" data-panel="pp-well">Weight Management</button>
+        <button class="ptab" data-panel="pp-mh">Mental Health, Neurodiversity &amp; Capacity</button>
+        <button class="ptab" data-panel="pp-surg">Minor Surgery</button>
+      </div>
+
+      <div class="ppanel active" id="pp-gp">
+        <div class="pcard"><h5>GP Consultation</h5><div class="amount">£135</div><small>Examination · prescription · follow-up planning</small></div>
+        <div class="pcard"><h5>Private Prescription</h5><div class="amount">£25</div><small>Per item · controlled drugs £50 · free when issued within an appointment</small></div>
+        <div class="pcard"><h5>ECG</h5><div class="amount">£100</div><small>Heart rhythm analysis with results interpretation</small></div>
+        <div class="pcard"><h5>Ear Wax Removal</h5><div class="amount">£65 <span>+ consult</span></div><small>Microsuction, both ears if required, hearing check included</small></div>
+        <div class="pcard"><h5>Men's Health Check</h5><div class="amount">£900</div><small>Full assessment, blood panel &amp; detailed report</small></div>
+        <div class="pcard"><h5>Women's Health Check</h5><div class="amount">£875</div><small>Full assessment, hormonal evaluation &amp; diagnostics</small></div>
+        <div class="pcard"><h5>Home Visit</h5><div class="amount">£400</div><small>Full GP consultation at home, within 3 miles</small></div>
+        <div class="pcard"><h5>HGV Medical</h5><div class="amount">£250</div><small>DVLA-approved assessment with certificate</small></div>
+        <div class="pcard"><h5>Medical Reports</h5><div class="amount">From £250</div><small>Insurance, legal &amp; employment reports</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-wh">
+        <div class="pcard"><h5>Women's Health Consultation</h5><div class="amount">£135</div><small>GP with Extended Role in Women's Health &amp; Gynaecology</small></div>
+        <div class="pcard"><h5>Extended Menopause Consultation</h5><div class="amount">£285</div><small>45–60 min · HRT &amp; testosterone counselling · follow-up (30 min) £185</small></div>
+        <div class="pcard"><h5>Cervical Screening / Cervical Swabs</h5><div class="amount">£295</div><small>Vaginal and vulval swabs £150</small></div>
+        <div class="pcard"><h5>Hormonal Coil Insertion</h5><div class="amount">£550</div><small>Including device · copper coil insertion £450 · coil removal £225</small></div>
+        <div class="pcard"><h5>Contraceptive Implant Insertion</h5><div class="amount">£425</div><small>Including implant · implant removal £295</small></div>
+        <div class="pcard"><h5>Ring Pessary (with one follow-up)</h5><div class="amount">£325</div><small>Cube pessary — fitting &amp; self-management £360</small></div>
+        <div class="pcard"><h5>Cervical Polypectomy</h5><div class="amount">£550</div><small>Including routine histology · cervical ectropion treatment £395</small></div>
+        <div class="pcard"><h5>Vulval Biopsy</h5><div class="amount">£450</div><small>Including routine histology · benign vulval lesion removal £550</small></div>
+        <div class="pcard"><h5>Endometrial Pipelle Biopsy</h5><div class="amount">£450</div><small>Including routine histology</small></div>
+        <div class="pcard"><h5>Repeat Prescription</h5><div class="amount">£25</div><small>Controlled drugs £50 · free when issued within an appointment</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-skin">
+        <div class="pcard"><h5>Skin / Dermatology Consultation</h5><div class="amount">£135</div><small>Expert assessment with dermoscopy</small></div>
+        <div class="pcard"><h5>Single Mole Check</h5><div class="amount">£135</div><small>Focused dermoscopic assessment of one lesion</small></div>
+        <div class="pcard"><h5>Full Body Mole Screening</h5><div class="amount">£250</div><small>Non-digital comprehensive examination &amp; report</small></div>
+        <div class="pcard"><h5>Digital Full Body Mole Mapping</h5><div class="amount">£350</div><small>High-resolution imaging with baseline for future comparison</small></div>
+        <div class="pcard"><h5>Mole Mapping Follow-up</h5><div class="amount">£350</div><small>Comparison mapping to detect new or changed moles</small></div>
+        <div class="pcard"><h5>Skin Lesion Treatment</h5><div class="amount">From £250</div><small>Skin tags, warts, verrucae and other benign lesions</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-aes">
+        <div class="pcard"><h5>Anti-Wrinkle — 1 / 2 / 3 Areas</h5><div class="amount">£225–£325</div><small>Gummy smile, bunny lines, chin &amp; more from £199</small></div>
+        <div class="pcard"><h5>Profhilo</h5><div class="amount">£295</div><small>Per session · 2-session package £550</small></div>
+        <div class="pcard"><h5>Sunekos / Restylane</h5><div class="amount">£265</div><small>Per session · 3-session package £725</small></div>
+        <div class="pcard"><h5>Polynucleotides (Face)</h5><div class="amount">From £275</div><small>Nucleofill — 4-session package £950</small></div>
+        <div class="pcard"><h5>Polynucleotides (Eyes)</h5><div class="amount">From £185</div><small>Lumi Eyes, Nucleofill Eyes, Plinest Eyes</small></div>
+        <div class="pcard"><h5>Dermal Fillers</h5><div class="amount">From £200</div><small>Lips, cheeks, chin, jawline, temples, marionettes</small></div>
+        <div class="pcard"><h5>Radiesse</h5><div class="amount">From £550</div><small>Face, hands, neck, décolletage &amp; body</small></div>
+        <div class="pcard"><h5>Hyperhidrosis</h5><div class="amount">From £495</div><small>Treatment for excessive sweating</small></div>
+        <div class="pcard"><h5>Migraine Treatment</h5><div class="amount">£550</div><small>Injection therapy to reduce frequency</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-well">
+        <div class="pcard"><h5>Weight Management Consultation</h5><div class="amount">£135</div><small>Doctor-led assessment of suitability for weight loss treatment</small></div>
+        <div class="pcard"><h5>Weekly Injections by Doctor/Nurse</h5><div class="amount">£45</div><small>Pen not included</small></div>
+        <div class="pcard"><h5>Follow-up &amp; Monitoring</h5><div class="amount">Included</div><small>Ongoing reviews and dose adjustments as part of your programme</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-cardio">
+        <div class="pcard"><h5>Resting 12-Lead ECG</h5><div class="amount">£100</div><small>Heart rhythm analysis with structured written report</small></div>
+        <div class="pcard"><h5>Holter Monitoring (24/48-hr)</h5><div class="amount">£280</div><small>Continuous rhythm recording at home, with analysis &amp; report</small></div>
+        <div class="pcard"><h5>Ambulatory BP Monitoring (24-hr)</h5><div class="amount">£250</div><small>Gold-standard blood pressure assessment over a full day</small></div>
+        <div class="pcard"><h5>Cardiac Event Monitoring</h5><div class="amount">£425</div><small>Longer-term recording to capture intermittent symptoms</small></div>
+        <div class="pcard"><h5>Echocardiography</h5><div class="amount">£390</div><small>Heart ultrasound — structure, valves &amp; function, BSE-accredited</small></div>
+        <div class="pcard"><h5>GP Review of Results</h5><div class="amount">£135</div><small>On-site follow-up, prescriptions and onward referral where needed</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-mh">
+        <div class="pcard"><h5>Adult ADHD Diagnostic Assessment</h5><div class="amount">£1,375</div><small>CAMHS consultant-led · full clinical assessment &amp; written report</small></div>
+        <div class="pcard"><h5>Child / Young Person ADHD Assessment</h5><div class="amount">£2,475</div><small>Includes parent/carer and school collateral, report &amp; recommendations</small></div>
+        <div class="pcard"><h5>Autism (ASD) Diagnostic Assessment</h5><div class="amount">£2,260</div><small>Adults · children &amp; young people £2,475</small></div>
+        <div class="pcard"><h5>Combined ADHD + Autism Assessment</h5><div class="amount">£3,260</div><small>One coordinated pathway — adults, children &amp; young people</small></div>
+        <div class="pcard"><h5>Medication Initiation</h5><div class="amount">£495</div><small>With baseline physical health checks on site</small></div>
+        <div class="pcard"><h5>Titration &amp; Medication Reviews</h5><div class="amount">£250</div><small>Face-to-face titration review · stable medication review £200</small></div>
+        <div class="pcard"><h5>Initial Psychiatric Consultation</h5><div class="amount">£395</div><small>75–90 min · full history, mental state examination &amp; management plan</small></div>
+        <div class="pcard"><h5>Full Psychiatric Diagnostic Assessment</h5><div class="amount">£795</div><small>Complex presentations · written diagnostic report &amp; treatment plan</small></div>
+        <div class="pcard"><h5>Comprehensive Memory &amp; Dementia Assessment</h5><div class="amount">£1,095</div><small>ACE-III, MoCA &amp; clinical assessment · full written report</small></div>
+        <div class="pcard"><h5>Mental Capacity Assessment</h5><div class="amount">From £650</div><small>Single-decision and complex multi-decision assessments · formal written report</small></div>
+        <div class="pcard"><h5>LPA Capacity Assessment &amp; Certificate</h5><div class="amount">From £650</div><small>Testamentary capacity assessment from £700</small></div>
+        <div class="pcard"><h5>Court of Protection Report (COP3 / PA14)</h5><div class="amount">From £695</div><small>Formal medico-legal document for COP proceedings</small></div>
+        <div class="pcard"><h5>Medico-Legal Psychiatric Report</h5><div class="amount">From £850</div><small>Tribunal, personal injury &amp; insurance · complex cases quoted individually</small></div>
+        <div class="pcard"><h5>Psychiatrist Follow-up</h5><div class="amount">£250</div><small>30–60 min · supporting clinical letter or report addendum £95</small></div>
+        <div class="pcard"><h5>GP Mental Health Review</h5><div class="amount">£135</div><small>Interim reviews &amp; monitoring · private prescription £25 per item (controlled drugs £50)</small></div>
+      </div>
+
+      <div class="ppanel" id="pp-surg">
+        <div class="pcard"><h5>Minor Surgery (GP)</h5><div class="amount">From £300</div><small>Skin tags, warts &amp; minor procedures</small></div>
+        <div class="pcard"><h5>Mole Excision (GP)</h5><div class="amount">From £400</div><small>Histology available · cyst excision from £500</small></div>
+        <div class="pcard"><h5>Punch Biopsy</h5><div class="amount">£450</div><small>Consultant Plastic Surgeon · lab analysis included</small></div>
+        <div class="pcard"><h5>Mole Excision / Shave (Surgeon)</h5><div class="amount">£450–£550</div><small>Additional moles from £150 each</small></div>
+        <div class="pcard"><h5>Cyst / Lipoma Excision (Surgeon)</h5><div class="amount">£895</div><small>Up to 2cm · complete excision with follow-up</small></div>
+        <div class="pcard"><h5>Histology</h5><div class="amount">From £150</div><small>Tissue analysis with detailed pathology report</small></div>
+      </div>
+
+      <p class="sub reveal" style="margin-top:30px">Anything not listed? <a href="tel:01277503503" style="color:var(--blue);font-weight:700">Call 01277 503 503</a>.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ================================================================
+     PAGE: CONTACT
+================================================================ -->
+<main class="page" id="page-contact">
+  <div class="pagehead">
+    <div class="container">
+      <div class="crumb reveal"><a href="#/">Home</a> / Contact</div>
+      <h1 class="reveal">Find us in the heart of Shenfield</h1>
+      <p class="sub reveal">Two minutes from Shenfield station — we're here for appointments, questions and urgent advice.</p>
+    </div>
+  </div>
+  <section style="padding-top:44px">
+    <div class="container contact-grid">
+      <div class="c-cards" data-stagger>
+        <div class="c-card"><div class="t">Address</div>First Floor, 40 Hutton Road,<br>Shenfield, Brentwood,<br>Essex CM15 8LB<br><a href="https://maps.app.goo.gl/amzEe4NUqYiGmbEr8" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+        <div class="c-card"><div class="t">Get in touch</div><a href="tel:01277503503">01277 503 503</a><br><a href="https://wa.me/447769310217" target="_blank" rel="noopener">WhatsApp +44 7769 310 217</a><br><a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a><br><a href="mailto:drk@aesthetk.com">drk@aesthetk.com</a></div>
+        <div class="c-card wide"><div class="t">Opening hours</div>
+          <table>
+            <tr><td>Monday – Friday</td><td>8:00 AM – 6:00 PM</td></tr>
+            <tr><td>Saturday</td><td>9:00 AM – 1:00 PM</td></tr>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+        <div class="c-card wide"><div class="t">Accessibility</div>We are located on the first floor and the building does not currently have wheelchair access. Please contact us before your visit to discuss any mobility or accessibility needs — we will make every reasonable effort to help.</div>
+      </div>
+      <div class="book-box reveal-r">
+        <h3>Book in seconds</h3>
+        <p>Secure online booking, available 24/7. Choose your doctor, service and time — instant confirmation.</p>
+        <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Your Appointment</a>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff" href="tel:01277503503">Or call 01277 503 503</a>
+        <button class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff" onclick="toggleChat(true)">💬 Ask the AI Assistant</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div style="display:inline-flex;align-items:center;gap:14px;margin-bottom:16px;background:#ffffff;padding:8px 16px;border-radius:14px">
+          <img src="https://www.shenfieldprivategp.com/assets/logo/LogoText.webp" alt="Shenfield Private GP" style="height:40px;width:auto">
+          <span style="width:1px;height:30px;background:#d8d2c4"></span>
+          <img src="https://aesthetk.com/wp-content/uploads/2024/01/logo-transparency2.png" alt="Aesthetk by Dr K" style="height:34px;width:auto">
+        </div>
+        <div class="fb-title">Shenfield Private GP | Aesthetk by Dr K</div>
+        <p>Your specialist skin, hair and family health clinic — trusted local doctors at 40 Hutton Road, Shenfield.</p>
+      </div>
+      <div>
+        <h6>Private GP</h6>
+        <ul>
+          <li><a href="#/gp" data-anchor="gp-consult">GP Consultations</a></li>
+          <li><a href="#/gp" data-anchor="gp-longterm">Long-Term Care</a></li>
+          <li><a href="#/womens">Women's Health</a></li>
+          <li><a href="#/mental">Mental Health &amp; Memory</a></li>
+          <li><a href="#/mental" data-anchor="nd-main">ADHD &amp; Autism (Neurodiversity)</a></li>
+          <li><a href="#/gp" data-anchor="gp-screening">Health Checks</a></li>
+          <li><a href="#/cardiology">Cardiology Diagnostics</a></li>
+          <li><a href="#/corporate">Corporate Medicals</a></li>
+          <li><a href="#/gp" data-anchor="gp-surgery">Minor Surgery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Skin &amp; Aesthetics</h6>
+        <ul>
+          <li><a href="#/skin" data-anchor="sk-mole">Mole Mapping</a></li>
+          <li><a href="#/skin" data-anchor="sk-derm">General Dermatology</a></li>
+          <li><a href="#/skin" data-anchor="sk-clinic">Skin Clinic</a></li>
+          <li><a href="#/skin" data-anchor="sk-boosters">Boosters &amp; Fillers</a></li>
+          <li><a href="#/skin" data-anchor="sk-weight">Weight Management</a></li>
+          <li><a href="#/skin" data-anchor="sk-hyper">Hyperhidrosis</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="#/team">Our Team</a></li>
+          <li><a href="#/careers">Join Our Team — We're Hiring</a></li>
+          <li>First Floor, 40 Hutton Road, Shenfield, Brentwood CM15 8LB</li>
+          <li><a href="tel:01277503503">01277 503 503</a></li>
+          <li><a href="https://wa.me/447769310217">WhatsApp +44 7769 310 217</a></li>
+          <li><a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cqc-note">
+      <span>Shenfield Private GP is a service provided by <strong style="color:#e9e4d8">Aesthetk Ltd</strong>, a CQC-registered healthcare provider. <a href="https://www.cqc.org.uk/location/1-19882077109" target="_blank" rel="noopener">Regulatory info</a></span>
+      <span>© 2026 Aesthetk Ltd · Privacy · GDPR · Terms · Cookies · Patient Notice</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" style="right:auto;left:26px" href="https://wa.me/447769310217" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7.2-2.1c1.9 1 4 1.6 6.3 1.6h.5c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.1-2.2-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-2.9c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.8 1.1 2.6 1.2 2.7.1.2.2.4 0 .7-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.3 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.3.1 2.2 1 2.5 1.2.4.2.6.3.7.4.1.3.1.9-.2 1.7z"/></svg>
+</a>
+<button id="totop" style="right:auto;left:32px" aria-label="Back to top">↑</button>
+<div id="bio-tip" role="tooltip" aria-hidden="true"></div>
+
+<!-- ======= AI CLINIC ASSISTANT ======= -->
+<div class="chat-panel" id="chat-panel" role="dialog" aria-label="Clinic assistant">
+  <div class="chat-head">
+    <div class="av">🤖</div>
+    <div>
+      <div class="nm">Clinic Assistant</div>
+      <div class="st">Online — instant answers</div>
+    </div>
+  </div>
+  <div class="chat-msgs" id="chat-msgs"></div>
+  <div class="chat-chips" id="chat-chips"></div>
+  <div class="chat-input">
+    <input type="text" id="chat-in" placeholder="Ask about prices, services, hours…" autocomplete="off">
+    <button class="chat-send" id="chat-send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
+  </div>
+  <div class="chat-note">Automated assistant — for medical advice please book a consultation or call 01277 503 503.</div>
+</div>
+<button class="chat-fab" id="chat-fab" onclick="toggleChat()" aria-label="Chat with our assistant">
+  <svg class="chat-ic" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6 2 11c0 2.4 1 4.5 2.7 6.1-.2 1.2-.8 2.6-1.6 3.6-.2.3 0 .7.4.7 2 0 3.8-.8 5-1.6 1.1.3 2.3.5 3.5.5 5.5 0 10-4 10-9S17.5 2 12 2zm-4 10.5c-.8 0-1.5-.7-1.5-1.5S7.2 9.5 8 9.5s1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm4 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm4 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/></svg>
+  <svg class="close-ic" viewBox="0 0 24 24"><path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+</button>
+
+<script>
+/* ============ SPA ROUTER ============ */
+const routes={'':'home','/':'home','/gp':'gp','/skin':'skin','/womens':'womens','/mental':'mental','/team':'team','/careers':'careers','/cardiology':'cardiology','/corporate':'corporate','/pricing':'pricing','/contact':'contact'};
+let pendingAnchor=null;
+function route(){
+  const hash=location.hash.replace(/^#/,'');
+  let name=routes[hash];
+  if(!name){
+    // support "#/gp#gp-surgery" style or plain section hashes on current page
+    const m=hash.match(/^(\/[a-z]*)?#?([a-z0-9-]*)?$/i);
+    name=routes[(m&&m[1])||'/']||'home';
+  }
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('nav.menu a').forEach(a=>a.classList.toggle('active',a.dataset.route===name));
+  bindReveals();
+  if(pendingAnchor){
+    const el=document.getElementById(pendingAnchor);pendingAnchor=null;
+    if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),120);
+    else scrollTo({top:0});
+  }else{scrollTo({top:0,behavior:'instant'})}
+  document.getElementById('menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+addEventListener('hashchange',route);
+// links that carry an anchor into another page
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[data-anchor]');
+  if(a){pendingAnchor=a.dataset.anchor}
+});
+/* ============ NAV ============ */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',scrollY>10);
+  const h=document.documentElement;
+  document.getElementById('progress').style.width=(scrollY/(h.scrollHeight-h.clientHeight)*100)+'%';
+  document.getElementById('totop').classList.toggle('show',scrollY>700);
+});
+document.getElementById('totop').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const burger=document.getElementById('hamburger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{menu.classList.toggle('open');burger.classList.toggle('open')});
+
+/* ============ REVEAL OBSERVER ============ */
+let io;
+function bindReveals(){
+  if(io)io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('visible');
+    if(e.target.hasAttribute('data-stagger')){
+      [...e.target.children].forEach((c,i)=>c.style.transitionDelay=(i*90)+'ms');
+    }
+    io.unobserve(e.target);
+  }),{threshold:.12});
+  document.querySelectorAll('.page.active .reveal,.page.active .reveal-l,.page.active .reveal-r,.page.active [data-stagger]').forEach(el=>{
+    if(!el.classList.contains('visible'))io.observe(el);
+  });
+  bindCounters();
+}
+/* ============ COUNTERS ============ */
+function bindCounters(){
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=+el.dataset.count;let t0=null;
+    const step=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/1300,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);cio.unobserve(el);
+  }),{threshold:.6});
+  document.querySelectorAll('.page.active [data-count]').forEach(el=>cio.observe(el));
+}
+
+/* ============ HERO TILT ============ */
+const tilt=document.getElementById('tilt');
+if(tilt&&matchMedia('(pointer:fine)').matches){
+  tilt.addEventListener('mousemove',e=>{
+    const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    tilt.style.transform=`rotate(1.5deg) perspective(900px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
+  });
+  tilt.addEventListener('mouseleave',()=>tilt.style.transform='rotate(1.5deg)');
+}
+
+/* ============ VIDEO PLAY OVERLAYS ============ */
+document.querySelectorAll('.play-overlay').forEach(ov=>{
+  ov.addEventListener('click',()=>{
+    const v=document.getElementById(ov.dataset.video);
+    ov.classList.add('hidden');v.play();
+  });
+  const v=document.getElementById(ov.dataset.video);
+  v.addEventListener('play',()=>ov.classList.add('hidden'));
+  v.addEventListener('pause',()=>{if(v.currentTime===0)ov.classList.remove('hidden')});
+});
+
+/* ============ ACCORDIONS ============ */
+document.querySelectorAll('.acc .q').forEach(q=>q.addEventListener('click',()=>{
+  const acc=q.parentElement,a=acc.querySelector('.a'),open=acc.classList.contains('open');
+  acc.parentElement.querySelectorAll('.acc').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null});
+  if(!open){acc.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+}));
+
+/* ============ PRICING TABS ============ */
+document.querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.ppanel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.panel).classList.add('active');
+}));
+
+/* ============ SUBNAV highlight ============ */
+addEventListener('scroll',()=>{
+  document.querySelectorAll('.page.active .subnav a').forEach(a=>{
+    const id=a.getAttribute('href').slice(1),el=document.getElementById(id);
+    if(!el)return;
+    const r=el.getBoundingClientRect();
+    a.classList.toggle('on',r.top<200&&r.bottom>200);
+  });
+},{passive:true});
+
+/* ============ BMI CALC ============ */
+const bmiGo=document.getElementById('bmi-go');
+if(bmiGo)bmiGo.addEventListener('click',()=>{
+  const h=+document.getElementById('bmi-h').value/100,w=+document.getElementById('bmi-w').value;
+  if(!h||!w)return;
+  const bmi=w/(h*h),out=document.getElementById('bmi-out');
+  document.getElementById('bmi-val').textContent=bmi.toFixed(1);
+  const dot=document.getElementById('bmi-dot');
+  dot.style.left=Math.min(Math.max((bmi-14)/(40-14)*100,2),98)+'%';
+  let msg;
+  if(bmi<18.5)msg='<span class="cat">Underweight.</span> Weight-loss treatment would not be suitable — but our GPs can support healthy weight gain.';
+  else if(bmi<25)msg='<span class="cat">Healthy range.</span> Weight-loss medication isn’t indicated — our team can help you maintain your wellbeing.';
+  else if(bmi<27)msg='<span class="cat">Slightly above the healthy range.</span> Medication requires BMI 27+ with a related condition — book a consultation to discuss options.';
+  else if(bmi<30)msg='<span class="cat">Overweight.</span> You may be eligible for doctor-led treatment if you have a weight-related condition (e.g. diabetes, sleep apnoea). Book a consultation to find out.';
+  else msg='<span class="cat">You may be eligible</span> for our doctor-led medical weight loss programme. Book a consultation (£135) to discuss safely.';
+  document.getElementById('bmi-msg').innerHTML=msg;
+  out.classList.add('show');
+});
+
+/* ============ TREATMENT FINDER ============ */
+const BOOK='https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180';
+const finderTree={
+  root:{q:'What brings you in today?',opts:[
+    ['🤒 I feel unwell / need a doctor','gp'],
+    ['🔍 Check a mole or my skin','mole'],
+    ['🧴 A skin or hair condition (acne, eczema, hair loss…)','derm'],
+    ['✨ Anti-ageing & aesthetics','aes'],
+    ['🌷 Women’s health & gynaecology','womens'],
+    ['🧠 Mental health, memory & dementia','mental'],
+    ['🧩 ADHD or autism assessment','neuro'],
+    ['❤️ Heart tests & cardiology','cardio'],
+    ['⚖️ Weight loss support','weight'],
+    ['💧 Excessive sweating','hyper']
+  ]},
+  mole:{q:'What would give you peace of mind?',opts:[
+    ['One specific mole is worrying me','r-molecheck'],
+    ['A full head-to-toe check','r-mapping']
+  ]},
+  aes:{q:'What would you like to improve?',opts:[
+    ['Lines & wrinkles','r-antiwrinkle'],
+    ['Volume & contour (lips, cheeks, jaw)','r-filler'],
+    ['Glow, hydration & skin quality','r-booster'],
+    ['Tired-looking under-eyes','r-eyes']
+  ]}
+};
+const finderResults={
+  'gp':{k:'Recommended for you',t:'GP Consultation — £135',d:'An unhurried private appointment with one of our experienced GPs. Same-day appointments available.',m:['£135','Same-day appointments','Dr Khan or Dr Athreya'],link:'#/gp',anchor:'gp-consult'},
+  'r-molecheck':{k:'Recommended for you',t:'Single Mole Check — £135',d:'A focused dermoscopic assessment of the mole that\'s worrying you, by Dr K — an international academic expert in dermoscopy.',m:['£135','Dermoscopy included','With Dr K'],link:'#/skin',anchor:'sk-mole'},
+  'r-mapping':{k:'Recommended for you',t:'Digital Full-Body Mole Mapping — £350',d:'Our most advanced skin check: automated total-body photography, digitally stitched into a complete mole map and compared visit-to-visit for the earliest possible detection.',m:['£350','Written report','Same-visit review'],link:'#/skin',anchor:'sk-mole'},
+  'derm':{k:'Recommended for you',t:'Dermatology Consultation — £135',d:'Expert assessment and a personalised management plan for acne, eczema, psoriasis, rosacea, hair loss and other skin concerns.',m:['£135','Dermoscopy included','Treatment plan'],link:'#/skin',anchor:'sk-derm'},
+  'r-antiwrinkle':{k:'Recommended for you',t:'Anti-Wrinkle Treatment — from £225',d:'Doctor-led injectable treatments for natural, subtle results. One area £225, two £275, three £325 — or subscribe from £75/month.',m:['From £225','Doctor-led','Natural results'],link:'#/skin',anchor:'sk-clinic'},
+  'r-filler':{k:'Recommended for you',t:'Dermal Fillers — from £200',d:'Restore volume and sculpt features: lips from £200, chin £200, jawline £300, cheeks & temples £350. Radiesse biostimulatory filler from £550.',m:['From £200','Natural results','Free consultation advice'],link:'#/skin',anchor:'sk-boosters'},
+  'r-booster':{k:'Recommended for you',t:'Skin Boosters — from £265',d:'Profhilo (£295), Sunekos (£265) and polynucleotides (from £275) deeply hydrate and stimulate your own collagen for a fresh, dewy glow.',m:['From £265','Package prices','6–12 month results'],link:'#/skin',anchor:'sk-boosters'},
+  'r-eyes':{k:'Recommended for you',t:'Polynucleotide Eye Care — from £185',d:'Lumi Eyes, Nucleofill Eyes and Plinest Eyes reduce dark circles and fine lines for brighter, rested-looking eyes.',m:['From £185','2-session packages','Under-eye specialists'],link:'#/skin',anchor:'sk-boosters'},
+  'cardio':{k:'Recommended for you',t:'Cardiology Diagnostics — from £100',d:'Hospital-grade heart tests at our Shenfield clinic — ECG £100, Holter monitoring £280, 24-hr blood pressure £250, echocardiography £390 — by Denise Hughes, Cardiac Physiologist, with GP follow-up on site.',m:['From £100','Denise Hughes, Cardiac Physiologist','Reports for every test'],link:'#/cardiology',anchor:'cardio-main'},
+  'neuro':{k:'Recommended for you',t:'Neurodiversity — ADHD & Autism Assessments',d:'CAMHS consultant-led assessments by Dr Mudasir Nazir, Consultant Child & Adolescent Psychiatrist — adult ADHD £1,375, child ADHD £2,475, autism from £2,260, combined ADHD + autism £3,260. Full written report and ongoing treatment available.',m:['CAMHS consultant-led','Children, young people & adults','Face-to-face in Shenfield'],link:'#/mental',anchor:'nd-main'},
+  'mental':{k:'Recommended for you',t:'COMPASS — Mental Health, Memory & Capacity',d:'Consultant Psychiatrist-led assessments — initial consultation £395, memory & dementia assessment £1,095, mental capacity and LPA assessments from £650 including certificate.',m:['Psychiatrist-led','Rapid access','Transparent pricing'],link:'#/mental',anchor:'mh-main'},
+  'womens':{k:'Recommended for you',t:'Women’s Health Clinic — £135',d:'GP-led specialist clinic covering menopause & HRT (extended consultation £285), contraception & coil fitting, cervical screening, in-clinic gynaecology procedures, pelvic pain and urogynaecology.',m:['Consultation £135','Coil fitting from £450 incl. device','Specialist gynaecology expertise'],link:'#/womens',anchor:'wh-main'},
+  'weight':{k:'Recommended for you',t:'Weight Management Consultation — £135',d:'Doctor-led weight loss programme using weekly injectables alongside personalised nutritional guidance. Check your BMI first with our eligibility tool.',m:['Consultation £135','Doctor-led','BMI checker available'],link:'#/skin',anchor:'sk-weight'},
+  'hyper':{k:'Recommended for you',t:'Hyperhidrosis Treatment — from £495',d:'Precise botulinum toxin treatment blocks sweat-stimulating nerves — hands, feet, underarms or face.',m:['From £495','Discreet care'],link:'#/skin',anchor:'sk-hyper'}
+};
+const fChips=document.getElementById('finder-chips'),fQ=document.getElementById('finder-q'),fRes=document.getElementById('finder-result'),fBack=document.getElementById('finder-back');
+function finderShow(node){
+  fRes.classList.remove('show');fRes.innerHTML='';
+  if(finderResults[node]){
+    const r=finderResults[node];
+    fQ.style.display='none';fChips.innerHTML='';
+    fRes.innerHTML=`<div class="rcard"><div class="rk">${r.k}</div><h4>${r.t}</h4><p>${r.d}</p><div class="meta">${r.m.map(x=>`<span>${x}</span>`).join('')}</div><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-orange" href="${BOOK}" target="_blank" rel="noopener">Book Now</a><a class="btn btn-soft" href="${r.link}" data-anchor="${r.anchor}">Read More</a></div></div>`;
+    fRes.classList.add('show');fBack.style.display='inline';
+    return;
+  }
+  const n=finderTree[node];
+  fQ.style.display='block';fQ.textContent=n.q;
+  fChips.innerHTML='';
+  n.opts.forEach(([label,next])=>{
+    const b=document.createElement('button');b.className='fchip';b.textContent=label;
+    b.onclick=()=>finderShow(next);fChips.appendChild(b);
+  });
+  fBack.style.display=node==='root'?'none':'inline';
+}
+fBack.addEventListener('click',()=>finderShow('root'));
+finderShow('root');
+
+/* ============ AI CLINIC ASSISTANT (chatbot) ============ */
+const chatPanel=document.getElementById('chat-panel'),chatFab=document.getElementById('chat-fab'),
+      chatMsgs=document.getElementById('chat-msgs'),chatChips=document.getElementById('chat-chips'),
+      chatIn=document.getElementById('chat-in'),chatSend=document.getElementById('chat-send');
+let chatStarted=false;
+function toggleChat(open){
+  const willOpen=open===true?true:!chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open',willOpen);
+  chatFab.classList.toggle('open',willOpen);
+  if(willOpen&&!chatStarted){chatStarted=true;botSay("Hi! 👋 I'm the clinic assistant for <b>Shenfield Private GP | Aesthetk by Dr K</b>. Ask me anything — prices, services, opening hours, or what a treatment involves.");setChips(['Prices','Book an appointment','Opening hours','Mole mapping','Weight loss','Meet the doctors']);}
+  if(willOpen)setTimeout(()=>chatIn.focus(),350);
+}
+function addMsg(html,who){
+  const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;
+  chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;return d;
+}
+function botSay(html,chips){
+  const t=addMsg('<i></i><i></i><i></i>','bot typing');
+  setTimeout(()=>{t.classList.remove('typing');t.innerHTML=html;chatMsgs.scrollTop=chatMsgs.scrollHeight;if(chips)setChips(chips);},500+Math.random()*450);
+}
+function setChips(arr){
+  chatChips.innerHTML='';
+  arr.forEach(c=>{const b=document.createElement('button');b.className='chipbtn';b.textContent=c;b.onclick=()=>{userAsk(c)};chatChips.appendChild(b)});
+}
+const bookLink=`<a href="${BOOK}" target="_blank" rel="noopener">book online here</a>`;
+const KB=[
+  {k:['book','appointment','booking','schedule','availab'],a:`You can ${bookLink} 24/7 (instant confirmation), call <a href="tel:01277503503">01277 503 503</a>, or <a href="https://wa.me/447769310217" target="_blank">WhatsApp us</a>. We keep same-day slots for urgent needs — call early in the morning to secure one.`,c:['Opening hours','Prices','Where are you?']},
+  {k:['hour','open','close','time','when are you','sunday','saturday','weekend'],a:`Our opening hours:<ul><li><b>Mon–Fri:</b> 8:00 AM – 6:00 PM</li><li><b>Saturday:</b> 9:00 AM – 1:00 PM</li><li><b>Sunday:</b> Closed</li></ul>`,c:['Book an appointment','Where are you?','Prices']},
+  {k:['where','address','location','find you','parking','directions','station','map'],a:`We're at <b>First Floor, 40 Hutton Road, Shenfield, Brentwood, Essex CM15 8LB</b> — about two minutes from Shenfield station. <a href="https://maps.app.goo.gl/amzEe4NUqYiGmbEr8" target="_blank">Open in Google Maps</a>.<br><br>Note: we're on the first floor with no wheelchair access — please call ahead to discuss mobility needs.`,c:['Opening hours','Book an appointment','Accessibility']},
+  {k:['wheelchair','accessib','disab','mobility','stairs'],a:`We're located on the first floor and the building doesn't currently have wheelchair access. Please contact us before your visit on <a href="tel:01277503503">01277 503 503</a> — we'll make every reasonable effort to arrange suitable alternatives.`,c:['Book an appointment','Contact details']},
+  {k:['price','cost','fee','how much','charges','pricing'],a:`Our most popular fees:<ul><li>GP consultation — <b>£135</b></li><li>Private prescription — <b>£25</b> per item (controlled drugs £50)</li><li>Skin/dermatology consultation — <b>£135</b></li><li>Digital full-body mole mapping — <b>£350</b></li><li>Anti-wrinkle — from <b>£225</b></li><li>Weight management consultation — <b>£135</b></li></ul>See the full list on our <a href="#/pricing">pricing page</a>.`,c:['Mole mapping','Weight loss','Book an appointment']},
+  {k:['gp','doctor appointment','consult','unwell','sick','ill','prescription','referral','flu','infection'],a:`Our private GP consultations are <b>£135</b> — with same-day appointments available. We cover minor illnesses, prescriptions, referrals, long-term conditions and more. <a href="#/gp" data-anchor="gp-consult">Read more</a> or ${bookLink}.`,c:['Book an appointment','Meet the doctors','Home visits']},
+  {k:['home visit'],a:`Yes — we offer home visits within a 3-mile radius for <b>£400</b>, including a full medical examination, prescriptions and treatment. Ideal for elderly patients. Call <a href="tel:01277503503">01277 503 503</a> to arrange.`,c:['Book an appointment','GP prices']},
+  {k:['mole','mapping','skin cancer','melanoma','dermoscopy','skin check'],a:`Our <b>digital full-body mole mapping (£350)</b> uses automated total-body photography — every mole is imaged, digitally mapped, and compared visit-to-visit for the earliest detection of skin cancer. Dr K, an international academic expert in dermoscopy, performs the entire process personally and reviews results with you the same visit.<ul><li>Single mole check — £135</li><li>Non-digital full-body screening — £250</li><li>Follow-up mapping — £350</li></ul><a href="#/skin" data-anchor="sk-mole">Watch how it works</a>.`,c:['Book an appointment','Mole removal','Prices']},
+  {k:['remove','removal','skin tag','wart','cyst','lipoma','lesion','excision','biopsy'],a:`We remove moles, skin tags, warts, cysts and lipomas in-clinic under local anaesthetic:<ul><li>Skin tags, warts &amp; verrucae — from <b>£250</b></li><li>Mole excision — from <b>£400</b> (GP) / £550 (surgeon)</li><li>Cyst/lipoma up to 2cm — <b>£895</b> (Consultant Plastic Surgeon)</li><li>Histology from £150</li></ul><a href="#/skin" data-anchor="sk-lesions">More details</a>.`,c:['Book an appointment','Mole mapping','Prices']},
+  {k:['weight','mounjaro','wegovy','ozempic','fat','obes','slim','lose weight','injection'],a:`Our <b>doctor-led weight management programme</b> uses weekly injectables (Mounjaro & Wegovy) alongside personalised nutritional guidance.<br><br><b>Eligibility:</b> 18+, BMI over 30 — or over 27 with a weight-related condition. Consultation <b>£135</b>.<br><br>Try our <a href="#/skin" data-anchor="sk-weight">BMI checker</a> to see if you may qualify.`,c:['Check my BMI','Book an appointment','Prices']},
+  {k:['bmi'],a:`You'll find our instant BMI eligibility checker on the weight management section — <a href="#/skin" data-anchor="sk-weight">tap here to try it</a>. Enter your height and weight and it tells you whether doctor-led treatment may be suitable.`,c:['Weight loss','Book an appointment']},
+  {k:['adhd','autism','asd','neurodiver','neurodevelopment','aspergers','camhs','child psychiatr','teenager','my son','my daughter','assessment for my child'],a:`Our <b>Neurodiversity service</b> is led by <b>Dr Mudasir Nazir, Consultant Child &amp; Adolescent Psychiatrist (CAMHS)</b> — Honorary Clinical Lecturer at Imperial College London:<ul><li>Adult ADHD assessment — <b>£1,375</b></li><li>Child / young person ADHD assessment — <b>£2,475</b></li><li>Autism assessment — adults <b>£2,260</b>, children &amp; young people <b>£2,475</b></li><li>Combined ADHD + autism — <b>£3,260</b></li><li>Medication initiation £495 · titration review £250 · stable review £200</li></ul>Consultant-led, face-to-face assessment with a full written report — not questionnaire-only. <a href="#/mental">Read more</a>.`,c:['Book an appointment','Meet the doctors','Prices']},
+  {k:['mental','depress','anxiety','ocd','ptsd','bipolar','psychiatr','psychosis','personality disorder','memory','dementia','alzheim','capacity','lpa','power of attorney','testamentary','court of protection','cop3','pa14','medico-legal','cognitive','compass'],a:`<b>COMPASS</b> — our Consultant Psychiatrist-led mental health service — offers rapid access to:<ul><li><b>Adult psychiatric assessment</b> — depression, anxiety, OCD, PTSD, bipolar, personality disorders (initial consultation £395, full diagnostic assessment £795)</li><li><b>Memory &amp; dementia assessment</b> — cognitive testing with full written report (£1,095)</li><li><b>Capacity &amp; LPA</b> — mental capacity from £650, LPA from £650, testamentary from £700, COP3/PA14 from £695</li><li><b>Medico-legal reports</b> from £850 · psychiatrist follow-up £250 · GP reviews £135</li></ul><a href="#/mental">Read more</a> or call <a href="tel:01277503503">01277 503 503</a>.`,c:['Book an appointment','Prices','Contact details']},
+  {k:['women','gynae','gynec','menopause','perimenopause','hrt','hormone','contracept','coil','iud','ius','implant','pelvic','bleeding','pessary','ovarian','smear','cervical'],a:`Our <b>GP-led Women's Health Clinic</b> is led by a GP with an Extended Role in Women's Health &amp; Gynaecology. Services include:<ul><li>Menopause &amp; perimenopause care — HRT counselling &amp; prescribing (incl. testosterone expertise)</li><li>Premature ovarian insufficiency</li><li>Abnormal uterine bleeding, pelvic pain &amp; urogynaecology (incl. pessary management)</li><li>Contraception — hormonal coil £550 or copper coil £450 (incl. device), implant £425, coil removal £225</li><li>Cervical screening £295 · swabs £150 · ring pessary £325</li><li>In-clinic procedures — polypectomy £550, vulval biopsy £450, Pipelle biopsy £450</li></ul>Consultation <b>£135</b> · extended menopause consultation <b>£285</b> (follow-up £185). <a href="#/womens">Read more</a>.`,c:['Book an appointment','Prices','Meet the doctors']},
+  {k:['heart','cardiac','cardiolog','ecg','echo','holter','palpitation','arrhythmia','blood pressure monitor','abpm','event monitor','murmur'],a:`Our <b>Cardiology Diagnostics</b> service brings hospital-grade heart tests to Shenfield — delivered by <b>Denise Hughes, Cardiac Physiologist (BSc)</b> with 30+ years' experience:<ul><li>Resting 12-lead ECG — <b>£100</b></li><li>Holter monitoring (24/48-hr) — <b>£280</b></li><li>24-hr ambulatory blood pressure — <b>£250</b></li><li>Cardiac event monitoring — <b>£425</b></li><li>Echocardiography (heart ultrasound) — <b>£390</b></li></ul>Every test includes a structured written report, with our GPs on site to act on results. <a href="#/cardiology">Read more</a>.`,c:['Book an appointment','Prices','Health checks']},
+  {k:['corporate','business medical','employee','employer','staff medical','workplace','company','team medical','workforce'],a:`Our <b>Corporate Medicals</b> give your team a GP-led health assessment with a genuine difference — alongside full examination, cardiovascular checks, ECG and bloods, packages can include <b>digital full-body mole mapping</b>: the skin-health check most workplace programmes miss entirely.<br><br>Packages are tailored to your organisation — <a href="mailto:contact@shenfieldprivategp.com">email us</a> or call <a href="tel:01277503503">01277 503 503</a> for details. <a href="#/corporate">Read more</a>.`,c:['Contact details','Mole mapping','Health checks']},
+  {k:['job','career','vacanc','hiring','recruit','join the team','work for','work with you','apply'],a:`We're always looking for enthusiastic GPs to join our expanding team — plus aesthetic practitioners, nurses and practice staff. 💼<br><br>Send your CV to <a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a> or call <a href="tel:01277503503">01277 503 503</a> for an informal chat. <a href="#/careers">See our careers page</a>.`,c:['Meet the doctors','Contact details']},
+  {k:['anti-wrinkle','antiwrinkle','botox','wrinkle','filler','lips','profhilo','sunekos','booster','polynucleotide','radiesse','aesthetic','jaw','gummy'],a:`Our doctor-led aesthetics include:<ul><li><b>Anti-wrinkle</b> — 1 area £225, 2 areas £275, 3 areas £325</li><li><b>Profhilo</b> £295 · <b>Sunekos</b> £265 · <b>Polynucleotides</b> from £275</li><li><b>Dermal fillers</b> — lips from £200, jawline £300, cheeks £350</li><li><b>Under-eye care</b> from £185</li></ul><a href="#/skin" data-anchor="sk-clinic">Explore treatments</a>.`,c:['Book an appointment','Prices']},
+  {k:['sweat','hyperhidrosis','perspir'],a:`We treat <b>hyperhidrosis (excessive sweating)</b> with precise botulinum toxin injections — for underarms, hands, feet or face. From <b>£495</b>, in a discreet, understanding environment. <a href="#/skin" data-anchor="sk-hyper">Read more</a>.`,c:['Book an appointment','Prices']},
+  {k:['acne','eczema','psoriasis','rosacea','rash','skin condition','dermatolog','hair loss','hair'],a:`Our GPs have specialist dermatology qualifications and manage acne, eczema, psoriasis, rosacea, hair loss and more. A <b>dermatology consultation is £135</b> and includes dermoscopy examination and a personalised treatment plan. <a href="#/skin" data-anchor="sk-derm">Read more</a>.`,c:['Book an appointment','Mole mapping','Prices']},
+  {k:['doctor','team','who','staff','dr k','khan','athreya','kannan','ayub','rakshit','surgeon','nurse','sarah','denise','receptionist','manager'],a:`Our team:<ul><li><b>Dr Ayub Khan (Dr K)</b> — Medical Director; international academic expert in dermoscopy &amp; skin cancer detection</li><li><b>Dr Kannan Athreya</b> — GP with 30 years serving Brentwood</li><li><b>Mr Kaushik Rakshit</b> — Consultant Plastic Surgeon</li><li><b>Sarah Tappin</b> — Aesthetician</li><li><b>Dr Liliana Szittya</b> — GP with Extended Role in Women's Health &amp; Gynaecology</li><li><b>Dr Afifa Qazi</b> — Consultant Psychiatrist MBBS FRCPsych (COMPASS); old age psychiatry, memory &amp; dementia; RCPsych Psychiatrist of the Year 2022</li><li><b>Dr Mudasir Nazir</b> — Consultant Child &amp; Adolescent Psychiatrist (CAMHS); ADHD &amp; autism assessments</li><li><b>Denise Hughes</b> — Cardiac Physiologist, BSc (ECHO, ECG, Holter, 24hr/48hr BP, sports screening)</li></ul>Supported by Karen Webster (Business Manager), Leigh Clancy (Clinic Manager) and receptionists Julie Rolph &amp; Rina Khan. <a href="#/team">Meet the team</a>.`,c:['Book an appointment','GP services','Mole mapping']},
+  {k:['health check','screening','ecg','blood test','medical','hgv','check up','checkup'],a:`Health checks & screening:<ul><li>Men's Health Check — <b>£900</b></li><li>Women's Health Check — <b>£875</b></li><li>ECG — <b>£100</b></li><li>HGV/DVLA medical — <b>£250</b></li><li>Ear wax removal — £65 + consult</li></ul><a href="#/gp" data-anchor="gp-screening">Read more</a>.`,c:['Book an appointment','Prices']},
+  {k:['contact','phone','email','whatsapp','call'],a:`Get in touch:<ul><li>📞 <a href="tel:01277503503">01277 503 503</a></li><li>💬 <a href="https://wa.me/447769310217" target="_blank">WhatsApp +44 7769 310 217</a></li><li>✉️ contact@shenfieldprivategp.com · drk@aesthetk.com</li></ul>`,c:['Opening hours','Where are you?','Book an appointment']},
+  {k:['cqc','regulated','safe','insurance','registered'],a:`Yes — the clinic is operated by <b>Aesthetk Ltd</b>, a CQC-registered healthcare provider. You can view our registration on the <a href="https://www.cqc.org.uk/location/1-19882077109" target="_blank">CQC website</a>.`,c:['Meet the doctors','Book an appointment']},
+  {k:['emergency','urgent','999','a&e','chest pain'],a:`⚠️ If this is a medical emergency, please call <b>999</b> or go to A&E immediately. For urgent (non-emergency) appointments, call us early on <a href="tel:01277503503">01277 503 503</a> — we reserve same-day slots.`,c:['Book an appointment','Contact details']},
+  {k:['hello','hi','hey','morning','afternoon','thanks','thank you'],a:`Hello! 😊 How can I help today? You can ask me about services, prices, opening times or booking.`,c:['Prices','Book an appointment','Mole mapping','Weight loss']}
+];
+function answer(text){
+  const q=text.toLowerCase();
+  let best=null,score=0;
+  KB.forEach(item=>{
+    let s=0;item.k.forEach(k=>{if(q.includes(k))s+=k.length});
+    if(s>score){score=s;best=item}
+  });
+  if(best)return best;
+  return {a:`I'm not sure about that one — but our team will know! Call <a href="tel:01277503503">01277 503 503</a>, <a href="https://wa.me/447769310217" target="_blank">WhatsApp us</a>, or ${bookLink}. You could also try asking about <b>prices</b>, <b>mole mapping</b>, <b>weight loss</b> or <b>opening hours</b>.`,c:['Prices','Book an appointment','Opening hours']};
+}
+function userAsk(text){
+  if(!text.trim())return;
+  addMsg(text.replace(/</g,'&lt;'),'user');
+  chatChips.innerHTML='';
+  const r=answer(text);
+  botSay(r.a,r.c);
+}
+chatSend.addEventListener('click',()=>{userAsk(chatIn.value);chatIn.value=''});
+chatIn.addEventListener('keydown',e=>{if(e.key==='Enter'){userAsk(chatIn.value);chatIn.value=''}});
+// close chat when a routing link inside it is clicked
+chatMsgs.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#/"]');
+  if(a)toggleChat(false);
+});
+
+/* ============ CLINICIAN BIO TOOLTIPS ============ */
+const bioTip=document.getElementById('bio-tip');
+let bioTimer=null;
+function showBio(el){
+  clearTimeout(bioTimer);
+  bioTip.innerHTML='<div class="bt-name">'+el.textContent.trim()+'</div>'+el.dataset.bio;
+  bioTip.classList.add('show');bioTip.setAttribute('aria-hidden','false');
+  const r=el.getBoundingClientRect();
+  const w=bioTip.offsetWidth,h=bioTip.offsetHeight;
+  let left=r.left, top=r.bottom+10;
+  if(left+w>innerWidth-12) left=Math.max(12,innerWidth-w-12);
+  if(top+h>innerHeight-12) top=Math.max(12,r.top-h-10);
+  bioTip.style.left=left+'px';bioTip.style.top=top+'px';
+}
+function hideBio(){bioTimer=setTimeout(()=>{bioTip.classList.remove('show');bioTip.setAttribute('aria-hidden','true')},120)}
+document.addEventListener('mouseover',e=>{const el=e.target.closest('h3.has-bio');if(el)showBio(el)});
+document.addEventListener('mouseout',e=>{if(e.target.closest('h3.has-bio'))hideBio()});
+document.addEventListener('focusin',e=>{const el=e.target.closest('h3.has-bio');if(el)showBio(el)});
+document.addEventListener('focusout',e=>{if(e.target.closest('h3.has-bio'))hideBio()});
+document.addEventListener('click',e=>{
+  const el=e.target.closest('h3.has-bio');
+  if(el){bioTip.classList.contains('show')&&bioTip.dataset.for===el.textContent?hideBio():(showBio(el),bioTip.dataset.for=el.textContent)}
+  else if(!e.target.closest('#bio-tip'))hideBio();
+});
+addEventListener('scroll',()=>{if(bioTip.classList.contains('show'))hideBio()},{passive:true});
+
+/* ============ THEME TOGGLE ============ */
+const themeBtn=document.getElementById('theme-btn');
+function setTheme(t){
+  document.documentElement.dataset.theme=t;
+  try{localStorage.setItem('spgp-theme',t)}catch(e){}
+  themeBtn.textContent=t==='dark'?'☀️':'🌙';
+  themeBtn.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');
+}
+themeBtn.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+let savedTheme='light';try{savedTheme=localStorage.getItem('spgp-theme')||'light'}catch(e){}
+setTheme(savedTheme);
+
+/* ============ INIT ============ */
+route();
+</script>
+</body>
+</html>
