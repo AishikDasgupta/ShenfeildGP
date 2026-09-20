@@ -377,7 +377,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
 .finder h3{font-size:1.5rem;margin-bottom:6px}
 .finder .fq{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px}
 .fchips{display:flex;gap:10px;flex-wrap:wrap}
-.fchip{font-size:.88rem;font-weight:700;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg-3);color:var(--ink);transition:.25s;cursor:pointer}
+.fchip{font-size:.88rem;font-weight:700;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg-3);color:var(--ink);transition:.25s;cursor:pointer;display:inline-flex;align-items:center;gap:9px;text-align:left}
 .fchip:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-tint);transform:translateY(-2px)}
 .fresult{display:none;margin-top:8px;animation:pagein .45s}
 .fresult.show{display:block}
@@ -425,6 +425,9 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
 .chat-send{width:44px;height:44px;border-radius:50%;background:var(--orange);border:none;display:grid;place-items:center;flex:none;transition:transform .2s}
 .chat-send:hover{transform:scale(1.08)}
 .chat-send svg{width:19px;height:19px;fill:#fff}
+.ic{width:1.1em;height:1.1em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.chat-head .av svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fchip .ic{width:1.15em;height:1.15em}
 .chat-note{font-size:.66rem;color:#a39a86;text-align:center;padding:0 14px 10px;background:#fff;flex:none}
 
 /* ============ RESPONSIVE ============ */
@@ -459,6 +462,8 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
   .detail .media img{height:290px}
   .float-card{display:none}
   .finder{padding:26px 20px}
+  .fchips{display:grid;grid-template-columns:1fr}
+  .fchip{width:100%;justify-content:flex-start;padding:14px 18px}
   .chat-panel{right:12px}
   .foot-brand .fb-title{white-space:normal;font-size:1rem}
 }
@@ -466,15 +471,39 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
 </head>
 <body>
 <div id="progress"></div>
+<!-- ======= ICON SPRITE (replaces emojis — stroke icons, currentColor) ======= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-med" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+<symbol id="i-flower" viewBox="0 0 24 24"><path d="M12 21v-8"/><path d="M12 13c0-4 2-7 5-8 0 4-2 7-5 8z"/><path d="M12 13c0-4-2-7-5-8 0 4 2 7 5 8z"/><path d="M12 13V6"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 1 3 3 3 3 0 0 1 3 3 3 3 0 0 1-1 2.2A3 3 0 0 1 15 17H9a3 3 0 0 1-2-5.2A3 3 0 0 1 6 9.5a3 3 0 0 1 3-3 3 3 0 0 1 3-2.5z"/><path d="M12 4v13"/></symbol>
+<symbol id="i-neuro" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="11" cy="18" r="2.5"/><path d="M8.3 6.4l7.2.8M7 8.3l2.7 7.2M16.3 10.1l-3.5 5.9"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14M12 6L5 8m7-2l7 2"/><path d="M2.5 13L6 7l3.5 6a3.5 3.5 0 0 1-7 0z"/><path d="M14.5 13L18 7l3.5 6a3.5 3.5 0 0 1-7 0z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></symbol>
+<symbol id="i-case" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+<symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="3"/><path d="M12 9V5"/><circle cx="12" cy="4" r="1" fill="currentColor" stroke="none"/><path d="M9 14h.01M15 14h.01M9.5 17h5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+<symbol id="i-bottle" viewBox="0 0 24 24"><rect x="9" y="8" width="6" height="12" rx="1.5"/><path d="M11 8V6h2v2M11 6V4h4"/></symbol>
+<symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01M15 9.5h.01"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s6.5 7 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 9.7 12 2.7 12 2.7z"/></symbol>
+</defs></svg>
 
 <!-- ======= TOP STRIP ======= -->
 <div class="topstrip">
   <div class="track"><span>
-    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
-    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
   </span><span>
-    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
-    <b>🩺 Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
+    <b><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>
   </span></div>
 </div>
 
@@ -500,7 +529,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
     <div class="nav-cta">
       <a class="btn btn-outline" href="tel:01277503503">01277 503 503</a>
       <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Online</a>
-      <button class="theme-btn" id="theme-btn" aria-label="Switch theme">🌙</button>
+      <button class="theme-btn" id="theme-btn" aria-label="Switch theme"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -516,7 +545,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
     <div class="container">
       <div>
         <div class="hero-badges reveal">
-          <span class="pill glow">🩺 Private GP Services · Advanced Digital Mole Mapping</span>
+          <span class="pill glow"><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> Private GP Services · Advanced Digital Mole Mapping</span>
           <span class="pill"><b>CQC</b> Regulated</span>
           <span class="pill">Shenfield · Brentwood</span>
         </div>
@@ -524,8 +553,8 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
         <p class="lead reveal">Welcome to your local clinic at 40 Hutton Road, Shenfield — trusted family doctors, specialist women's health &amp; gynaecology, consultant-led mental health &amp; memory care, advanced dermatology with digital mole mapping, and doctor-led aesthetics — all in one place.</p>
         <div class="hero-actions reveal">
           <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book an Appointment</a>
-          <a class="btn btn-soft" href="#finder" onclick="event.preventDefault();document.getElementById('finder').scrollIntoView({behavior:'smooth'})">🧭 Find My Treatment</a>
-          <button class="btn btn-soft" onclick="toggleChat(true)">💬 Ask our AI Assistant</button>
+          <a class="btn btn-soft" href="#finder" onclick="event.preventDefault();document.getElementById('finder').scrollIntoView({behavior:'smooth'})"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg> Find My Treatment</a>
+          <button class="btn btn-soft" onclick="toggleChat(true)"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Ask our AI Assistant</button>
         </div>
       </div>
       <div class="hero-visual reveal-r">
@@ -533,10 +562,10 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
           <div class="scanline"></div>
           <img src="assets/img/modern_gp_clinic_interaction_no_faces_1767990325301.webp" alt="Inside the clinic">
         </div>
-        <div class="float-card fc1"><div class="h">🩺 GP Consultation</div><div class="s">Unhurried appointments · £135</div></div>
+        <div class="float-card fc1"><div class="h"><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> GP Consultation</div><div class="s">Unhurried appointments · £135</div></div>
         <div class="float-card fc2"><div class="h"><svg width="17" height="17" viewBox="0 0 24 24" style="display:inline-block;vertical-align:-3px;margin-right:5px" aria-hidden="true"><circle cx="9.5" cy="9.5" r="6" fill="none" stroke="#1c4fd8" stroke-width="2.6"/><circle cx="9.5" cy="9.5" r="2.6" fill="#e8570f"/><path d="M14.2 14.2 L20.5 20.5" stroke="#1c4fd8" stroke-width="3.2" stroke-linecap="round"/></svg>Digital Mole Mapping</div><div class="s">Skin cancer early detection</div></div>
-        <div class="float-card fc3"><div class="h">🌷 Women's Health &amp; Gynaecology</div><div class="s">Menopause, HRT, coils &amp; implants</div></div>
-        <div class="float-card fc4"><div class="h">🧠 Mental Health &amp; Memory</div><div class="s">Consultant psychiatrist-led — COMPASS</div></div>
+        <div class="float-card fc3"><div class="h"><svg class="ic" aria-hidden="true"><use href="#i-flower"/></svg> Women's Health &amp; Gynaecology</div><div class="s">Menopause, HRT, coils &amp; implants</div></div>
+        <div class="float-card fc4"><div class="h"><svg class="ic" aria-hidden="true"><use href="#i-brain"/></svg> Mental Health &amp; Memory</div><div class="s">Consultant psychiatrist-led — COMPASS</div></div>
       </div>
     </div>
   </section>
@@ -617,7 +646,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
 
       <!-- SMART TREATMENT FINDER -->
       <div class="finder reveal" id="finder">
-        <h3>🧭 Not sure what you need? Try the Smart Treatment Finder</h3>
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg> Not sure what you need? Try the Smart Treatment Finder</h3>
         <p class="fq" id="finder-q">What brings you in today?</p>
         <div class="fchips" id="finder-chips"></div>
         <div class="fresult" id="finder-result"></div>
@@ -1099,19 +1128,19 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
       </div>
       <div class="snap-grid reveal" data-stagger style="margin-top:44px;grid-template-columns:repeat(2,1fr)">
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>🧠 Adult Psychiatric Assessment</h3><p>Depression, anxiety disorders, OCD, PTSD &amp; complex PTSD, bipolar disorder, personality disorders and psychosis — diagnostic assessment, formulation and treatment planning.</p><span class="go" style="color:var(--ink-soft)">Initial consultation £395 · full diagnostic assessment £795</span></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-brain"/></svg> Adult Psychiatric Assessment</h3><p>Depression, anxiety disorders, OCD, PTSD &amp; complex PTSD, bipolar disorder, personality disorders and psychosis — diagnostic assessment, formulation and treatment planning.</p><span class="go" style="color:var(--ink-soft)">Initial consultation £395 · full diagnostic assessment £795</span></div>
         </div>
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>🧩 Memory &amp; Dementia Assessment</h3><p>Mild cognitive impairment, early-onset dementia, Alzheimer's, vascular and Lewy body dementia — cognitive testing, clinical assessment and full written diagnostic report.</p><span class="go" style="color:var(--ink-soft)">Comprehensive assessment £1,095</span></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-neuro"/></svg> Memory &amp; Dementia Assessment</h3><p>Mild cognitive impairment, early-onset dementia, Alzheimer's, vascular and Lewy body dementia — cognitive testing, clinical assessment and full written diagnostic report.</p><span class="go" style="color:var(--ink-soft)">Comprehensive assessment £1,095</span></div>
         </div>
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>⚖️ Mental Capacity Assessment</h3><p>Decision-specific capacity assessments for care, property, finances and medical treatment — standard and complex cases, with Court of Protection (COP3 / PA14) reports.</p><span class="go" style="color:var(--ink-soft)">From £650 · COP3/PA14 from £695</span></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg> Mental Capacity Assessment</h3><p>Decision-specific capacity assessments for care, property, finances and medical treatment — standard and complex cases, with Court of Protection (COP3 / PA14) reports.</p><span class="go" style="color:var(--ink-soft)">From £650 · COP3/PA14 from £695</span></div>
         </div>
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>📜 Testamentary &amp; LPA Capacity</h3><p>Formal capacity assessments for making a will or executing a Lasting Power of Attorney — written medico-legal opinions for solicitors, will-writing firms and the court.</p><span class="go" style="color:var(--ink-soft)">LPA from £650 · testamentary from £700</span></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg> Testamentary &amp; LPA Capacity</h3><p>Formal capacity assessments for making a will or executing a Lasting Power of Attorney — written medico-legal opinions for solicitors, will-writing firms and the court.</p><span class="go" style="color:var(--ink-soft)">LPA from £650 · testamentary from £700</span></div>
         </div>
       </div>
-      <div class="center reveal" style="margin-top:26px"><a class="btn btn-orange" href="#nd-main" onclick="event.preventDefault();document.getElementById('nd-main').scrollIntoView({behavior:'smooth'})">🧩 Neurodiversity — ADHD &amp; Autism Assessments →</a></div>
+      <div class="center reveal" style="margin-top:26px"><a class="btn btn-orange" href="#nd-main" onclick="event.preventDefault();document.getElementById('nd-main').scrollIntoView({behavior:'smooth'})"><svg class="ic" aria-hidden="true"><use href="#i-neuro"/></svg> Neurodiversity — ADHD &amp; Autism Assessments →</a></div>
       <p class="sub center reveal" style="margin:30px auto 0">Solicitors, will-writing firms, care homes and local authorities: we welcome professional instructions — contact <a href="mailto:contact@shenfieldprivategp.com" style="color:var(--blue);font-weight:700">contact@shenfieldprivategp.com</a> or call <a href="tel:01277503503" style="color:var(--blue);font-weight:700">01277 503 503</a>.</p>
     </div>
   </section>
@@ -1177,7 +1206,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
       <div class="crumb reveal"><a href="#/">Home</a> / Our Team</div>
       <h1 class="reveal">Meet the team</h1>
       <p class="sub reveal">Experienced clinicians and a friendly practice team — all dedicated to looking after you and your family.</p>
-      <div style="margin-top:22px" class="reveal"><a class="btn btn-orange" href="#/careers">💼 We're hiring — Join Our Team</a></div>
+      <div style="margin-top:22px" class="reveal"><a class="btn btn-orange" href="#/careers"><svg class="ic" aria-hidden="true"><use href="#i-case"/></svg> We're hiring — Join Our Team</a></div>
     </div>
   </div>
   <section style="padding-top:56px">
@@ -1406,13 +1435,13 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
       </div>
       <div class="snap-grid" data-stagger style="margin-top:44px">
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>🩺 General Practitioners</h3><p>Enthusiastic GPs — including those with extended roles or special interests (dermatology, women's health, minor surgery). Sessional and flexible arrangements available.</p></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> General Practitioners</h3><p>Enthusiastic GPs — including those with extended roles or special interests (dermatology, women's health, minor surgery). Sessional and flexible arrangements available.</p></div>
         </div>
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>✨ Aesthetic &amp; Cosmetic Practitioners</h3><p>Experienced practitioners to grow our doctor-led aesthetics service, with a safety-first, natural-results philosophy.</p></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Aesthetic &amp; Cosmetic Practitioners</h3><p>Experienced practitioners to grow our doctor-led aesthetics service, with a safety-first, natural-results philosophy.</p></div>
         </div>
         <div class="snap" style="cursor:default">
-          <div class="body"><h3>💙 Nurses &amp; Practice Staff</h3><p>Practice nurses, healthcare assistants and front-of-house staff who share our commitment to warm, personal patient care.</p></div>
+          <div class="body"><h3><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Nurses &amp; Practice Staff</h3><p>Practice nurses, healthcare assistants and front-of-house staff who share our commitment to warm, personal patient care.</p></div>
         </div>
       </div>
       <div class="center reveal" style="margin-top:44px">
@@ -1570,7 +1599,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
         <p>Secure online booking, available 24/7. Choose your doctor, service and time — instant confirmation.</p>
         <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Your Appointment</a>
         <a class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff" href="tel:01277503503">Or call 01277 503 503</a>
-        <button class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff" onclick="toggleChat(true)">💬 Ask the AI Assistant</button>
+        <button class="btn btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff" onclick="toggleChat(true)"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Ask the AI Assistant</button>
       </div>
     </div>
   </section>
@@ -1642,7 +1671,7 @@ footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
 <!-- ======= AI CLINIC ASSISTANT ======= -->
 <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Clinic assistant">
   <div class="chat-head">
-    <div class="av">🤖</div>
+    <div class="av"><svg aria-hidden="true"><use href="#i-bot"/></svg></div>
     <div>
       <div class="nm">Clinic Assistant</div>
       <div class="st">Online — instant answers</div>
@@ -1800,16 +1829,16 @@ if(bmiGo)bmiGo.addEventListener('click',()=>{
 const BOOK='https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180';
 const finderTree={
   root:{q:'What brings you in today?',opts:[
-    ['🤒 I feel unwell / need a doctor','gp'],
-    ['🔍 Check a mole or my skin','mole'],
-    ['🧴 A skin or hair condition (acne, eczema, hair loss…)','derm'],
-    ['✨ Anti-ageing & aesthetics','aes'],
-    ['🌷 Women’s health & gynaecology','womens'],
-    ['🧠 Mental health, memory & dementia','mental'],
-    ['🧩 ADHD or autism assessment','neuro'],
-    ['❤️ Heart tests & cardiology','cardio'],
-    ['⚖️ Weight loss support','weight'],
-    ['💧 Excessive sweating','hyper']
+    ['<svg class="ic" aria-hidden="true"><use href="#i-med"/></svg> I feel unwell / need a doctor','gp'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Check a mole or my skin','mole'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-bottle"/></svg> A skin or hair condition (acne, eczema, hair loss…)','derm'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Anti-ageing & aesthetics','aes'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-flower"/></svg> Women’s health & gynaecology','womens'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-brain"/></svg> Mental health, memory & dementia','mental'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-neuro"/></svg> ADHD or autism assessment','neuro'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Heart tests & cardiology','cardio'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg> Weight loss support','weight'],
+    ['<svg class="ic" aria-hidden="true"><use href="#i-drop"/></svg> Excessive sweating','hyper']
   ]},
   mole:{q:'What would give you peace of mind?',opts:[
     ['One specific mole is worrying me','r-molecheck'],
@@ -1852,7 +1881,7 @@ function finderShow(node){
   fQ.style.display='block';fQ.textContent=n.q;
   fChips.innerHTML='';
   n.opts.forEach(([label,next])=>{
-    const b=document.createElement('button');b.className='fchip';b.textContent=label;
+    const b=document.createElement('button');b.className='fchip';b.innerHTML=label;
     b.onclick=()=>finderShow(next);fChips.appendChild(b);
   });
   fBack.style.display=node==='root'?'none':'inline';
@@ -1869,7 +1898,7 @@ function toggleChat(open){
   const willOpen=open===true?true:!chatPanel.classList.contains('open');
   chatPanel.classList.toggle('open',willOpen);
   chatFab.classList.toggle('open',willOpen);
-  if(willOpen&&!chatStarted){chatStarted=true;botSay("Hi! 👋 I'm the clinic assistant for <b>Shenfield Private GP | Aesthetk by Dr K</b>. Ask me anything — prices, services, opening hours, or what a treatment involves.");setChips(['Prices','Book an appointment','Opening hours','Mole mapping','Weight loss','Meet the doctors']);}
+  if(willOpen&&!chatStarted){chatStarted=true;botSay("Hi! <svg class='ic' aria-hidden='true'><use href='#i-smile'/></svg> I'm the clinic assistant for <b>Shenfield Private GP | Aesthetk by Dr K</b>. Ask me anything — prices, services, opening hours, or what a treatment involves.");setChips(['Prices','Book an appointment','Opening hours','Mole mapping','Weight loss','Meet the doctors']);}
   if(willOpen)setTimeout(()=>chatIn.focus(),350);
 }
 function addMsg(html,who){
@@ -1902,16 +1931,16 @@ const KB=[
   {k:['women','gynae','gynec','menopause','perimenopause','hrt','hormone','contracept','coil','iud','ius','implant','pelvic','bleeding','pessary','ovarian','smear','cervical'],a:`Our <b>GP-led Women's Health Clinic</b> is led by a GP with an Extended Role in Women's Health &amp; Gynaecology. Services include:<ul><li>Menopause &amp; perimenopause care — HRT counselling &amp; prescribing (incl. testosterone expertise)</li><li>Premature ovarian insufficiency</li><li>Abnormal uterine bleeding, pelvic pain &amp; urogynaecology (incl. pessary management)</li><li>Contraception — hormonal coil £550 or copper coil £450 (incl. device), implant £425, coil removal £225</li><li>Cervical screening £295 · swabs £150 · ring pessary £325</li><li>In-clinic procedures — polypectomy £550, vulval biopsy £450, Pipelle biopsy £450</li></ul>Consultation <b>£135</b> · extended menopause consultation <b>£285</b> (follow-up £185). <a href="#/womens">Read more</a>.`,c:['Book an appointment','Prices','Meet the doctors']},
   {k:['heart','cardiac','cardiolog','ecg','echo','holter','palpitation','arrhythmia','blood pressure monitor','abpm','event monitor','murmur'],a:`Our <b>Cardiology Diagnostics</b> service brings hospital-grade heart tests to Shenfield — delivered by <b>Denise Hughes, Cardiac Physiologist (BSc)</b> with 30+ years' experience:<ul><li>Resting 12-lead ECG — <b>£100</b></li><li>Holter monitoring (24/48-hr) — <b>£280</b></li><li>24-hr ambulatory blood pressure — <b>£250</b></li><li>Cardiac event monitoring — <b>£425</b></li><li>Echocardiography (heart ultrasound) — <b>£390</b></li></ul>Every test includes a structured written report, with our GPs on site to act on results. <a href="#/cardiology">Read more</a>.`,c:['Book an appointment','Prices','Health checks']},
   {k:['corporate','business medical','employee','employer','staff medical','workplace','company','team medical','workforce'],a:`Our <b>Corporate Medicals</b> give your team a GP-led health assessment with a genuine difference — alongside full examination, cardiovascular checks, ECG and bloods, packages can include <b>digital full-body mole mapping</b>: the skin-health check most workplace programmes miss entirely.<br><br>Packages are tailored to your organisation — <a href="mailto:contact@shenfieldprivategp.com">email us</a> or call <a href="tel:01277503503">01277 503 503</a> for details. <a href="#/corporate">Read more</a>.`,c:['Contact details','Mole mapping','Health checks']},
-  {k:['job','career','vacanc','hiring','recruit','join the team','work for','work with you','apply'],a:`We're always looking for enthusiastic GPs to join our expanding team — plus aesthetic practitioners, nurses and practice staff. 💼<br><br>Send your CV to <a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a> or call <a href="tel:01277503503">01277 503 503</a> for an informal chat. <a href="#/careers">See our careers page</a>.`,c:['Meet the doctors','Contact details']},
+  {k:['job','career','vacanc','hiring','recruit','join the team','work for','work with you','apply'],a:`We're always looking for enthusiastic GPs to join our expanding team — plus aesthetic practitioners, nurses and practice staff. <svg class="ic" aria-hidden="true"><use href="#i-case"/></svg><br><br>Send your CV to <a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a> or call <a href="tel:01277503503">01277 503 503</a> for an informal chat. <a href="#/careers">See our careers page</a>.`,c:['Meet the doctors','Contact details']},
   {k:['anti-wrinkle','antiwrinkle','botox','wrinkle','filler','lips','profhilo','sunekos','booster','polynucleotide','radiesse','aesthetic','jaw','gummy'],a:`Our doctor-led aesthetics include:<ul><li><b>Anti-wrinkle</b> — 1 area £225, 2 areas £275, 3 areas £325</li><li><b>Profhilo</b> £295 · <b>Sunekos</b> £265 · <b>Polynucleotides</b> from £275</li><li><b>Dermal fillers</b> — lips from £200, jawline £300, cheeks £350</li><li><b>Under-eye care</b> from £185</li></ul><a href="#/skin" data-anchor="sk-clinic">Explore treatments</a>.`,c:['Book an appointment','Prices']},
   {k:['sweat','hyperhidrosis','perspir'],a:`We treat <b>hyperhidrosis (excessive sweating)</b> with precise botulinum toxin injections — for underarms, hands, feet or face. From <b>£495</b>, in a discreet, understanding environment. <a href="#/skin" data-anchor="sk-hyper">Read more</a>.`,c:['Book an appointment','Prices']},
   {k:['acne','eczema','psoriasis','rosacea','rash','skin condition','dermatolog','hair loss','hair'],a:`Our GPs have specialist dermatology qualifications and manage acne, eczema, psoriasis, rosacea, hair loss and more. A <b>dermatology consultation is £135</b> and includes dermoscopy examination and a personalised treatment plan. <a href="#/skin" data-anchor="sk-derm">Read more</a>.`,c:['Book an appointment','Mole mapping','Prices']},
   {k:['doctor','team','who','staff','dr k','khan','athreya','kannan','ayub','rakshit','surgeon','nurse','sarah','denise','receptionist','manager'],a:`Our team:<ul><li><b>Dr Ayub Khan (Dr K)</b> — Medical Director; international academic expert in dermoscopy &amp; skin cancer detection</li><li><b>Dr Kannan Athreya</b> — GP with 30 years serving Brentwood</li><li><b>Mr Kaushik Rakshit</b> — Consultant Plastic Surgeon</li><li><b>Sarah Tappin</b> — Aesthetician</li><li><b>Dr Liliana Szittya</b> — GP with Extended Role in Women's Health &amp; Gynaecology</li><li><b>Dr Afifa Qazi</b> — Consultant Psychiatrist MBBS FRCPsych (COMPASS); old age psychiatry, memory &amp; dementia; RCPsych Psychiatrist of the Year 2022</li><li><b>Dr Mudasir Nazir</b> — Consultant Child &amp; Adolescent Psychiatrist (CAMHS); ADHD &amp; autism assessments</li><li><b>Denise Hughes</b> — Cardiac Physiologist, BSc (ECHO, ECG, Holter, 24hr/48hr BP, sports screening)</li></ul>Supported by Karen Webster (Business Manager), Leigh Clancy (Clinic Manager) and receptionists Julie Rolph &amp; Rina Khan. <a href="#/team">Meet the team</a>.`,c:['Book an appointment','GP services','Mole mapping']},
   {k:['health check','screening','ecg','blood test','medical','hgv','check up','checkup'],a:`Health checks & screening:<ul><li>Men's Health Check — <b>£900</b></li><li>Women's Health Check — <b>£875</b></li><li>ECG — <b>£100</b></li><li>HGV/DVLA medical — <b>£250</b></li><li>Ear wax removal — £65 + consult</li></ul><a href="#/gp" data-anchor="gp-screening">Read more</a>.`,c:['Book an appointment','Prices']},
-  {k:['contact','phone','email','whatsapp','call'],a:`Get in touch:<ul><li>📞 <a href="tel:01277503503">01277 503 503</a></li><li>💬 <a href="https://wa.me/447769310217" target="_blank">WhatsApp +44 7769 310 217</a></li><li>✉️ contact@shenfieldprivategp.com · drk@aesthetk.com</li></ul>`,c:['Opening hours','Where are you?','Book an appointment']},
+  {k:['contact','phone','email','whatsapp','call'],a:`Get in touch:<ul><li><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:01277503503">01277 503 503</a></li><li><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> <a href="https://wa.me/447769310217" target="_blank">WhatsApp +44 7769 310 217</a></li><li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@shenfieldprivategp.com · drk@aesthetk.com</li></ul>`,c:['Opening hours','Where are you?','Book an appointment']},
   {k:['cqc','regulated','safe','insurance','registered'],a:`Yes — the clinic is operated by <b>Aesthetk Ltd</b>, a CQC-registered healthcare provider. You can view our registration on the <a href="https://www.cqc.org.uk/location/1-19882077109" target="_blank">CQC website</a>.`,c:['Meet the doctors','Book an appointment']},
-  {k:['emergency','urgent','999','a&e','chest pain'],a:`⚠️ If this is a medical emergency, please call <b>999</b> or go to A&E immediately. For urgent (non-emergency) appointments, call us early on <a href="tel:01277503503">01277 503 503</a> — we reserve same-day slots.`,c:['Book an appointment','Contact details']},
-  {k:['hello','hi','hey','morning','afternoon','thanks','thank you'],a:`Hello! 😊 How can I help today? You can ask me about services, prices, opening times or booking.`,c:['Prices','Book an appointment','Mole mapping','Weight loss']}
+  {k:['emergency','urgent','999','a&e','chest pain'],a:`<svg class="ic" aria-hidden="true"><use href="#i-warn"/></svg> If this is a medical emergency, please call <b>999</b> or go to A&E immediately. For urgent (non-emergency) appointments, call us early on <a href="tel:01277503503">01277 503 503</a> — we reserve same-day slots.`,c:['Book an appointment','Contact details']},
+  {k:['hello','hi','hey','morning','afternoon','thanks','thank you'],a:`Hello! <svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg> How can I help today? You can ask me about services, prices, opening times or booking.`,c:['Prices','Book an appointment','Mole mapping','Weight loss']}
 ];
 function answer(text){
   const q=text.toLowerCase();
@@ -1969,7 +1998,7 @@ const themeBtn=document.getElementById('theme-btn');
 function setTheme(t){
   document.documentElement.dataset.theme=t;
   try{localStorage.setItem('spgp-theme',t)}catch(e){}
-  themeBtn.textContent=t==='dark'?'☀️':'🌙';
+  themeBtn.innerHTML=t==='dark'?'<svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg>':'<svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg>';
   themeBtn.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');
 }
 themeBtn.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
