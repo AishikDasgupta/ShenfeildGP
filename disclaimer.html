@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclaimer - Shenfield Private GP</title>
+<meta name="description" content="Patient Notice for Shenfield Private GP — important information for patients registered at Rockleigh Court Surgery (NHS).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf9f5;--bg-2:#ffffff;--bg-3:#f2eee6;
+  --ink:#14202e;--ink-soft:#4b5866;
+  --blue:#1c4fd8;--blue-deep:#12327f;--blue-tint:#e9eefc;
+  --orange:#e8570f;--orange-deep:#b53f05;--orange-tint:#fdeee4;
+  --line:#e5dfd3;--radius:22px;
+  --shadow-sm:0 2px 10px rgba(20,32,46,.06);
+  --shadow-md:0 14px 40px rgba(20,32,46,.1);
+  --shadow-lg:0 28px 70px rgba(20,32,46,.16);
+  --serif:'Fraunces',serif;--sans:'Inter',sans-serif;
+  --navbg:rgba(251,249,245,.92);
+}
+html[data-theme="dark"]{
+  --bg:#0b0e16;--bg-2:#141928;--bg-3:#1b2234;
+  --ink:#edf0f7;--ink-soft:#a7b0c4;
+  --blue-tint:#1b2745;--orange-tint:#331f10;--line:#28304a;
+  --navbg:rgba(9,12,20,.92);
+  --shadow-sm:0 2px 10px rgba(0,0,0,.35);
+  --shadow-md:0 14px 40px rgba(0,0,0,.45);
+  --shadow-lg:0 28px 70px rgba(0,0,0,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,91%);margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:.93rem;padding:14px 28px;border-radius:999px;border:none;white-space:nowrap;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 26px rgba(232,87,15,.3)}
+.btn-orange:hover{background:var(--orange-deep);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.topstrip{background:#05070d;color:#e8e4d8;font-size:.85rem;padding:9px 0;overflow:hidden;white-space:nowrap}
+.topstrip .track{display:inline-flex;gap:70px;animation:marquee 24s linear infinite}
+.topstrip .track span{display:inline-flex;gap:70px}
+.topstrip b{color:#ff9c66}.topstrip a{color:#8fa8ff;font-weight:700}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+header.nav{position:sticky;top:0;z-index:200;background:var(--navbg);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;background:#050505;border-radius:12px;padding:6px 14px;flex:none}
+.brand img.lg-spgp{height:36px;width:auto}
+.brand img.lg-aes{height:30px;width:auto;filter:invert(1)}
+.lg-div{width:1px;height:26px;background:rgba(255,255,255,.35)}
+nav.menu{display:flex;gap:4px;font-size:.83rem;font-weight:600}
+nav.menu a{padding:8px 11px;border-radius:999px;color:var(--ink-soft);background:var(--bg-3);border:1px solid var(--line);white-space:nowrap;transition:.25s}
+nav.menu a:hover{color:var(--ink);border-color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.nav-cta .btn{padding:11px 16px;font-size:.84rem}
+.theme-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg-2);display:grid;place-items:center;font-size:1.05rem;cursor:pointer;color:var(--ink)}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:25px;height:2.5px;background:var(--ink);border-radius:2px}
+.pagehead{padding:64px 0 34px;background:linear-gradient(160deg,var(--blue-tint),var(--bg) 55%,var(--orange-tint));border-bottom:1px solid var(--line)}
+.pagehead h1{font-family:var(--serif);font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:450}
+.pagehead .sub{color:var(--ink-soft);font-size:1.05rem;margin-top:10px}
+.crumb{font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:18px}
+.crumb a{color:var(--blue)}
+.legal-wrap{max-width:860px;margin:0 auto;padding:56px 0 80px}
+.legal{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;padding:48px 46px;box-shadow:var(--shadow-sm)}
+.legal h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:8px}
+.legal .lede{color:var(--ink-soft);font-style:italic;margin-bottom:28px}
+.legal h3{font-family:var(--serif);font-size:1.35rem;margin:32px 0 10px;padding-top:8px}
+.legal h4{font-family:var(--sans);font-size:1.02rem;font-weight:800;margin:24px 0 8px;color:var(--blue-deep)}
+html[data-theme="dark"] .legal h4{color:#8fa8ff}
+.legal p{color:var(--ink-soft);font-size:.97rem;margin-bottom:12px}
+.legal ul,.legal ol{margin:10px 0 14px 22px;color:var(--ink-soft);font-size:.95rem;display:grid;gap:8px}
+.legal li::marker{color:var(--orange);font-weight:700}
+.legal a{color:var(--blue);font-weight:600;text-decoration:underline}
+.legal hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+.updated{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;background:var(--bg-3);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink-soft);margin-top:26px}
+.contact-box{margin-top:26px;background:var(--bg-3);border:1px solid var(--line);border-radius:16px;padding:24px}
+.contact-box h3{margin-top:0}
+.contact-box ul{list-style:none;margin:10px 0 0 0}
+.contact-box li{padding:4px 0}
+.cta-strip{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0;text-align:center}
+.cta-strip h2{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:12px}
+.cta-strip p{color:var(--ink-soft);margin-bottom:28px}
+.cta-strip .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{background:#0a101d;color:#c6c0b2;padding:64px 0 30px;font-size:.9rem}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
+.foot-grid h6{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8b8577;margin-bottom:16px}
+.foot-grid ul{list-style:none;display:grid;gap:9px}
+.foot-grid ul a:hover{color:#ffb38a}
+.foot-brand .fb-title{font-family:var(--serif);color:#fff;font-size:.98rem;margin-bottom:10px}
+.foot-brand p{max-width:300px;font-size:.87rem}
+.cqc-note{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:#8b8577}
+.cqc-note a{color:#ffb38a}
+.cqc-note .legal-links{display:flex;gap:14px;flex-wrap:wrap}
+.wa-float{position:fixed;bottom:26px;left:26px;z-index:180;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.ic{width:1.1em;height:1.1em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:1430px){nav.menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:12px 5% 20px;border-bottom:1px solid var(--line)}nav.menu.open{display:flex}.hamburger{display:flex}}
+@media(max-width:1020px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.foot-grid{grid-template-columns:1fr}.legal{padding:30px 22px}.brand img.lg-aes{display:none}.lg-div{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-med" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+</defs></svg>
+
+<div class="topstrip"><div class="track"><span><b>Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>&nbsp;&nbsp;&nbsp;<b>Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a></span><span><b>Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a>&nbsp;&nbsp;&nbsp;<b>Dr. Kannan Athreya is back in Shenfield!</b> Consultation — £135 · Call us: <a href="tel:01277503503">01277 503 503</a></span></div></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Shenfield Private GP home">
+      <img class="lg-spgp" src="assets/logo/LogoText.webp" alt="Shenfield Private GP">
+      <span class="lg-div"></span>
+      <img class="lg-aes" src="https://aesthetk.com/wp-content/uploads/2024/01/logo-transparency2.png" alt="Aesthetk by Dr K">
+    </a>
+    <nav class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#/gp">Private GP</a>
+      <a href="index.html#/womens">Women's Health</a>
+      <a href="index.html#/mental">Mental Health</a>
+      <a href="index.html#/skin">Skin &amp; Aesthetics</a>
+      <a href="index.html#/team">Our Team</a>
+      <a href="index.html#/pricing">Pricing</a>
+      <a href="index.html#/contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="tel:01277503503">01277 503 503</a>
+      <a class="btn btn-orange" href="https://online-booking.semble.io/?token=5e6d085e959a9197e02e5d5221c11a74d50c9180" target="_blank" rel="noopener">Book Online</a>
+      <button class="theme-btn" id="theme-btn" aria-label="Switch theme">◐</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Patient Notice</div>
+    <h1>Patient Notice</h1>
+    <p class="sub">Important information for patients registered at Rockleigh Court Surgery (NHS).</p>
+  </div>
+</div>
+
+<main class="container">
+<div class="legal-wrap">
+<article class="legal">
+
+
+<h2>Important information for patients registered at Rockleigh Court Surgery (NHS)</h2>
+<p class="lede">Patient Notice — please read before booking</p>
+<p>Dr Khan is a GP partner at Rockleigh Court Surgery, where he provides NHS care, and also works at Shenfield Private GP. To comply with NHS regulations and professional guidance, and to avoid any conflict of interest, patients who are currently registered with Rockleigh Court Surgery as their NHS GP practice are politely requested not to register with, or book appointments at, Shenfield Private GP, for GP services.</p>
+<p>If you are registered at Rockleigh Court Surgery and wish to consult Dr Khan (for GP services), please book an appointment through Rockleigh Court Surgery in the usual way. NHS patients should not be asked to pay privately for services that are available under the NHS contract, and it is important that your NHS and private care remain clearly separated.</p>
+<p>If you wish to access private GP services and are currently registered at Rockleigh Court Surgery, you may:</p>
+<ul>
+<li>Choose a different private GP provider, or</li>
+<li>Speak to a member of staff at Shenfield Private GP for advice before booking.</li>
+</ul>
+<p>Shenfield Private GP is an independent, fee paying service and does not provide NHS registration or NHS funded care. Private consultations do not affect your entitlement to NHS services, and you remain free to seek NHS care according to clinical need.</p>
+<div class="contact-box">
+<h3>Need advice before booking?</h3>
+<ul>
+<li><strong>Phone:</strong> <a href="tel:01277503503">01277 503 503</a></li>
+<li><strong>Email:</strong> <a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a></li>
+<li><strong>Address:</strong> Shenfield Private GP, First Floor, 40 Hutton Road, Shenfield, Brentwood, Essex CM15 8LB</li>
+</ul>
+</div>
+
+
+</article>
+</div>
+</main>
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Need advice before booking?</h2>
+    <p>Speak to our team — call 01277 503 503.</p>
+    <div class="row">
+      <a class="btn btn-orange" href="tel:01277503503">Call 01277 503 503</a>
+      <a class="btn btn-outline" href="mailto:contact@shenfieldprivategp.com">Email us</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div style="display:inline-flex;align-items:center;gap:14px;margin-bottom:16px;background:#ffffff;padding:8px 16px;border-radius:14px">
+          <img src="assets/logo/LogoText.webp" alt="Shenfield Private GP" style="height:40px;width:auto">
+          <span style="width:1px;height:30px;background:#d8d2c4"></span>
+          <img src="https://aesthetk.com/wp-content/uploads/2024/01/logo-transparency2.png" alt="Aesthetk by Dr K" style="height:34px;width:auto">
+        </div>
+        <div class="fb-title">Shenfield Private GP | Aesthetk by Dr K</div>
+        <p>Your specialist skin, hair and family health clinic — trusted local doctors at 40 Hutton Road, Shenfield.</p>
+      </div>
+      <div>
+        <h6>Private GP</h6>
+        <ul>
+          <li><a href="index.html#/gp">GP Consultations</a></li>
+          <li><a href="index.html#/womens">Women's Health</a></li>
+          <li><a href="index.html#/mental">Mental Health &amp; Memory</a></li>
+          <li><a href="index.html#/pricing">Pricing</a></li>
+          <li><a href="index.html#/team">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Skin &amp; Aesthetics</h6>
+        <ul>
+          <li><a href="index.html#/skin">Mole Mapping</a></li>
+          <li><a href="index.html#/skin">General Dermatology</a></li>
+          <li><a href="index.html#/skin">Skin Clinic</a></li>
+          <li><a href="index.html#/skin">Weight Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contact</h6>
+        <ul>
+          <li>First Floor, 40 Hutton Road, Shenfield, Brentwood CM15 8LB</li>
+          <li><a href="tel:01277503503">01277 503 503</a></li>
+          <li><a href="https://wa.me/447769310217">WhatsApp +44 7769 310 217</a></li>
+          <li><a href="mailto:contact@shenfieldprivategp.com">contact@shenfieldprivategp.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cqc-note">
+      <span>Shenfield Private GP is a service provided by <strong style="color:#e9e4d8">Aesthetk Ltd</strong>, a CQC-registered healthcare provider. <a href="https://www.cqc.org.uk/location/1-19882077109" target="_blank" rel="noopener">Regulatory info</a></span>
+      <span class="legal-links"><a href="privacy-policy.html">Privacy</a><a href="gdpr-policy.html">GDPR</a><a href="terms-of-service.html">Terms</a><a href="cookie-policy.html">Cookies</a><a href="disclaimer.html">Patient Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/447769310217" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7.2-2.1c1.9 1 4 1.6 6.3 1.6h.5c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.1-2.2-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-2.9c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.8 1.1 2.6 1.2 2.7.1.2.2.4 0 .7-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.3 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.3.1 2.2 1 2.5 1.2.4.2.6.3.7.4.1.3.1.9-.2 1.7z"/></svg>
+</a>
+
+<script>
+const burger=document.getElementById('hamburger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+const themeBtn=document.getElementById('theme-btn');
+function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('spgp-theme',t)}catch(e){}themeBtn.textContent=t==='dark'?'☀':'◐';}
+themeBtn.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+try{setTheme(localStorage.getItem('spgp-theme')||'light')}catch(e){setTheme('light')}
+</script>
+</body>
+</html>
